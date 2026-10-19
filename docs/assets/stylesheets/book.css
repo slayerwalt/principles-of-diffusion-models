@@ -131,10 +131,18 @@
   margin: 0.8em 0 !important;
 }
 
-.md-typeset .arithmatex mjx-container[display="true"] {
+.md-typeset .arithmatex mjx-container[display="true"]:not([width="full"]) {
   display: block;
   width: max-content;
   min-width: 100%;
+  max-width: none;
+}
+
+/* Numbered expressions need the full line to position their right-hand tags.
+   Preserve MathJax's inline min-width so long equations can still scroll. */
+.md-typeset .arithmatex mjx-container[display="true"][width="full"] {
+  display: flex;
+  width: 100%;
   max-width: none;
 }
 
