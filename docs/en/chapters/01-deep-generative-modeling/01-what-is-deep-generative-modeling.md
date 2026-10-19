@@ -1,7 +1,5 @@
 # 1.1 What is Deep Generative Modeling? {#sec-formulation-dgm}
 
-> English source conversion of arXiv:2510.21890v3, Chapter 1. References to chapters not yet migrated open the original PDF.
-
 DGMs take as input a large collection of real-world examples (e.g., images, text) drawn from an unknown and complex distribution $p_{\mathrm{data}}$ and output a trained neural network that parameterizes an approximate distribution $p_{{\boldsymbol{\phi}}}$. Their goals are twofold:
 
 1.  **Realistic Generation:** To generate novel, realistic samples indistinguishable from real data.
@@ -194,7 +192,7 @@ $$
 
 on that region. Therefore, minimizing the forward KL strongly penalizes a model for completely missing regions where the data distribution places probability mass. This behavior is commonly referred to as *mode covering*.
 
-**Fisher Divergence.** The Fisher divergence is another important concept for (score-based) diffusion modeling (see [Chapter 3](https://arxiv.org/pdf/2510.21890v3#page=68 "Original PDF; this chapter is not yet migrated")). For two distributions $p$ and $q$, it is defined as
+**Fisher Divergence.** The Fisher divergence is another important concept for (score-based) diffusion modeling (see [Chapter 3](../03-score-based-perspective/index.md#ch-score-based)). For two distributions $p$ and $q$, it is defined as
 
 <span id="eq-fisher"></span>
 
@@ -209,7 +207,7 @@ $$
 \tag{1.1.3}
 $$
 
-It measures the discrepancy between the *score functions* $\nabla_{\mathbf x}\log p(\mathbf x)$ and $\nabla_{\mathbf x}\log q(\mathbf x)$, which are vector fields pointing toward regions of higher probability. In short, $\mathcal D_{\mathrm F}(p \| q)\ge 0$ with equality if and only if $p=q$ almost everywhere. It is invariant to normalization constants, since scores depend only on gradients of log-densities, and it forms the basis of *score matching* ([Equation (3.1.3)](https://arxiv.org/pdf/2510.21890v3#page=72 "Original PDF; this chapter is not yet migrated") and [Equation (3.2.1)](https://arxiv.org/pdf/2510.21890v3#page=77 "Original PDF; this chapter is not yet migrated")): a method that learns the gradient of the log-density for generation (score-based models). In this setting, the data distribution $p=p_{\mathrm{data}}$ serves as the target, while the model $q=p_{\boldsymbol{\phi}}$ is trained to align its score field with that of the data.
+It measures the discrepancy between the *score functions* $\nabla_{\mathbf x}\log p(\mathbf x)$ and $\nabla_{\mathbf x}\log q(\mathbf x)$, which are vector fields pointing toward regions of higher probability. In short, $\mathcal D_{\mathrm F}(p \| q)\ge 0$ with equality if and only if $p=q$ almost everywhere. It is invariant to normalization constants, since scores depend only on gradients of log-densities, and it forms the basis of *score matching* ([Equation (3.1.3)](../03-score-based-perspective/index.md#eq-ebm-sm) and [Equation (3.2.1)](../03-score-based-perspective/index.md#eq-sm)): a method that learns the gradient of the log-density for generation (score-based models). In this setting, the data distribution $p=p_{\mathrm{data}}$ serves as the target, while the model $q=p_{\boldsymbol{\phi}}$ is trained to align its score field with that of the data.
 
 **Beyond KL.** Although the KL divergence is the most widely used measure of difference between probability distributions, it is not the only one. Different divergences capture different geometric or statistical notions of discrepancy, which in turn affect the optimization dynamics of learning algorithms. A broad family is the *$f$-divergences* ([Csiszár, 1963](references.md#ref-csiszar1963informationstheoretische)):
 
@@ -250,7 +248,7 @@ $$
 
 Intuitively, the JS divergence provides a smooth and symmetric measure that balances both distributions and avoids the unbounded penalties of KL (we will later see that it helps interpret the Generative Adversarial Network (GAN) framework), while the total variation distance captures the largest possible probability difference between the two.
 
-A different viewpoint comes from *optimal transport* (see [Chapter 7](https://arxiv.org/pdf/2510.21890v3#page=214 "Original PDF; this chapter is not yet migrated")), whose representative is the Wasserstein distance (see [Equation (7.2.2)](https://arxiv.org/pdf/2510.21890v3#page=220 "Original PDF; this chapter is not yet migrated")). It measures the minimal cost of moving probability mass from one distribution to another. Unlike $f$-divergences, which compare density ratios, Wasserstein distances depend on the geometry of the sample space and remain meaningful even when the supports of $p$ and $q$ do not overlap.
+A different viewpoint comes from *optimal transport* (see [Chapter 7](../07-optimal-transport/index.md#ch-ot-eot)), whose representative is the Wasserstein distance (see [Equation (7.2.2)](../07-optimal-transport/index.md#eq-monge-formulation)). It measures the minimal cost of moving probability mass from one distribution to another. Unlike $f$-divergences, which compare density ratios, Wasserstein distances depend on the geometry of the sample space and remain meaningful even when the supports of $p$ and $q$ do not overlap.
 
 Each divergence embodies a different notion of closeness between distributions and thus induces distinct learning behavior. We will revisit these divergences when they arise naturally in the context of generative modeling throughout this monograph.
 

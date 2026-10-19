@@ -1,7 +1,5 @@
 # 1.2 Prominent Deep Generative Models {#sec-examples-dgm}
 
-> English source conversion of arXiv:2510.21890v3, Chapter 1. References to chapters not yet migrated open the original PDF.
-
 <span id="fig-ebm-ar-vae-nf-gan-dm-unified"></span>
 
 ![Computation graphs for EBM, AR, VAE, NF, GAN, and diffusion models](../../assets/chapter-01/computation-graphs.png)

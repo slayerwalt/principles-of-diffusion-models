@@ -6,8 +6,15 @@
 __pycache__/
 *.py[cod]
 
-# Original downloads are reproducible; do not mix them into the website source.
+# 原始下载与本地构建工具不进入书稿仓库。
 /The Principles of Diffusion Models.pdf
-/source/arxiv-2510.21890v3/archive/
-/source/arxiv-2510.21890v3/tex/
+/source/
+/zensical.toml
+/requirements.txt
+/requirements-convert.txt
+/scripts/
+/.github/
+/docs/assets/
+/.pages-publish/
+/LOCAL_MAINTENANCE.md
 

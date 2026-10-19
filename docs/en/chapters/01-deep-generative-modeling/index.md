@@ -1,7 +1,5 @@
 # 1. Deep Generative Modeling {#ch-overview-dgm}
 
-> English source conversion of arXiv:2510.21890v3, Chapter 1. References to chapters not yet migrated open the original PDF.
-
 > *What I cannot create, I do not understand.*
 >
 > — Richard P. Feynman

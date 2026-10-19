@@ -5,7 +5,7 @@ description: Chapter structure and conversion status for the English web edition
 
 # Book contents
 
-This outline follows the order of the source edition, [arXiv:2510.21890v3](https://arxiv.org/abs/2510.21890v3). Chapter 1 is available as the conversion sample. The remaining material is awaiting conversion; use the [original PDF](https://arxiv.org/pdf/2510.21890v3) to read it.
+This outline follows the order of the book. Chapter 1 is available as an English sample. The remaining chapters and appendices are not yet available.
 
 ## Front matter
 
@@ -20,17 +20,18 @@ This outline follows the order of the source edition, [arXiv:2510.21890v3](https
     - [1.2 Prominent Deep Generative Models](chapters/01-deep-generative-modeling/02-examples.md)
     - [1.3 Taxonomy of Modeling](chapters/01-deep-generative-modeling/03-taxonomy.md)
     - [1.4 Closing Remarks](chapters/01-deep-generative-modeling/04-summary.md)
+    - [Chapter references](chapters/01-deep-generative-modeling/references.md)
 
 ## Part II · Foundations and Perspectives of Diffusion Models
 
 The unnumbered opening section, *A First Operational View of Diffusion Model Training and Sampling*, is awaiting conversion.
 
-2. Variational Perspective: From VAEs to DDPMs — awaiting conversion
-3. Score-Based Perspective: From EBMs to NCSN — awaiting conversion
-4. Diffusion Models Today: Score SDE Framework — awaiting conversion
-5. Flow-Based Perspective: From NFs to Flow Matching — awaiting conversion
+2. [Variational Perspective: From VAEs to DDPMs](chapters/02-variational-perspective/index.md) — not yet available
+3. [Score-Based Perspective: From EBMs to NCSN](chapters/03-score-based-perspective/index.md) — not yet available
+4. [Diffusion Models Today: Score SDE Framework](chapters/04-score-sde-framework/index.md) — not yet available
+5. [Flow-Based Perspective: From NFs to Flow Matching](chapters/05-flow-based-perspective/index.md) — not yet available
 6. A Unified and Systematic Lens on Diffusion Models — awaiting conversion
-7. (Optional) Diffusion Models and Optimal Transport — awaiting conversion
+7. [(Optional) Diffusion Models and Optimal Transport](chapters/07-optimal-transport/index.md) — not yet available
 
 ## Part III · Sampling of Diffusion Models
 

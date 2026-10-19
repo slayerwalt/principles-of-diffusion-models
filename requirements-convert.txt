@@ -1,2 +1,0 @@
-# Optional: only needed when regenerating the sample from the downloaded source.
-pypdf==6.10.0
