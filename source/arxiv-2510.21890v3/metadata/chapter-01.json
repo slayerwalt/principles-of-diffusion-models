@@ -1,0 +1,92 @@
+{
+  "source": "Prologue-Deep-Generative-Modeling.tex",
+  "source_url": "https://arxiv.org/src/2510.21890v3",
+  "pdf_physical_pages": [
+    21,
+    34
+  ],
+  "display_math_blocks": 31,
+  "numbered_equations": 4,
+  "figures": 2,
+  "tables": 1,
+  "footnotes": 3,
+  "lemmas": 1,
+  "citation_keys": [
+    "ackley1985learning",
+    "chen2018neural",
+    "csiszar1963informationstheoretische",
+    "frey1995does",
+    "goodfellow2014generative",
+    "kingma2013auto",
+    "larochelle2011neural",
+    "lecun2006tutorial",
+    "nowozin2016f",
+    "rezende2015variational",
+    "uria2016neural"
+  ],
+  "external_references": {
+    "ch:score-based": {
+      "title": "Chapter 3",
+      "destination": "chapter.3",
+      "pdf_page": 68
+    },
+    "eq:ebm-sm": {
+      "title": "Equation (3.1.3)",
+      "destination": "equation.3.1.3",
+      "pdf_page": 72
+    },
+    "eq:sm": {
+      "title": "Equation (3.2.1)",
+      "destination": "equation.3.2.1",
+      "pdf_page": 77
+    },
+    "ch:ot-eot": {
+      "title": "Chapter 7",
+      "destination": "chapter.7",
+      "pdf_page": 214
+    },
+    "eq: Monge's Formulation": {
+      "title": "Equation (7.2.2)",
+      "destination": "equation.7.2.2",
+      "pdf_page": 220
+    },
+    "sec:vae": {
+      "title": "Section 2.1",
+      "destination": "section.2.1",
+      "pdf_page": 44
+    },
+    "sec:ebm": {
+      "title": "Section 3.1",
+      "destination": "section.3.1",
+      "pdf_page": 70
+    },
+    "sec:flow-based-method": {
+      "title": "Section 5.1",
+      "destination": "section.5.1",
+      "pdf_page": 141
+    },
+    "ch:variational": {
+      "title": "Chapter 2",
+      "destination": "chapter.2",
+      "pdf_page": 42
+    },
+    "ch:score-sde": {
+      "title": "Chapter 4",
+      "destination": "chapter.4",
+      "pdf_page": 98
+    },
+    "ch:flow-based": {
+      "title": "Chapter 5",
+      "destination": "chapter.5",
+      "pdf_page": 138
+    }
+  },
+  "output_files": [
+    "index.md",
+    "01-what-is-deep-generative-modeling.md",
+    "02-examples.md",
+    "03-taxonomy.md",
+    "04-summary.md",
+    "references.md"
+  ]
+}

@@ -1,0 +1,4 @@
+MathJax 3.2.2
+Source: https://registry.npmjs.org/mathjax/-/mathjax-3.2.2.tgz
+License: Apache-2.0; see LICENSE.
+Browser distribution copied without modification.

@@ -1,0 +1,13 @@
+/.venv/
+/.cache/
+/site/
+/tmp/
+/output/
+__pycache__/
+*.py[cod]
+
+# Original downloads are reproducible; do not mix them into the website source.
+/The Principles of Diffusion Models.pdf
+/source/arxiv-2510.21890v3/archive/
+/source/arxiv-2510.21890v3/tex/
+
