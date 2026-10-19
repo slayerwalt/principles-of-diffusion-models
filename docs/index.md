@@ -1,6 +1,6 @@
 ---
 title: About this edition
-description: An unofficial web edition of The Principles of Diffusion Models, starting with an English sample chapter.
+description: An unofficial, chapter-by-chapter English web edition of The Principles of Diffusion Models.
 ---
 
 # The Principles of Diffusion Models
@@ -11,9 +11,9 @@ Chieh-Hsin Lai · Yang Song · Dongjun Kim · Yuki Mitsufuji · Stefano Ermon
 
 This unofficial web edition is based on *The Principles of Diffusion Models*, available as [arXiv:2510.21890v3](https://arxiv.org/abs/2510.21890v3).
 
-The current sample is **Chapter 1, Deep Generative Modeling**. It introduces the mathematical setting, prominent model families, and the taxonomy used throughout the book. The sample includes the original English text, mathematical notation, figures, and references.
+The English web edition currently includes **Chapter 1, Deep Generative Modeling**, and **Chapter 2, Variational Perspective: From VAEs to DDPMs**. These chapters retain the original English text, mathematical notation, figures, and references.
 
-[Begin Chapter 1](en/chapters/01-deep-generative-modeling/index.md) · [View the full book contents](en/book-outline.md)
+[Begin Chapter 1](en/chapters/01-deep-generative-modeling/index.md) · [Read Chapter 2](en/chapters/02-variational-perspective/index.md) · [View the full book contents](en/book-outline.md)
 
 ## Reading the web edition
 

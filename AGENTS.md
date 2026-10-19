@@ -10,9 +10,11 @@
 
 原 PDF 共 522 页，包含 12 章正文和 4 个附录。第 1 章 Deep Generative Modeling 已完整转换，覆盖 PDF 物理页 21–34、书内页 16–29，包含章引言、1.1–1.4 四节和本章参考文献。已核对保留 31 块显示公式、4 个编号公式、1 个引理、2 幅图、1 张表、3 条脚注和 11 条文献；31 块显示公式已与源码逐项比对。
 
-第 2、3、4、5、7 章已有供正文引用的占位页，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+第 2 章 Variational Perspective: From VAEs to DDPMs 已完整转换，覆盖 PDF 物理页 42–67、书内页 37–62，包含章引言、2.1–2.3 三节和本章参考文献。原文清单为 68 块显示公式、18 个编号公式、3 个定理及其证明段落、1 个引理、1 个编号问题、1 个编号 Observation、1 个 Remark、7 幅图、5 条脚注和 5 条文献；本章无表格和算法。68 块显示公式和 242 处行内公式已与源码独立核对，浏览器确认 VAE 页 29 块、DDPM 页 39 块显示公式全部渲染。
 
-网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。前一轮构建生成 16 个 HTML 页面，严格构建、内部链接检查和线上部署均通过；此数量是历史记录，不应作为新增章节后的固定断言，也不代表后续工作流改动已通过验证。
+第 3、4、5、6、7、9 章、Part II 无编号导读和附录 D 已有供正文引用的占位入口，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+
+网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。加入第二章后，构建生成 24 个 HTML 页面；此数量是当时的记录，不应作为新增章节后的固定断言。每次内容更新都要重新完成相应核对，并检查当次线上部署结果。
 
 ## 用户约束
 
@@ -56,7 +58,7 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 ## 原始材料与转换方法
 
-官方源码已保存在 `source/arxiv-2510.21890v3/archive/source.tar.gz`，未经修改的解包目录为 `source/arxiv-2510.21890v3/tex/`。主文件是 `main_v2.tex`，参考文献是 `main_v2.bib`，第 1 章源文件是 `Prologue-Deep-Generative-Modeling.tex`。根目录的 `The Principles of Diffusion Models.pdf` 是同一 v3 版本的排版核对依据。
+官方源码已保存在 `source/arxiv-2510.21890v3/archive/source.tar.gz`，未经修改的解包目录为 `source/arxiv-2510.21890v3/tex/`。主文件是 `main_v2.tex`，参考文献是 `main_v2.bib`；第 1 章源文件是 `Prologue-Deep-Generative-Modeling.tex`，第 2 章源文件是 `Chapter-1-Varational-Perspective-From-VAE-to-DDPM.tex`。文件名中的章号与成书章号不同，以 PDF 和主文件顺序为准。根目录的 `The Principles of Diffusion Models.pdf` 是同一 v3 版本的排版核对依据。
 
 转换优先从 LaTeX 获取结构、正文、公式和文献，再对照 PDF 检查。不要以 PDF 纯文字提取代替数学源码，也不要把完整章节改写为摘要。
 
@@ -71,13 +73,19 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 `scripts/convert_chapter_01.py` 是**仅适配第 1 章**的转换器。它会重写该章的 6 个 Markdown 文件；默认同时生成图片，`--skip-assets` 仅跳过图片生成，仍需要根目录原 PDF。重跑前检查人工修订，并把必要修正同步到转换逻辑或明确的补丁中。未知引用、未知宏和数量异常应被检查处理，不能静默丢弃。
 
+`scripts/convert_chapter_02.py` 仅适配第 2 章，输出章引言、VAE、DDPM、Closing Remarks 和参考文献共 5 个 Markdown 文件。图片由 `scripts/extract_chapter_02_figures.py` 提取到 `docs/en/assets/chapter-02/`：3 幅 TikZ 图和图 2.5 从原书 PDF 裁取，其余 3 幅图从作者提供的 PDF 资源渲染。图 2.5 的独立资源单独渲染时丢失一处标签，因此使用原书页面中的完整图形。转换清单保存在本地 `source/arxiv-2510.21890v3/metadata/chapter-02.json`，独立核对记录在 `tmp/chapter02-audit/`。这些脚本和记录继续由 `.gitignore` 忽略。
+
 当前转换器使用 `LOCAL_REFS` 和 `PENDING_REFS`，重跑不会恢复原 PDF 外链。以下已发布路径和锚点需要持续兼容：
 
-- `02-variational-perspective/index.md`：`ch-variational`、`sec-vae`。
+- `02-variational-perspective/index.md`：`ch-variational`、旧 `sec-vae` 入口；2.1 节正文位于 `02-variational-perspective/01-variational-autoencoder.md#sec-vae`，已有正文链接已更新。
 - `03-score-based-perspective/index.md`：`ch-score-based`、`sec-ebm`、`eq-ebm-sm`、`sec-ebm-to-score`、`eq-sm`。
-- `04-score-sde-framework/index.md`：`ch-score-sde`。
+- `04-score-sde-framework/index.md`：`ch-score-sde`、`dsm-minimizer`（命题 4.3.1）、`sec-variational-perspective`（4.5 节）、`reverse-kernel`（引理 4.5.2）。
 - `05-flow-based-perspective/index.md`：`ch-flow-based`、`sec-flow-based-method`。
 - `07-optimal-transport/index.md`：`ch-ot-eot`、`eq-monge-formulation`。
+
+第二章新增的跨章入口还包括第 3 章 `sec-smld`（3.4 节）、第 6 章 `06-unified-perspective/index.md#equi-para`（命题 6.3.1）及第 9 章 `09-numerical-solvers/index.md#sec-revisit-ddim`（9.2 节）。附录证明入口为 `docs/en/appendices/d-supplementary-proofs/index.md#subsec-proof-equiv-marginal-kl`（D.1.1）和 `#app-vlb-proof`（D.1.2）。
+
+第二章引用的公式 (1.4.1) 实际位于 Part II 的无编号导读，使用 `docs/en/foundations/operational-view.md#eq-ddpm-first-try` 占位；保留原编号，不要误连第 1 章的 Closing Remarks。
 
 上述路径均相对 `docs/en/chapters/`。填充这些章节时，应保留现有入口；若把内容拆到其他页面，需同时处理已有链接和旧入口的兼容。
 
@@ -104,7 +112,7 @@ GitHub Actions 负责安装 `requirements.txt` 中的网站依赖、运行 `scri
 .\.venv\Scripts\python.exe scripts/check_site.py
 ```
 
-检查脚本验证本地页面、锚点、图片、脚本、样式及 MathJax 字体，并要求本书原文链接在首页恰好出现一次。它不能替代正文和数学内容的人工核对。
+检查脚本验证本地页面、锚点、图片、脚本、样式及 MathJax 字体，检测 HTML 中未转换的显示公式分隔符，并要求本书原文链接在首页恰好出现一次。显示公式内部不能保留 Markdown 空白段落，否则公式可能被拆成普通文字或代码块；浏览器中还要比对实际渲染数量与源码清单。检查脚本不能替代正文和数学内容的人工核对。
 
 Pages 的发布来源设置为 **GitHub Actions**，保留 HTTPS。`.github/workflows/pages.yml` 在远端构建和检查 `main` 的内容，通过后直接上传 Pages 产物并部署。生成的静态网页不提交到 `main`，也不依赖 `gh-pages` 分支。
 

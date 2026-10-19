@@ -14,6 +14,7 @@ class Document(HTMLParser):
         self.path = path
         self.anchors: set[str] = set()
         self.links: list[str] = []
+        self.unrendered_display_math = False
         self.feed(path.read_text(encoding="utf-8"))
 
     def handle_starttag(self, tag, attrs):
@@ -27,6 +28,12 @@ class Document(HTMLParser):
             self.links.append(attrs["src"])
         if tag == "link" and attrs.get("href"):
             self.links.append(attrs["href"])
+
+    def handle_data(self, data):
+        # Arithmatex replaces display delimiters with math wrappers. A bare
+        # delimiter means Markdown split the equation into ordinary text/code.
+        if any(line.strip() == "$$" for line in data.splitlines()):
+            self.unrendered_display_math = True
 
 
 def check(root: Path, base_url: str) -> list[str]:
@@ -48,6 +55,8 @@ def check(root: Path, base_url: str) -> list[str]:
         errors.append("The original paper should be linked exactly once, on the home page.")
 
     for path, page in pages.items():
+        if page.unrendered_display_math:
+            errors.append(f"{path.relative_to(root)}: unrendered display math delimiter ($$).")
         for href in page.links:
             url = urlsplit(href)
             if url.scheme and url.scheme not in ("http", "https"):
