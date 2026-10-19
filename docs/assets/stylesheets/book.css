@@ -139,11 +139,14 @@
 }
 
 /* Numbered expressions need the full line to position their right-hand tags.
-   Preserve MathJax's inline min-width so long equations can still scroll. */
+   Preserve MathJax's inline min-width so long equations can still scroll.
+   Theme padding would consume part of that minimum width in a border-box;
+   keep the horizontal padding on the outer arithmatex wrapper instead. */
 .md-typeset .arithmatex mjx-container[display="true"][width="full"] {
   display: flex;
   width: 100%;
   max-width: none;
+  padding-inline: 0;
 }
 
 .md-typeset .arithmatex mjx-container[jax="CHTML"] {

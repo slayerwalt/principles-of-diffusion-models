@@ -155,7 +155,7 @@ This implies infinitely many conditionals $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ 
 
     $\lambda\in[0,1]$.
 
-This nonuniqueness of $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ arises from the fact that the marginal constraint does not uniquely determine the conditional distribution. This concept reappears in [Section 5.2.2](../05-flow-based-perspective/index.md#subsec-fm-framework) and [Section 9.2.3](../09-numerical-solvers/index.md#subsec-ddim). In particular, there exists an entire family of reverse-time SDEs that are consistent with the same marginal $p_t$.
+This nonuniqueness of $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ arises from the fact that the marginal constraint does not uniquely determine the conditional distribution. This concept reappears in [Section 5.2.2](../05-flow-based-perspective/02-flow-matching-framework.md#subsec-fm-framework) and [Section 9.2.3](../09-numerical-solvers/index.md#subsec-ddim). In particular, there exists an entire family of reverse-time SDEs that are consistent with the same marginal $p_t$.
 
 <span id="observation-4-2-1"></span>
 
@@ -163,7 +163,7 @@ This nonuniqueness of $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ arises from the fact
 
 Multiple processes can give rise to the same sequence of marginal densities; what truly matters is satisfying the Fokker–Planck equation. This fundamental insight affords us remarkable flexibility in designing generative processes that transition from $p_{\mathrm{prior}}$ to $p_{\mathrm{data}}$, or vice versa.
 
-The Fokker–Planck equation lies at the heart of diffusion models and is rooted in the fundamental *change-of-variable formula* for probability densities (see [Appendix B](../../appendices/b-density-evolution/index.md#app-continuity) for a systematic treatment). Far from being a minor technical detail, this principle recurs throughout our development, most notably in [Section 5.2](../05-flow-based-perspective/index.md#sec-flow-matching-framework).
+The Fokker–Planck equation lies at the heart of diffusion models and is rooted in the fundamental *change-of-variable formula* for probability densities (see [Appendix B](../../appendices/b-density-evolution/index.md#app-continuity) for a systematic treatment). Far from being a minor technical detail, this principle recurs throughout our development, most notably in [Section 5.2](../05-flow-based-perspective/02-flow-matching-framework.md#sec-flow-matching-framework).
 
 ## 4.2.2 A Computable Example: Evolutions of Gaussian Dynamics {#subsec-example-gaussian}
 
@@ -384,4 +384,4 @@ To see why this ODE has the same marginals as the forward SDE (and the reverse�
 
 [^1]: The physical idea underlying this map is much older. Eighteenth-century fluid mechanics already studied motion through velocity fields and by following the evolution of material particles, notably in the foundational works of Euler and Lagrange  ([Euler, 1757](references.md#ref-euler1757fluid); [Lagrange, 1783](references.md#ref-lagrange1783fluid)).
 
-[^2]: Spoiler: the PF-ODE flow map ${\boldsymbol{\Psi}}_{s\to t}$ is exactly the Normalizing Flow (NF) bijection carrying $p_s$ to $p_t$ (to be detailed in [Section 5.1](../05-flow-based-perspective/index.md#sec-flow-based-method)). The difference is that, once the forward SDE and its marginal densities are fixed, the PF-ODE formula uniquely specifies its associated velocity field, ${\mathbf{v}}({\mathbf{x}},t) = {\mathbf{f}}({\mathbf{x}},t) -\frac{1}{2}g^2(t)\nabla_{{\mathbf{x}}}\log p_t({\mathbf{x}})$, whereas a normalizing flow, or continuous-time normalizing flow, parameterizes and learns a velocity field directly. Both rely on the same continuous change-of-variables principle.
+[^2]: Spoiler: the PF-ODE flow map ${\boldsymbol{\Psi}}_{s\to t}$ is exactly the Normalizing Flow (NF) bijection carrying $p_s$ to $p_t$ (to be detailed in [Section 5.1](../05-flow-based-perspective/01-normalizing-flows-and-neural-odes.md#sec-flow-based-method)). The difference is that, once the forward SDE and its marginal densities are fixed, the PF-ODE formula uniquely specifies its associated velocity field, ${\mathbf{v}}({\mathbf{x}},t) = {\mathbf{f}}({\mathbf{x}},t) -\frac{1}{2}g^2(t)\nabla_{{\mathbf{x}}}\log p_t({\mathbf{x}})$, whereas a normalizing flow, or continuous-time normalizing flow, parameterizes and learns a velocity field directly. Both rely on the same continuous change-of-variables principle.

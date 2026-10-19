@@ -131,7 +131,7 @@ This theorem, like [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-
 
 **Insight 3.3.1: Conditioning Technique**
 
-The conditioning technique also appears in the variational view of diffusion models in DDPM (see [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl)), where conditioning on a data point ${\mathbf{x}}$ turns an intractable loss into a tractable one for Monte Carlo estimation. A similar idea arises in the flow-based perspective (e.g., Flow Matching ([Lipman et al., 2022](references.md#ref-lipman2022flow))), as we will see in [Section 5.2](../05-flow-based-perspective/index.md#sec-flow-matching-framework).
+The conditioning technique also appears in the variational view of diffusion models in DDPM (see [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl)), where conditioning on a data point ${\mathbf{x}}$ turns an intractable loss into a tractable one for Monte Carlo estimation. A similar idea arises in the flow-based perspective (e.g., Flow Matching ([Lipman et al., 2022](references.md#ref-lipman2022flow))), as we will see in [Section 5.2](../05-flow-based-perspective/02-flow-matching-framework.md#sec-flow-matching-framework).
 
 <span id="fig-dsm-graph"></span>
 

@@ -41,3 +41,11 @@ Not yet available.
 ## Equation (D.2.5) {#eq-gaussian-score}
 
 Not yet available.
+
+## D.3 Flow-Based Perspective {#app-sec-flow-proof}
+
+Not yet available.
+
+### D.3.2 Mass Conservation Criterion {#app-sec-mass-conservation}
+
+Not yet available.

@@ -5,7 +5,7 @@ description: Chapter structure and conversion status for the English web edition
 
 # Book contents
 
-This outline follows the order of the book. Chapters 1–4 are available in English. The remaining chapters and appendices are not yet available.
+This outline follows the order of the book. Chapters 1–5 are available in English. The remaining chapters and appendices are not yet available.
 
 ## Front matter
 
@@ -54,7 +54,15 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
     - [4.7 Closing Remarks](chapters/04-score-sde-framework/07-closing-remarks.md)
     - [Chapter references](chapters/04-score-sde-framework/references.md)
 
-5. [Flow-Based Perspective: From NFs to Flow Matching](chapters/05-flow-based-perspective/index.md) — not yet available
+5. [Flow-Based Perspective: From NFs to Flow Matching](chapters/05-flow-based-perspective/index.md) — available
+
+    - [5.1 Flow-Based Models: Normalizing Flows and Neural ODEs](chapters/05-flow-based-perspective/01-normalizing-flows-and-neural-odes.md)
+    - [5.2 Flow Matching Framework](chapters/05-flow-based-perspective/02-flow-matching-framework.md)
+    - [5.3 Constructing Probability Paths and Velocities Between Distributions](chapters/05-flow-based-perspective/03-probability-paths-and-velocities.md)
+    - [5.4 (Optional) Properties of the Canonical Affine Flow](chapters/05-flow-based-perspective/04-canonical-affine-flow.md)
+    - [5.5 Closing Remarks](chapters/05-flow-based-perspective/05-closing-remarks.md)
+    - [Chapter references](chapters/05-flow-based-perspective/references.md)
+
 6. [A Unified and Systematic Lens on Diffusion Models](chapters/06-unified-perspective/index.md) — not yet available
 7. [(Optional) Diffusion Models and Optimal Transport](chapters/07-optimal-transport/index.md) — not yet available
 

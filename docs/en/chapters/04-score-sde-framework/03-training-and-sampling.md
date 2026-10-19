@@ -158,7 +158,7 @@ This equivalence provides a clear explanation for the slow sampling speeds of di
 
 **II. Inversion with PF-ODE.** As discussed, unlike in the case of SDEs, we can solve the same [Equation (4.3.5)](03-training-and-sampling.md#eq-prob-ode-sub) both forward (from $0$ to $T$) and reverse (from $T$ to $0$) in time. When solving it forward, the ODE flow maps data to its (noisy) latent representations across all $t \in [0,T]$, which plays a role of an encoder. This concept enables powerful applications for controllable generation, such as image translation and editing and beyond ([Mokady et al., 2023](references.md#ref-mokady2023null); [Su et al., 2022](references.md#ref-su2022dual)).
 
-**III. Log-Likelihood Evaluation via PF-ODE.** The PF-ODE also allows us to evaluate the likelihood of a data sample. Recall from [Equation (5.1.9)](../05-flow-based-perspective/index.md#eq-instant-change-of-var) that, for an ODE, the change in log-density along a trajectory is determined by the divergence of its velocity field.
+**III. Log-Likelihood Evaluation via PF-ODE.** The PF-ODE also allows us to evaluate the likelihood of a data sample. Recall from [Equation (5.1.9)](../05-flow-based-perspective/01-normalizing-flows-and-neural-odes.md#eq-instant-change-of-var) that, for an ODE, the change in log-density along a trajectory is determined by the divergence of its velocity field.
 
 For the learned PF-ODE, define
 
