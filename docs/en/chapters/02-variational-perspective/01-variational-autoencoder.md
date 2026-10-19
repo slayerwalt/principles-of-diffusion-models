@@ -290,7 +290,7 @@ $$
 
 This hierarchical ELBO decomposes into interpretable terms, including a reconstruction term, adjacent-layer matching terms, and a top-level KL regularizer to the prior.
 
-The leap from shallow to deep networks revolutionized machine learning, and a similar idea transformed generative models. HVAEs showed the power of using deep, stacked layers to build data. This concept of a layered hierarchy is a cornerstone of modern generative modeling, appearing again in score-based methods ([Section 3.4](../03-score-based-perspective/index.md#sec-smld)) and normalizing flows ([Section 5.1](../05-flow-based-perspective/index.md#sec-flow-based-method)). The core insight is simple yet powerful:
+The leap from shallow to deep networks revolutionized machine learning, and a similar idea transformed generative models. HVAEs showed the power of using deep, stacked layers to build data. This concept of a layered hierarchy is a cornerstone of modern generative modeling, appearing again in score-based methods ([Section 3.4](../03-score-based-perspective/04-noise-conditional-score-networks.md#sec-smld)) and normalizing flows ([Section 5.1](../05-flow-based-perspective/index.md#sec-flow-based-method)). The core insight is simple yet powerful:
 
 <span id="observation-2-1-1"></span>
 

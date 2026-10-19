@@ -11,9 +11,9 @@ Chieh-Hsin Lai · Yang Song · Dongjun Kim · Yuki Mitsufuji · Stefano Ermon
 
 This unofficial web edition is based on *The Principles of Diffusion Models*, available as [arXiv:2510.21890v3](https://arxiv.org/abs/2510.21890v3).
 
-The English web edition currently includes **Chapter 1, Deep Generative Modeling**, and **Chapter 2, Variational Perspective: From VAEs to DDPMs**. These chapters retain the original English text, mathematical notation, figures, and references.
+The English web edition currently includes **Chapter 1, Deep Generative Modeling**, **Chapter 2, Variational Perspective: From VAEs to DDPMs**, and **Chapter 3, Score-Based Perspective: From EBMs to NCSN**. These chapters retain the original English text, mathematical notation, figures, tables, algorithms, and references.
 
-[Begin Chapter 1](en/chapters/01-deep-generative-modeling/index.md) · [Read Chapter 2](en/chapters/02-variational-perspective/index.md) · [View the full book contents](en/book-outline.md)
+[Begin Chapter 1](en/chapters/01-deep-generative-modeling/index.md) · [Read Chapter 2](en/chapters/02-variational-perspective/index.md) · [Read Chapter 3](en/chapters/03-score-based-perspective/index.md) · [View the full book contents](en/book-outline.md)
 
 ## Reading the web edition
 

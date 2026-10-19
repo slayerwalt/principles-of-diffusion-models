@@ -12,9 +12,11 @@
 
 第 2 章 Variational Perspective: From VAEs to DDPMs 已完整转换，覆盖 PDF 物理页 42–67、书内页 37–62，包含章引言、2.1–2.3 三节和本章参考文献。原文清单为 68 块显示公式、18 个编号公式、3 个定理及其证明段落、1 个引理、1 个编号问题、1 个编号 Observation、1 个 Remark、7 幅图、5 条脚注和 5 条文献；本章无表格和算法。68 块显示公式和 242 处行内公式已与源码独立核对，浏览器确认 VAE 页 29 块、DDPM 页 39 块显示公式全部渲染。
 
-第 3、4、5、6、7、9 章、Part II 无编号导读和附录 D 已有供正文引用的占位入口，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+第 3 章 Score-Based Perspective: From EBMs to NCSN 已完整转换，覆盖 PDF 物理页 68–97、书内页 63–92，包含章引言、3.1–3.6 六节和本章参考文献。原文清单为 88 块显示公式（含脚注中的 1 块）、344 处行内公式、18 个编号公式、7 幅图、1 张比较表、1 个算法、1 个命题、1 个定理、1 个引理、1 个 Insight、1 个编号问题、3 条脚注和 14 条文献。显示及行内公式已与源码独立逐项核对；3.1–3.4 页分别渲染 17、8、50、13 块显示公式。比较表保留 Table 3.1，算法保留原编号 Algorithm 1。
 
-网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。加入第二章后，构建生成 24 个 HTML 页面；此数量是当时的记录，不应作为新增章节后的固定断言。每次内容更新都要重新完成相应核对，并检查当次线上部署结果。
+第 4、5、6、7、9、10、11 章、Part II 无编号导读和附录 A、B、D 已有供正文引用的占位入口，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+
+网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。加入第三章后，构建生成 35 个 HTML 页面；此数量是当时的记录，不应作为新增章节后的固定断言。每次内容更新都要重新完成相应核对，并检查当次线上部署结果。
 
 ## 用户约束
 
@@ -58,7 +60,7 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 ## 原始材料与转换方法
 
-官方源码已保存在 `source/arxiv-2510.21890v3/archive/source.tar.gz`，未经修改的解包目录为 `source/arxiv-2510.21890v3/tex/`。主文件是 `main_v2.tex`，参考文献是 `main_v2.bib`；第 1 章源文件是 `Prologue-Deep-Generative-Modeling.tex`，第 2 章源文件是 `Chapter-1-Varational-Perspective-From-VAE-to-DDPM.tex`。文件名中的章号与成书章号不同，以 PDF 和主文件顺序为准。根目录的 `The Principles of Diffusion Models.pdf` 是同一 v3 版本的排版核对依据。
+官方源码已保存在 `source/arxiv-2510.21890v3/archive/source.tar.gz`，未经修改的解包目录为 `source/arxiv-2510.21890v3/tex/`。主文件是 `main_v2.tex`，参考文献是 `main_v2.bib`；第 1 章源文件是 `Prologue-Deep-Generative-Modeling.tex`，第 2 章源文件是 `Chapter-1-Varational-Perspective-From-VAE-to-DDPM.tex`，第 3 章源文件是 `Chapter-2-Score-Based-Perspective-From-EBMs-to-NCSN.tex`。文件名中的章号与成书章号不同，以 PDF 和主文件顺序为准。根目录的 `The Principles of Diffusion Models.pdf` 是同一 v3 版本的排版核对依据。
 
 转换优先从 LaTeX 获取结构、正文、公式和文献，再对照 PDF 检查。不要以 PDF 纯文字提取代替数学源码，也不要把完整章节改写为摘要。
 
@@ -75,10 +77,14 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 `scripts/convert_chapter_02.py` 仅适配第 2 章，输出章引言、VAE、DDPM、Closing Remarks 和参考文献共 5 个 Markdown 文件。图片由 `scripts/extract_chapter_02_figures.py` 提取到 `docs/en/assets/chapter-02/`：3 幅 TikZ 图和图 2.5 从原书 PDF 裁取，其余 3 幅图从作者提供的 PDF 资源渲染。图 2.5 的独立资源单独渲染时丢失一处标签，因此使用原书页面中的完整图形。转换清单保存在本地 `source/arxiv-2510.21890v3/metadata/chapter-02.json`，独立核对记录在 `tmp/chapter02-audit/`。这些脚本和记录继续由 `.gitignore` 忽略。
 
+`scripts/convert_chapter_03.py` 仅适配第 3 章，输出章引言、6 个正文节及参考文献共 8 个 Markdown 文件。`scripts/extract_chapter_03_figures.py` 将 6 份作者原始 PDF 渲染为 PNG，并复制 1 份原 PNG 到 `docs/en/assets/chapter-03/`。算法的输入、循环层级、步骤、注释和输出，以及比较表的所有单元格，均保留为可编辑内容。清单为 `source/arxiv-2510.21890v3/metadata/chapter-03.json`，独立核对记录在 `tmp/chapter03-audit/`。这些转换脚本和记录不进入仓库。
+
+第三章表 3.1 的 DDPM 前向转移使用原书的 `sqrt(1-beta_i)` 和 `sqrt(beta_i)` 写法，与第二章的噪声参数记号不同；转换时按各处原文保留，不自行统一。算法 1 保留 9 个编号行、3 条独立注释以及输入、输出，不能改号为算法 3.1。脚注里的显示公式也计入完整性清单，构建后须确认仍处于脚注内并正常渲染。
+
 当前转换器使用 `LOCAL_REFS` 和 `PENDING_REFS`，重跑不会恢复原 PDF 外链。以下已发布路径和锚点需要持续兼容：
 
 - `02-variational-perspective/index.md`：`ch-variational`、旧 `sec-vae` 入口；2.1 节正文位于 `02-variational-perspective/01-variational-autoencoder.md#sec-vae`，已有正文链接已更新。
-- `03-score-based-perspective/index.md`：`ch-score-based`、`sec-ebm`、`eq-ebm-sm`、`sec-ebm-to-score`、`eq-sm`。
+- `03-score-based-perspective/index.md`：`ch-score-based` 及旧 `sec-ebm`、`eq-ebm-sm`、`sec-ebm-to-score`、`eq-sm`、`sec-smld` 入口。实际内容分别位于 `01-energy-based-models.md`、`02-score-based-models.md`、`04-noise-conditional-score-networks.md` 的对应锚点；前两章的相关链接已更新为直接指向正文。
 - `04-score-sde-framework/index.md`：`ch-score-sde`、`dsm-minimizer`（命题 4.3.1）、`sec-variational-perspective`（4.5 节）、`reverse-kernel`（引理 4.5.2）。
 - `05-flow-based-perspective/index.md`：`ch-flow-based`、`sec-flow-based-method`。
 - `07-optimal-transport/index.md`：`ch-ot-eot`、`eq-monge-formulation`。
@@ -86,6 +92,8 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 第二章新增的跨章入口还包括第 3 章 `sec-smld`（3.4 节）、第 6 章 `06-unified-perspective/index.md#equi-para`（命题 6.3.1）及第 9 章 `09-numerical-solvers/index.md#sec-revisit-ddim`（9.2 节）。附录证明入口为 `docs/en/appendices/d-supplementary-proofs/index.md#subsec-proof-equiv-marginal-kl`（D.1.1）和 `#app-vlb-proof`（D.1.2）。
 
 第二章引用的公式 (1.4.1) 实际位于 Part II 的无编号导读，使用 `docs/en/foundations/operational-view.md#eq-ddpm-first-try` 占位；保留原编号，不要误连第 1 章的 Closing Remarks。
+
+第三章新增第 5 章 `#sec-flow-matching-framework`（5.2 节），第 10 章 `10-distillation/index.md#ch-distillation`，第 11 章 `11-fast-generators/index.md#ch-fast-scratch`；附录 A、B 分别为 `docs/en/appendices/a-differential-equations/index.md#app-de` 和 `b-density-evolution/index.md#app-continuity`。附录 D 的新增锚点 `app-sec-sm-trace`、`app-sec-sm-dsm`、`app-sec-tweedie`、`app-sec-stein-identity` 对应 D.2.1–D.2.4。
 
 上述路径均相对 `docs/en/chapters/`。填充这些章节时，应保留现有入口；若把内容拆到其他页面，需同时处理已有链接和旧入口的兼容。
 
