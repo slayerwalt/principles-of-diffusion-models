@@ -14,9 +14,13 @@
 
 第 3 章 Score-Based Perspective: From EBMs to NCSN 已完整转换，覆盖 PDF 物理页 68–97、书内页 63–92，包含章引言、3.1–3.6 六节和本章参考文献。原文清单为 88 块显示公式（含脚注中的 1 块）、344 处行内公式、18 个编号公式、7 幅图、1 张比较表、1 个算法、1 个命题、1 个定理、1 个引理、1 个 Insight、1 个编号问题、3 条脚注和 14 条文献。显示及行内公式已与源码独立逐项核对；3.1–3.4 页分别渲染 17、8、50、13 块显示公式。比较表保留 Table 3.1，算法保留原编号 Algorithm 1。
 
-第 4、5、6、7、9、10、11 章、Part II 无编号导读和附录 A、B、D 已有供正文引用的占位入口，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+第 4 章 Diffusion Models Today: Score SDE Framework 已完整转换，覆盖 PDF 物理页 98–137、书内页 93–132，包含章引言、4.1–4.7 七节和本章参考文献。原文清单为 147 块显示公式、527 处行内公式、30 个编号公式、8 幅图、1 张表、14 条脚注和 17 条文献；无算法。结构框包括 1 个定理、1 个命题、2 个引理、2 个编号问题、2 个 Observation、1 个 Insight、4 个 Remark 和 2 个 Example。定理、命题和引理的证明段落或证明入口均保留，表 4.1 保留 3 列、5 个数据行。
 
-网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。加入第三章后，构建生成 35 个 HTML 页面；此数量是当时的记录，不应作为新增章节后的固定断言。每次内容更新都要重新完成相应核对，并检查当次线上部署结果。
+第四章网页将 4.2.1 节 Mixture 列表项中的一条超长行内公式独立成行，便于手机横向滚动查看；公式内容和相邻文字不变，不增加编号。因此网页实际为 148 块显示公式和 526 处行内公式，数学内容总数与源码一致。其他公式沿用原来的行内或显示形式。
+
+第 5、6、7、9、10、11 章、Part II 无编号导读和附录 A–D 已有供正文引用的占位入口，内容标为 `Not yet available`，尚未完成转换。其他未迁移内容在全书目录中说明。`docs/zh-CN/index.md` 仅记录翻译计划，目前没有中文译文章节。
+
+网站使用 Zensical 0.0.71 和 MathJax 3.2.2，支持章节导航、搜索、明暗模式及窄屏阅读。MathJax 在 GitHub Actions 构建时下载，并与静态网页一起打包发布。加入第四章后，构建生成 44 个 HTML 页面；此数量是当时的记录，不应作为新增章节后的固定断言。每次内容更新都要重新完成相应核对，并检查当次线上部署结果。
 
 ## 用户约束
 
@@ -62,6 +66,8 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 官方源码已保存在 `source/arxiv-2510.21890v3/archive/source.tar.gz`，未经修改的解包目录为 `source/arxiv-2510.21890v3/tex/`。主文件是 `main_v2.tex`，参考文献是 `main_v2.bib`；第 1 章源文件是 `Prologue-Deep-Generative-Modeling.tex`，第 2 章源文件是 `Chapter-1-Varational-Perspective-From-VAE-to-DDPM.tex`，第 3 章源文件是 `Chapter-2-Score-Based-Perspective-From-EBMs-to-NCSN.tex`。文件名中的章号与成书章号不同，以 PDF 和主文件顺序为准。根目录的 `The Principles of Diffusion Models.pdf` 是同一 v3 版本的排版核对依据。
 
+第 4 章源文件是 `Chapter-3-Diffusion-Models-Today-Score-SDE-Framework.tex`。
+
 转换优先从 LaTeX 获取结构、正文、公式和文献，再对照 PDF 检查。不要以 PDF 纯文字提取代替数学源码，也不要把完整章节改写为摘要。
 
 1. 确认章节在主文件中的位置、相关宏定义和 PDF 页码，清点标题、数学块、原编号、图表、脚注、文献及交叉引用。每章建立自己的清单，不能照搬第 1 章的数量。
@@ -81,11 +87,15 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 
 第三章表 3.1 的 DDPM 前向转移使用原书的 `sqrt(1-beta_i)` 和 `sqrt(beta_i)` 写法，与第二章的噪声参数记号不同；转换时按各处原文保留，不自行统一。算法 1 保留 9 个编号行、3 条独立注释以及输入、输出，不能改号为算法 3.1。脚注里的显示公式也计入完整性清单，构建后须确认仍处于脚注内并正常渲染。
 
+`scripts/convert_chapter_04.py` 仅适配第 4 章，输出章引言、7 个正文节及参考文献共 9 个 Markdown 文件。`scripts/extract_chapter_04_figures.py` 将 8 份作者原始 PDF 渲染到 `docs/en/assets/chapter-04/`，全部已对照原书检查；图 4.1、4.5、4.6 保留作者原有 AI-assisted coding 署名。清单为 `source/arxiv-2510.21890v3/metadata/chapter-04.json`，独立核对记录在 `tmp/chapter04-audit/`。这些转换脚本和记录继续忽略。
+
+原 PDF 中未解析的 `wang2024evaluating` 在同版 BibTeX 中有完整条目，第四章按该条目显示正常作者、年份和出处。书籍类参考文献保留原 BibTeX 提供的版次、丛书、卷号和出版地。原书个别措辞或引用疑点仅记录在本地审计报告，不擅自改作者结论；数学内部的章节引用显示原章号，不嵌入 Markdown 链接。
+
 当前转换器使用 `LOCAL_REFS` 和 `PENDING_REFS`，重跑不会恢复原 PDF 外链。以下已发布路径和锚点需要持续兼容：
 
 - `02-variational-perspective/index.md`：`ch-variational`、旧 `sec-vae` 入口；2.1 节正文位于 `02-variational-perspective/01-variational-autoencoder.md#sec-vae`，已有正文链接已更新。
 - `03-score-based-perspective/index.md`：`ch-score-based` 及旧 `sec-ebm`、`eq-ebm-sm`、`sec-ebm-to-score`、`eq-sm`、`sec-smld` 入口。实际内容分别位于 `01-energy-based-models.md`、`02-score-based-models.md`、`04-noise-conditional-score-networks.md` 的对应锚点；前两章的相关链接已更新为直接指向正文。
-- `04-score-sde-framework/index.md`：`ch-score-sde`、`dsm-minimizer`（命题 4.3.1）、`sec-variational-perspective`（4.5 节）、`reverse-kernel`（引理 4.5.2）。
+- `04-score-sde-framework/index.md`：`ch-score-sde` 及旧 `dsm-minimizer`、`sec-variational-perspective`、`reverse-kernel` 入口。实际内容分别位于 `03-training-and-sampling.md#dsm-minimizer`（命题 4.3.1），以及 `05-accumulated-perturbation-kernels.md#sec-variational-perspective`（4.5 节）和 `#reverse-kernel`（引理 4.5.2）；前面章节的相关链接已直达正文。
 - `05-flow-based-perspective/index.md`：`ch-flow-based`、`sec-flow-based-method`。
 - `07-optimal-transport/index.md`：`ch-ot-eot`、`eq-monge-formulation`。
 
@@ -94,6 +104,8 @@ Pandoc 和 Poppler 的 `pdftoppm` 已在当前环境的 PATH 中。工具不可�
 第二章引用的公式 (1.4.1) 实际位于 Part II 的无编号导读，使用 `docs/en/foundations/operational-view.md#eq-ddpm-first-try` 占位；保留原编号，不要误连第 1 章的 Closing Remarks。
 
 第三章新增第 5 章 `#sec-flow-matching-framework`（5.2 节），第 10 章 `10-distillation/index.md#ch-distillation`，第 11 章 `11-fast-generators/index.md#ch-fast-scratch`；附录 A、B 分别为 `docs/en/appendices/a-differential-equations/index.md#app-de` 和 `b-density-evolution/index.md#app-continuity`。附录 D 的新增锚点 `app-sec-sm-trace`、`app-sec-sm-dsm`、`app-sec-tweedie`、`app-sec-stein-identity` 对应 D.2.1–D.2.4。
+
+第四章新增附录 C `docs/en/appendices/c-ito-calculus/index.md#app-ito` 及 `subsec-rigorous-proof-fpe`（C.1.4）、`subsec-rigorous-proof-linear-sde`（C.1.5）。其他新增锚点为附录 A 的 `app-sde-intro`（A.2），附录 D 的 `app-sec-scoresde-fpe-proof`（D.2.5）、`app-sec-min-dsm`（D.2.6）、`eq-score-gaussian-formula`（D.2.4 式）和 `eq-gaussian-score`（D.2.5 式），第 5 章的 `eq-instant-change-of-var`（5.1.9 式）、`subsec-fm-framework`（5.2.2），第 9 章的 `subsec-ddim`（9.2.3）。
 
 上述路径均相对 `docs/en/chapters/`。填充这些章节时，应保留现有入口；若把内容拆到其他页面，需同时处理已有链接和旧入口的兼容。
 
@@ -122,7 +134,9 @@ GitHub Actions 负责安装 `requirements.txt` 中的网站依赖、运行 `scri
 
 检查脚本验证本地页面、锚点、图片、脚本、样式及 MathJax 字体，检测 HTML 中未转换的显示公式分隔符，并要求本书原文链接在首页恰好出现一次。显示公式内部不能保留 Markdown 空白段落，否则公式可能被拆成普通文字或代码块；浏览器中还要比对实际渲染数量与源码清单。检查脚本不能替代正文和数学内容的人工核对。
 
-公式编号用 MathJax 的 `\tag{原编号}`，站内引用使用独立的 `eq-*` 锚点。带编号的 CHTML 容器有 `width="full"`，必须保留整行宽度和 MathJax 计算的行内最小宽度；不要给它设置 `width: max-content`，否则宽屏编号会贴着公式而无法靠右。`book.css` 已将编号公式与无编号公式分开处理。修改数学布局时须用真实不同视口宽度验证编号对齐、长公式横滚及完整可见性，不能只检查公式数量或 MathJax 错误。当前前 3 章的 40 个编号公式已在 1200、800、360 像素视口下检查；手机仅公式区横向滚动，整页不溢出。
+公式编号用 MathJax 的 `\tag{原编号}`，站内引用使用独立的 `eq-*` 锚点。带编号的 CHTML 容器有 `width="full"`，必须保留整行宽度和 MathJax 计算的行内最小宽度；不要给它设置 `width: max-content`，否则宽屏编号会贴着公式而无法靠右。`book.css` 已将编号公式与无编号公式分开处理。修改数学布局时须用真实不同视口宽度验证编号对齐、长公式横滚及完整可见性，不能只检查公式数量或 MathJax 错误。当前前 4 章的 70 个编号公式已在 1200、800、360 像素视口下检查；第四章全部正文页面另以真实主题在 1200 和 360 像素视口检查，确认图片、数学数量、编号位置和整页宽度。手机仅公式区横向滚动，整页不溢出。
+
+特别长的行内公式可以在明确记录后改为无编号显示式，并独立核对数学内容不变。不要为单条长公式给所有行内数学容器强制设置滚动布局，否则短公式也可能出现多余滚动条。宽屏检查应确认能容纳的编号公式靠右，手机检查应确认长式的编号仍在可滚动范围内；容器本身的内边距不应误判为编号偏移。
 
 Pages 的发布来源设置为 **GitHub Actions**，保留 HTTPS。`.github/workflows/pages.yml` 在远端构建和检查 `main` 的内容，通过后直接上传 Pages 产物并部署。生成的静态网页不提交到 `main`，也不依赖 `gh-pages` 分支。
 

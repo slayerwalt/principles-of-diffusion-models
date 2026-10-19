@@ -25,3 +25,19 @@ Not yet available.
 ## D.2.4 Stein’s Identity and Surrogate SURE Objective {#app-sec-stein-identity}
 
 Not yet available.
+
+## D.2.5 Theorem 4.2.1: Marginal Alignment via Fokker–Planck {#app-sec-scoresde-fpe-proof}
+
+Not yet available.
+
+## D.2.6 Proposition 4.3.1: Minimizer of SM and DSM {#app-sec-min-dsm}
+
+Not yet available.
+
+## Equation (D.2.4) {#eq-score-gaussian-formula}
+
+Not yet available.
+
+## Equation (D.2.5) {#eq-gaussian-score}
+
+Not yet available.

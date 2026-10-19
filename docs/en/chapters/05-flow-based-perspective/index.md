@@ -6,6 +6,14 @@ Not yet available.
 
 Not yet available.
 
+### Equation (5.1.9) {#eq-instant-change-of-var}
+
+Not yet available.
+
 ## 5.2 Flow Matching Framework {#sec-flow-matching-framework}
+
+Not yet available.
+
+### 5.2.2 Flow Matching Framework {#subsec-fm-framework}
 
 Not yet available.

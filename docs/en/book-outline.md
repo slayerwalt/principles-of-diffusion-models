@@ -5,7 +5,7 @@ description: Chapter structure and conversion status for the English web edition
 
 # Book contents
 
-This outline follows the order of the book. Chapters 1–3 are available in English. The remaining chapters and appendices are not yet available.
+This outline follows the order of the book. Chapters 1–4 are available in English. The remaining chapters and appendices are not yet available.
 
 ## Front matter
 
@@ -43,7 +43,17 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
     - [3.6 Closing Remarks](chapters/03-score-based-perspective/06-closing-remarks.md)
     - [Chapter references](chapters/03-score-based-perspective/references.md)
 
-4. [Diffusion Models Today: Score SDE Framework](chapters/04-score-sde-framework/index.md) — not yet available
+4. [Diffusion Models Today: Score SDE Framework](chapters/04-score-sde-framework/index.md) — available
+
+    - [4.1 Score SDE: Its Principles](chapters/04-score-sde-framework/01-score-sde-principles.md)
+    - [4.2 Matching Marginals in Forward/Reverse-Time SDEs and PF-ODE](chapters/04-score-sde-framework/02-matching-marginals.md)
+    - [4.3 Score SDE: Its Training and Sampling](chapters/04-score-sde-framework/03-training-and-sampling.md)
+    - [4.4 Instantiations of SDEs](chapters/04-score-sde-framework/04-sde-instantiations.md)
+    - [4.5 A Direct View Through Accumulated Perturbation Kernels](chapters/04-score-sde-framework/05-accumulated-perturbation-kernels.md)
+    - [4.6 (Optional) Fokker–Planck Equation and Reverse-Time SDEs via Marginalization and Bayes’ Rule](chapters/04-score-sde-framework/06-fokker-planck-and-reverse-sde.md)
+    - [4.7 Closing Remarks](chapters/04-score-sde-framework/07-closing-remarks.md)
+    - [Chapter references](chapters/04-score-sde-framework/references.md)
+
 5. [Flow-Based Perspective: From NFs to Flow Matching](chapters/05-flow-based-perspective/index.md) — not yet available
 6. [A Unified and Systematic Lens on Diffusion Models](chapters/06-unified-perspective/index.md) — not yet available
 7. [(Optional) Diffusion Models and Optimal Transport](chapters/07-optimal-transport/index.md) — not yet available
@@ -66,7 +76,7 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
 
 - **A.** [Crash Course on Differential Equations](appendices/a-differential-equations/index.md) — not yet available
 - **B.** [Density Evolution: From Change of Variable to Fokker–Planck](appendices/b-density-evolution/index.md) — not yet available
-- **C.** Behind the Scenes of Diffusion Models: Itô’s Calculus and Girsanov's Theorem — awaiting conversion
+- **C.** [Behind the Scenes of Diffusion Models: Itô’s Calculus and Girsanov's Theorem](appendices/c-ito-calculus/index.md) — not yet available
 - **D.** [Supplementary Materials and Proofs](appendices/d-supplementary-proofs/index.md) — not yet available
 
 The complete bibliography is awaiting conversion. References cited in each available chapter are included with that chapter.

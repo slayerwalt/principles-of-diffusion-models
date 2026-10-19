@@ -18,7 +18,7 @@ By fixing the encoder and concentrating learning on the gradual generative traje
 
 Source: Created by the authors.
 
-In this section, we focus on DDPMs, postponing the broader discussion to [Section 4.5](../04-score-sde-framework/index.md#sec-variational-perspective), where we present a more general and flexible framework.
+In this section, we focus on DDPMs, postponing the broader discussion to [Section 4.5](../04-score-sde-framework/05-accumulated-perturbation-kernels.md#sec-variational-perspective), where we present a more general and flexible framework.
 
 ## 2.2.1 Forward Process (Fixed Encoder) {#forward-process}
 
@@ -210,7 +210,7 @@ $$
 \tag{2.2.4}
 $$
 
-Later in [Lemma 4.5.2](../04-score-sde-framework/index.md#reverse-kernel), we present a more general formula that extends beyond the DDPM noising process described in [Equation (2.2.1)](02-ddpm.md#eq-ddpm-forward).
+Later in [Lemma 4.5.2](../04-score-sde-framework/05-accumulated-perturbation-kernels.md#reverse-kernel), we present a more general formula that extends beyond the DDPM noising process described in [Equation (2.2.1)](02-ddpm.md#eq-ddpm-forward).
 
 ## 2.2.3 Modeling of Reverse Transition Kernel $p_{\boldsymbol{\phi}}(\mathbf{x}_{i-1}|\mathbf{x}_i)$ {#modeling-reverse-transition}
 
@@ -308,7 +308,7 @@ $$
 
 where ${\mathbf{x}}_i = \bar{\alpha}_i {\mathbf{x}}_0 + \sqrt{1 - \bar{\alpha}_i^2} \boldsymbol{\epsilon}$ with ${\mathbf{x}}_0 \sim p_{\text{data}}$. Since the target noise has unit variance at every timestep $t$, the $\ell_2$ loss in [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) maintains a consistent scale across all $t$. This prevents vanishing or exploding targets and eliminates the need for explicit loss weighting.
 
-Importantly, both $\mathcal{L}_{\text{DDPM}}$ and $\mathcal{L}_{\text{simple}}$ share the same optimal solution $\boldsymbol{\epsilon}^*$, this is because [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) essentially reduces to a least-squares problem (as shown similarly in [Proposition 4.3.1](../04-score-sde-framework/index.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))[^2]:
+Importantly, both $\mathcal{L}_{\text{DDPM}}$ and $\mathcal{L}_{\text{simple}}$ share the same optimal solution $\boldsymbol{\epsilon}^*$, this is because [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) essentially reduces to a least-squares problem (as shown similarly in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))[^2]:
 
 $$
 \boldsymbol{\epsilon}^*({\mathbf{x}}_i, i) = \mathbb{E}\left[ \boldsymbol{\epsilon}|{\mathbf{x}}_i \right], \quad {\mathbf{x}}_i \sim p_i.
@@ -336,7 +336,7 @@ $$
 \mathbb{E}_{i} \mathbb{E}_{{\mathbf{x}}_0 \sim p_{\text{data}}} \mathbb{E}_{\boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})} \left[\omega_i \left\| {\mathbf{x}}_{\boldsymbol{\phi}}({\mathbf{x}}_i, i) - {\mathbf{x}}_0 \right\|_2^2 \right],
 $$
 
-for some weighting function $\omega_i$. Since this is a least-squares problem, the optimal solution is given by (see [Proposition 4.3.1](../04-score-sde-framework/index.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))
+for some weighting function $\omega_i$. Since this is a least-squares problem, the optimal solution is given by (see [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))
 
 <span id="eq-ddpm-clean-minimizer"></span>
 

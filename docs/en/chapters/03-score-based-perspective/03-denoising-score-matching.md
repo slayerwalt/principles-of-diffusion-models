@@ -123,7 +123,7 @@ $$
 **Proof for Theorem.**
 
 The equivalence follows from a direct computation: by expanding the MSE in $\mathcal{L}_{\text{SM}}$ and $\mathcal{L}_{\text{DSM}}$, all $\boldsymbol{\phi}$-dependent terms cancel, leaving only a constant difference independent of $\boldsymbol{\phi}$.<br>
-The derivation of the minimizer follows the same argument as in [Proposition 4.3.1](../04-score-sde-framework/index.md#dsm-minimizer). We defer the detailed derivation to [Section D.2.2](../../appendices/d-supplementary-proofs/index.md#app-sec-sm-dsm).
+The derivation of the minimizer follows the same argument as in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer). We defer the detailed derivation to [Section D.2.2](../../appendices/d-supplementary-proofs/index.md#app-sec-sm-dsm).
 
 This theorem, like [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl) in DDPM, illustrates a key shared principle:
 
