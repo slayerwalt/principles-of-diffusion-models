@@ -4,7 +4,9 @@
 
 仓库：<https://github.com/slayerwalt/principles-of-diffusion-models>
 
-配置的发布地址：<https://slayerwalt.github.io/principles-of-diffusion-models/>。这个地址只有在推送并完成 GitHub Pages 部署后才会生效。
+在线阅读：<https://slayerwalt.github.io/principles-of-diffusion-models/>
+
+[开始阅读第 1 章英文样章](https://slayerwalt.github.io/principles-of-diffusion-models/en/chapters/01-deep-generative-modeling/)。后续推送到 `main` 的更新会通过 GitHub Actions 自动发布。
 
 ## 当前内容
 
