@@ -14,7 +14,5 @@ __pycache__/
 !/scripts/check_site.py
 !/scripts/vendor_mathjax.py
 /docs/assets/vendor/
-/.pages-publish/
-/LOCAL_MAINTENANCE.md
 /AGENTS.md
 
