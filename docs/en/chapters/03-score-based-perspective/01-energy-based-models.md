@@ -47,7 +47,7 @@ $$
 
 with $Z_{\boldsymbol{\phi}} = \int \exp(-E_{\boldsymbol{\phi}}({\mathbf{x}}))\mathop{}\!\mathrm{d}{\mathbf{x}}$. The first term lowers the energy of real data, while the second enforces normalization via the partition function.
 
-However, in high dimensions computing $\log Z_{{\boldsymbol{\phi}}}$ and its gradient is intractable, as it requires expectations under the model distribution. This motivates alternative objectives that either approximate the term, such as contrastive divergence ([Hinton, 2002](references.md#ref-hinton2002training)), or avoid it altogether through *score matching*.
+However, in high dimensions computing $\log Z_{{\boldsymbol{\phi}}}$ and its gradient is intractable, as it requires expectations under the model distribution. This motivates alternative objectives that either approximate the term, such as contrastive divergence ([Hinton, 2002](../../references.md#ref-hinton2002training)), or avoid it altogether through *score matching*.
 
 In what follows, we first introduce the notion of the score function in [Section 3.1.2](01-energy-based-models.md#subsec-motivation-score) and present score matching as a tractable training objective that bypasses the partition function in [Section 3.1.3](01-energy-based-models.md#subsec-training-ebm), and then discuss Langevin dynamics as a practical sampling method with score functions in [Section 3.1.4](01-energy-based-models.md#subsec-sampling-ebm).
 
@@ -105,7 +105,7 @@ where ${\mathbf{x}}_0$ is a reference point and $\log p({\mathbf{x}}_0)$ is fixe
 
 In EBMs, the density is defined as $p_{{\boldsymbol{\phi}}}(\mathbf{x}) = \tfrac{\exp(-E_{\boldsymbol{\phi}}(\mathbf{x}))}{Z_{\boldsymbol{\phi}}}$. Maximum likelihood training requires computing $Z_{\boldsymbol{\phi}}$, which is generally intractable. A key observation is that the model score of $p_{{\boldsymbol{\phi}}}$ simplifies to: $-\nabla_{{\mathbf{x}}}E_{\boldsymbol{\phi}}({\mathbf{x}})$, independent of $Z_{\boldsymbol{\phi}}$ (see [Equation (3.1.2)](01-energy-based-models.md#eq-score-compute)).
 
-*Score matching* ([Hyvärinen and Dayan, 2005](references.md#ref-hyvarinen2005estimation)) leverages the fact that scores depend only on the energy function. Instead of fitting normalized probabilities, it trains EBMs by aligning the model score with the (unknown) data score:
+*Score matching* ([Hyvärinen and Dayan, 2005](../../references.md#ref-hyvarinen2005estimation)) leverages the fact that scores depend only on the energy function. Instead of fitting normalized probabilities, it trains EBMs by aligning the model score with the (unknown) data score:
 
 <span id="eq-ebm-sm"></span>
 

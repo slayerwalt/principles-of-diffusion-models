@@ -1,6 +1,6 @@
 # 4.4 Instantiations of SDEs {#sec-instances}
 
-[Song et al. (2020)](references.md#ref-song2020score) categorize the drift term ${\mathbf{f}}({\mathbf{x}}, t)$ and the diffusion term $g(t)$ in the forward SDE into three types based on the behavior of the variance during evolution. Here, we focus on two commonly used types: the *<u>V</u>ariance <u>E</u>xplosion* (VE) SDE and *<u>V</u>ariance <u>P</u>reserving* (VP) SDE. While it is possible to design custom noise schedulers, their design can substantially influence empirical performance. [Table 4.1](04-sde-instantiations.md#tb-sde-instances) summarizes these two SDE instantiations.
+[Song et al. (2020)](../../references.md#ref-song2020score) categorize the drift term ${\mathbf{f}}({\mathbf{x}}, t)$ and the diffusion term $g(t)$ in the forward SDE into three types based on the behavior of the variance during evolution. Here, we focus on two commonly used types: the *<u>V</u>ariance <u>E</u>xplosion* (VE) SDE and *<u>V</u>ariance <u>P</u>reserving* (VP) SDE. While it is possible to design custom noise schedulers, their design can substantially influence empirical performance. [Table 4.1](04-sde-instantiations.md#tb-sde-instances) summarizes these two SDE instantiations.
 
 <span id="tb-sde-instances"></span>
 
@@ -123,7 +123,7 @@ $$
 P(t) \mathbf{I}_D = \operatorname{Cov} \left[{\mathbf{x}}_t | {\mathbf{x}}(0) = {\mathbf{x}}_0\right].
 $$
 
-These first and second moments evolve according to the following ODEs ([Särkkä and Solin, 2019](references.md#ref-sarkka2019applied)):
+These first and second moments evolve according to the following ODEs ([Särkkä and Solin, 2019](../../references.md#ref-sarkka2019applied)):
 
 <span id="eq-mean-var-evolution"></span>
 

@@ -26,7 +26,7 @@ These exact relationships provide a common mathematical foundation, while the pr
 
 We begin by analyzing the design choices for component (B) in [Equation (6.2.5)](02-training-objectives.md#eq-general-dm-loss-d).
 
-We have seen that the four prediction types are not independent choices but different views of the same underlying quantity. For example, noise and clean predictions are directly related ([Section 2.2.4](../02-variational-perspective/02-ddpm.md#subsec-ddpm-prediction)), as are score and noise predictions ([Section 3.4](../03-score-based-perspective/04-noise-conditional-score-networks.md#sec-smld)). This recurring pattern points to a deeper principle: all four parameterizations are algebraically equivalent and can be converted into one another through simple transformations. To make this connection precise, we state the following proposition, illustrated in [Figure 6.1](03-equivalent-parameterizations.md#fig-equiv-parametrizations), following ([Kingma et al., 2021](references.md#ref-kingma2021variational)).
+We have seen that the four prediction types are not independent choices but different views of the same underlying quantity. For example, noise and clean predictions are directly related ([Section 2.2.4](../02-variational-perspective/02-ddpm.md#subsec-ddpm-prediction)), as are score and noise predictions ([Section 3.4](../03-score-based-perspective/04-noise-conditional-score-networks.md#sec-smld)). This recurring pattern points to a deeper principle: all four parameterizations are algebraically equivalent and can be converted into one another through simple transformations. To make this connection precise, we state the following proposition, illustrated in [Figure 6.1](03-equivalent-parameterizations.md#fig-equiv-parametrizations), following ([Kingma et al., 2021](../../references.md#ref-kingma2021variational)).
 
 <span id="equi-para"></span>
 
@@ -154,7 +154,7 @@ To give a concrete sense of how the PF-ODE is discretized for sampling, we will 
 
 We next analyze the design choices for component (A) in [Equation (6.2.5)](02-training-objectives.md#eq-general-dm-loss-d).
 
-**State-Level Equivalence.** A convenient canonical interpolation used in FM ([Lipman et al., 2022](references.md#ref-lipman2022flow)) and RF ([Liu, 2022](references.md#ref-liu2022rectified)) is
+**State-Level Equivalence.** A convenient canonical interpolation used in FM ([Lipman et al., 2022](../../references.md#ref-lipman2022flow)) and RF ([Liu, 2022](../../references.md#ref-liu2022rectified)) is
 
 $$
 {\mathbf{x}}_t^{\mathrm{FM}}=(1-t) {\mathbf{x}}_0+t {\boldsymbol{\epsilon}} = {\mathbf{x}}_{0}+t({\boldsymbol{\epsilon}}-{\mathbf{x}}_0),
@@ -236,7 +236,7 @@ $$
 
 Thus, every affine interpolation with $c(t)\neq0$ admits this canonical state-level representation. When $\tau(t)$ is additionally continuous and strictly monotone, it can also be interpreted as a time reparameterization together with the scalar rescaling $c(t)$.
 
-**Equivalence with Trigonometric Flow.** Another widely used affine flow is the trigonometric interpolation ([Salimans and Ho, 2021](references.md#ref-salimans2021progressive); [Albergo et al., 2023](references.md#ref-albergo2023stochastic); [Lu and Song, 2024](references.md#ref-lu2024simplifying)). As a concrete example, we also show that *any* affine flow can be expressed in this form. The trigonometric path is defined by
+**Equivalence with Trigonometric Flow.** Another widely used affine flow is the trigonometric interpolation ([Salimans and Ho, 2021](../../references.md#ref-salimans2021progressive); [Albergo et al., 2023](../../references.md#ref-albergo2023stochastic); [Lu and Song, 2024](../../references.md#ref-lu2024simplifying)). As a concrete example, we also show that *any* affine flow can be expressed in this form. The trigonometric path is defined by
 
 <span id="eq-trig-para"></span>
 
@@ -560,7 +560,7 @@ L(t)
 {\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^{\times}}({\mathbf{x}},t).
 $$
 
-This form is useful for numerical integration because the known linear term can be handled analytically while the network-dependent term is approximated numerically. Exponential-integrator-based diffusion solvers such as DPM-Solver ([Lu et al., 2022](references.md#ref-lu2022dpm)) exploit precisely this structure. We develop this solver viewpoint in detail in [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers).
+This form is useful for numerical integration because the known linear term can be handled analytically while the network-dependent term is approximated numerically. Exponential-integrator-based diffusion solvers such as DPM-Solver ([Lu et al., 2022](../../references.md#ref-lu2022dpm)) exploit precisely this structure. We develop this solver viewpoint in detail in [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers).
 
 **PF-ODE under ${\mathbf{v}}$-Prediction.** With ${\mathbf{v}}$-prediction, the PF-ODE takes the direct and simple form
 

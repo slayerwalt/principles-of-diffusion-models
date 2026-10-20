@@ -18,7 +18,7 @@ In this chapter, we provide essential prerequisites on differential equations.
 
 **Reader route.** This appendix provides the differential-equation background used throughout the book. Focus on the connection between dynamics, trajectories, and numerical approximation; the later diffusion chapters will specialize these ideas to probability-flow ODEs and stochastic diffusion processes.
 
-Continue with the sections below and the [appendix references](references.md#appendix-a-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [A.1 Foundation of Ordinary Differential Equations](01-ordinary-differential-equations.md#app-ode-intro)
 

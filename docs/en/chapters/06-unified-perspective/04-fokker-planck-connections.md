@@ -121,7 +121,7 @@ $$
 -\nabla\cdot({\mathbf{v}}^*p_t),
 $$
 
-i.e., the first-order continuity equation associated with the PF-ODE. Hence the reverse-time SDE and the ODE induce the same marginal density path $\{p_t\}$. See Appendix A.2–A.3 of [Ma et al. (2024)](references.md#ref-ma2024sit).
+i.e., the first-order continuity equation associated with the PF-ODE. Hence the reverse-time SDE and the ODE induce the same marginal density path $\{p_t\}$. See Appendix A.2–A.3 of [Ma et al. (2024)](../../references.md#ref-ma2024sit).
 
 At the oracle level of [Proposition 6.4.1](04-fokker-planck-connections.md#rev-sde-interpolant), $\gamma(t)$ can be chosen arbitrarily without changing the prescribed marginal density path: the $\gamma$-dependent drift and diffusion terms cancel exactly in the Fokker–Planck equation. Some representative choices are:
 
@@ -133,7 +133,7 @@ At the oracle level of [Proposition 6.4.1](04-fokker-planck-connections.md#rev-s
     {\mathbf{v}}^*({\mathbf{x}}, t) = f(t){\mathbf{x}} - \tfrac{1}{2}g^2(t){\mathbf{s}}^*({\mathbf{x}}, t).
     $$
 
--   Other choices for $\gamma(t)$ have been explored; e.g., [Ma et al. (2024)](references.md#ref-ma2024sit) select $\gamma(t)$ to minimize the KL gap between $p_{\mathrm{data}}$ and the $t=0$ density obtained by solving [Equation (6.4.2)](04-fokker-planck-connections.md#eq-general-reverse-sde) from $t=T$.
+-   Other choices for $\gamma(t)$ have been explored; e.g., [Ma et al. (2024)](../../references.md#ref-ma2024sit) select $\gamma(t)$ to minimize the KL gap between $p_{\mathrm{data}}$ and the $t=0$ density obtained by solving [Equation (6.4.2)](04-fokker-planck-connections.md#eq-general-reverse-sde) from $t=T$.
 
 Following Score SDE, the trained velocity field ${\mathbf{v}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}, t)$ can be converted into a parameterized score function ${\mathbf{s}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}, t)$ via [Equation (6.4.3)](04-fokker-planck-connections.md#eq-score-velocity). Plugging this into [Equation (6.4.2)](04-fokker-planck-connections.md#eq-general-reverse-sde) defines an *empirical reverse-time SDE*, which can be sampled by numerically integrating from $t=T$ with $\bar{\mathbf{x}}(T) \sim p_{\mathrm{prior}}$.
 

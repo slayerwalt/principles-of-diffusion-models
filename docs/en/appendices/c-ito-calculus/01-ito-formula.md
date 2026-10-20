@@ -101,7 +101,7 @@ $$
 
 where $w_t$ is standard Brownian motion. We aim to compute the differential of a scalar-valued function $h(x_t, t)$.
 
-Using the stochastic Taylor expansion ([Kloeden et al., 1992](references.md#ref-kloeden1992stochastic)), which retains second-order terms in $\mathop{}\!\mathrm{d} x_t$, we have:
+Using the stochastic Taylor expansion ([Kloeden et al., 1992](../../references.md#ref-kloeden1992stochastic)), which retains second-order terms in $\mathop{}\!\mathrm{d} x_t$, we have:
 
 $$
 \begin{aligned}

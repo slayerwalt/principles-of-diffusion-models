@@ -233,11 +233,11 @@ p({\mathbf{x}}_s|{\mathbf{x}}_t) = \mathcal{N}\left({\mathbf{x}}_s; \alpha_{s|t}
 \tag{4.5.5}
 $$
 
-The reverse kernel then follows from Bayes’ rule, and since all involved distributions are Gaussian, the result can be derived by direct computation. For further details, see Appendix A of ([Kingma et al., 2021](references.md#ref-kingma2021variational)).
+The reverse kernel then follows from Bayes’ rule, and since all involved distributions are Gaussian, the result can be derived by direct computation. For further details, see Appendix A of ([Kingma et al., 2021](../../references.md#ref-kingma2021variational)).
 
-Although $p({\mathbf{x}}_{t + \Delta t}|{\mathbf{x}}_t)$ and $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ are theoretically equivalent, $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ often takes a more central role. The step-wise transition in [Equation (4.5.5)](05-accumulated-perturbation-kernels.md#eq-zt-given-zs) mainly serves to obtain a closed-form reverse kernel. Recent works ([Kingma et al., 2021](references.md#ref-kingma2021variational)) thus favor directly specifying $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ for its clarity and interpretability.
+Although $p({\mathbf{x}}_{t + \Delta t}|{\mathbf{x}}_t)$ and $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ are theoretically equivalent, $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ often takes a more central role. The step-wise transition in [Equation (4.5.5)](05-accumulated-perturbation-kernels.md#eq-zt-given-zs) mainly serves to obtain a closed-form reverse kernel. Recent works ([Kingma et al., 2021](../../references.md#ref-kingma2021variational)) thus favor directly specifying $p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ for its clarity and interpretability.
 
-**Reverse Process Modeling, Training, and Sampling.** The training objective (ELBO in [Equation (2.2.13)](../02-variational-perspective/02-ddpm.md#eq-ddpm-elbo)) and the modeling framework introduced in [Section 2.2](../02-variational-perspective/02-ddpm.md#sec-ddpm) remain applicable under our generalized setting. For clarity, we adopt the ${\mathbf{x}}$-prediction formulation, denoted by ${\mathbf{x}}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s)$, following [Kingma et al. (2021)](references.md#ref-kingma2021variational). However, the equivalent ${\boldsymbol{\epsilon}}$-prediction perspective, represented by $\boldsymbol{\epsilon}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s)$, is also valid due to the relationship (as in [Equation (2.2.12)](../02-variational-perspective/02-ddpm.md#eq-ddpm-clean-noise))
+**Reverse Process Modeling, Training, and Sampling.** The training objective (ELBO in [Equation (2.2.13)](../02-variational-perspective/02-ddpm.md#eq-ddpm-elbo)) and the modeling framework introduced in [Section 2.2](../02-variational-perspective/02-ddpm.md#sec-ddpm) remain applicable under our generalized setting. For clarity, we adopt the ${\mathbf{x}}$-prediction formulation, denoted by ${\mathbf{x}}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s)$, following [Kingma et al. (2021)](../../references.md#ref-kingma2021variational). However, the equivalent ${\boldsymbol{\epsilon}}$-prediction perspective, represented by $\boldsymbol{\epsilon}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s)$, is also valid due to the relationship (as in [Equation (2.2.12)](../02-variational-perspective/02-ddpm.md#eq-ddpm-clean-noise))
 
 $$
 {\mathbf{x}}_s = \alpha_s {\mathbf{x}}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s) + \sigma_s \boldsymbol{\epsilon}_{\boldsymbol{\phi}}({\mathbf{x}}_s, s),\quad \text{for any given } {\mathbf{x}}_s \sim q_s.
@@ -277,7 +277,7 @@ where ${\mathbf{x}}_s = \alpha_s{\mathbf{x}}_0 + \sigma_s\boldsymbol{\epsilon}$,
 
 **Remark.**
 
-In ([Kingma et al., 2021](references.md#ref-kingma2021variational)), the authors study the continuous-time limit of [Equation (4.5.7)](05-accumulated-perturbation-kernels.md#eq-snr-kl) as $t \to s$, yielding:
+In ([Kingma et al., 2021](../../references.md#ref-kingma2021variational)), the authors study the continuous-time limit of [Equation (4.5.7)](05-accumulated-perturbation-kernels.md#eq-snr-kl) as $t \to s$, yielding:
 
 $$
 \begin{aligned}

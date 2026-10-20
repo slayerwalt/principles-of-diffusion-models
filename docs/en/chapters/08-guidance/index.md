@@ -20,7 +20,7 @@ This chapter builds on a principled view of the conditional score, which decompo
 
 **Reader route.** The chapter assumes the Score SDE/PF-ODE picture from [Chapter 4](../04-score-sde-framework/index.md#ch-score-sde) and [Chapter 6](../06-unified-perspective/index.md#ch-unified-perspective). Readers interested primarily in controllable generation may treat the later preference-alignment material as a second pass.
 
-Continue with the sections below and the [chapter references](references.md#chapter-08-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [8.1 Prologue](01-prologue.md#sec-prologue-guidance)
 

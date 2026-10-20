@@ -6,7 +6,7 @@ The generation process of a diffusion model, which maps noise to data samples, c
 
 -   **Training-Based Approaches:** Covered in [Chapter 10](../10-distillation/index.md#ch-distillation) and [Chapter 11](../11-fast-generators/index.md#ch-fast-scratch). These techniques either distill a pre-trained diffusion model into a fast generator, or directly learn the ODE flow map (solution) so that only a few sampling steps are required.
 
-SDE-based samplers (e.g., Euler–Maruyama) may yield more diverse samples due to stochasticity but typically require more steps ([Xu et al., 2023](references.md#ref-xu2023restart)). Here we focus on ODE-based generation, whose principles extend naturally to the SDE setting.
+SDE-based samplers (e.g., Euler–Maruyama) may yield more diverse samples due to stochasticity but typically require more steps ([Xu et al., 2023](../../references.md#ref-xu2023restart)). Here we focus on ODE-based generation, whose principles extend naturally to the SDE setting.
 
 **After this chapter, you will be able to...**
 
@@ -20,7 +20,7 @@ SDE-based samplers (e.g., Euler–Maruyama) may yield more diverse samples due t
 
 **Reader route.** Readers unfamiliar with differential equations or numerical solvers may first refer to [Appendix A](../../appendices/a-differential-equations/index.md#app-de). Throughout this chapter, keep one question in mind: what does each solver integrate exactly, and what does it approximate numerically?
 
-Continue with the sections below and the [chapter references](references.md#chapter-09-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [9.1 Prologue](01-prologue.md#sec-prologue-solvers)
 

@@ -20,4 +20,4 @@ Building on this pattern, hierarchical variants (Hierarchical VAEs) stack severa
 
 <span id="sec-vae"></span>
 
-Continue with [2.1 Variational Autoencoder](01-variational-autoencoder.md#sec-vae), [2.2 Variational Perspective: DDPM](02-ddpm.md#sec-ddpm), and [2.3 Closing Remarks](03-closing-remarks.md#sec-ch2-cr). See also the [chapter references](references.md#chapter-02-references).
+Continue with [2.1 Variational Autoencoder](01-variational-autoencoder.md#sec-vae), [2.2 Variational Perspective: DDPM](02-ddpm.md#sec-ddpm), and [2.3 Closing Remarks](03-closing-remarks.md#sec-ch2-cr). See also the [references](../../references.md#references).

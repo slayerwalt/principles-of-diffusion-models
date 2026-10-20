@@ -43,7 +43,7 @@ $$
 {\mathbf{s}}_{\boldsymbol{\phi}} = \left( s_{\boldsymbol{\phi}}^{(1)}, s_{\boldsymbol{\phi}}^{(2)}, \dots, s_{\boldsymbol{\phi}}^{(D)} \right).
 $$
 
-**Integration by Parts.** We use the following integration-by-parts formula ([Evans, 2010](references.md#ref-evans10)), which is derived from standard calculus:
+**Integration by Parts.** We use the following integration-by-parts formula ([Evans, 2010](../../references.md#ref-evans10)), which is derived from standard calculus:
 
 Let $u, v$ be differentiable real-valued functions on a ball $\mathbb{B}(\boldsymbol{0}, R) \subset \mathbb{R}^D$ of radius $R>0$. Then for $i = 1, \ldots, D$, the formula holds:
 

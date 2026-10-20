@@ -1,6 +1,6 @@
 # 3. Score-Based Perspective: From EBMs to NCSN {#ch-score-based}
 
-In the previous chapters we traced diffusion models to their variational roots and showed how they arise within the framework of VAEs. We now turn to a second, equally fundamental viewpoint: *Energy-Based Models* (EBMs) ([Ackley et al., 1985](references.md#ref-ackley1985learning); [LeCun et al., 2006](references.md#ref-lecun2006tutorial)). An EBM represents a distribution by an energy landscape that is low on data and high elsewhere. Sampling typically relies on Langevin dynamics, which moves samples toward high density regions by following the gradient of this landscape. This gradient field, known as the *score*, points toward directions of higher probability.
+In the previous chapters we traced diffusion models to their variational roots and showed how they arise within the framework of VAEs. We now turn to a second, equally fundamental viewpoint: *Energy-Based Models* (EBMs) ([Ackley et al., 1985](../../references.md#ref-ackley1985learning); [LeCun et al., 2006](../../references.md#ref-lecun2006tutorial)). An EBM represents a distribution by an energy landscape that is low on data and high elsewhere. Sampling typically relies on Langevin dynamics, which moves samples toward high density regions by following the gradient of this landscape. This gradient field, known as the *score*, points toward directions of higher probability.
 
 The central observation is that knowing the score is enough for generation: it moves samples toward likely regions without computing the intractable normalization constant. *Score-based* diffusion models build directly on this idea. Instead of focusing only on the clean data distribution, they consider a sequence of Gaussian noise–perturbed distributions whose scores are easier to approximate. Learning these scores yields a family of vector fields that guide noisy samples step by step back to data, turning generation into progressive denoising.
 
@@ -14,7 +14,7 @@ The central observation is that knowing the score is enough for generation: it m
 
 **Reader route.** Readers already familiar with energy-based models may skim [Section 3.1](01-energy-based-models.md#sec-ebm) and begin with [Section 3.2.1](02-score-based-models.md#subsec-training-sm).
 
-Continue with the sections below and the [chapter references](references.md#chapter-03-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 <span id="sec-ebm"></span>
 

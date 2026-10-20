@@ -20,7 +20,7 @@ With these tools, the standard diffusion model derivations (Fokker–Planck, rev
 
 **Reader route.** This appendix develops some of the mathematical tools that operate behind the scenes of diffusion models. Itô calculus makes stochastic differentiation precise, while Girsanov’s theorem explains how changing the drift changes the probability of entire stochastic paths. These tools underlie several standard diffusion-model derivations that are often used without being shown explicitly.
 
-Continue with the sections below and the [appendix references](references.md#appendix-c-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [C.1 Itô’s Formula: The Chain Rule for Random Processes](01-ito-formula.md#sec-ito-formula)
 

@@ -1,10 +1,10 @@
 # 8.5 From Reinforcement Learning to Direct Preference Optimization for Model Alignment {#sec-rlhf-dpo}
 
-In the pursuit of aligning generative models with human intent, the prevailing paradigm has been Reinforcement Learning from Human Feedback (RLHF). While effective, RLHF is a complex, multi-stage process that can be unstable. This section introduces *Direct Preference Optimization (DPO)* ([Rafailov et al., 2023](references.md#ref-rafailov2023direct)), a more streamlined and stable method that reaches the same goal without explicit reward modeling or reinforcement learning. We then outline its extension to diffusion models via *Diffusion-DPO* ([Wallace et al., 2024](references.md#ref-wallace2024diffusion)).
+In the pursuit of aligning generative models with human intent, the prevailing paradigm has been Reinforcement Learning from Human Feedback (RLHF). While effective, RLHF is a complex, multi-stage process that can be unstable. This section introduces *Direct Preference Optimization (DPO)* ([Rafailov et al., 2023](../../references.md#ref-rafailov2023direct)), a more streamlined and stable method that reaches the same goal without explicit reward modeling or reinforcement learning. We then outline its extension to diffusion models via *Diffusion-DPO* ([Wallace et al., 2024](../../references.md#ref-wallace2024diffusion)).
 
 ## 8.5.1 The Motivation: Circumventing the Pitfalls of RLHF {#motivation-rlhf}
 
-The goal of alignment is to steer a base, pre-trained model (e.g., an SFT model) toward outputs that humans prefer. RLHF proceeds in three stages. First, *supervised fine-tuning (SFT)* trains a base model on prompt–response pairs. Second, *reward modeling (RM)* fits a model on preference data consisting of prompts $\mathbf{c}$ and paired responses (a preferred “winner” $\mathbf{x}_w$ and a dispreferred “loser” $\mathbf{x}_l$), learning a scalar $r(\mathbf{c},\mathbf{x})$ with $r(\mathbf{c},\mathbf{x}_w)>r(\mathbf{c},\mathbf{x}_l)$. Third, *RL fine-tuning* optimizes the SFT model (policy $\pi$[^1]) with an algorithm such as PPO ([Schulman et al., 2017](references.md#ref-schulman2017proximal)), maximizing expected reward from $r$ while regularizing by a KL penalty that keeps $\pi$ close to the reference/SFT distribution.
+The goal of alignment is to steer a base, pre-trained model (e.g., an SFT model) toward outputs that humans prefer. RLHF proceeds in three stages. First, *supervised fine-tuning (SFT)* trains a base model on prompt–response pairs. Second, *reward modeling (RM)* fits a model on preference data consisting of prompts $\mathbf{c}$ and paired responses (a preferred “winner” $\mathbf{x}_w$ and a dispreferred “loser” $\mathbf{x}_l$), learning a scalar $r(\mathbf{c},\mathbf{x})$ with $r(\mathbf{c},\mathbf{x}_w)>r(\mathbf{c},\mathbf{x}_l)$. Third, *RL fine-tuning* optimizes the SFT model (policy $\pi$[^1]) with an algorithm such as PPO ([Schulman et al., 2017](../../references.md#ref-schulman2017proximal)), maximizing expected reward from $r$ while regularizing by a KL penalty that keeps $\pi$ close to the reference/SFT distribution.
 
 Despite its impact, this pipeline suffers from drawbacks: the RL stage is unstable and computationally expensive because it is on-policy—each update requires freshly generated samples from the current model; it also requires training and hosting multiple large models (SFT, reward, and sometimes a value model); and it optimizes only a proxy for human preferences, so flaws in the reward model can be exploited. This motivates a central question:
 
@@ -56,7 +56,7 @@ p_{r_{\boldsymbol\psi}}(\tilde{\mathbf x}\succ \mathbf x|\mathbf c)
 := \sigma \big(r_{\boldsymbol\psi}(\mathbf c,\tilde{\mathbf x})-r_{\boldsymbol\psi}(\mathbf c,\mathbf x)\big)
 $$
 
-through the Bradley-Terry (BT) model ([Bradley and Terry, 1952](references.md#ref-bradley1952rank)), which converts two scalar scores into a win probability. This formulation highlights two key properties: (i) only the *difference* of scores matters (so $r_{\boldsymbol\psi}(\mathbf c,\cdot)$ is shift-invariant), and (ii) the loss pushes the predicted winner’s score above the loser’s score. To see (ii) intuitively, consider one pair with label $y\in\{0,1\}$ and define
+through the Bradley-Terry (BT) model ([Bradley and Terry, 1952](../../references.md#ref-bradley1952rank)), which converts two scalar scores into a win probability. This formulation highlights two key properties: (i) only the *difference* of scores matters (so $r_{\boldsymbol\psi}(\mathbf c,\cdot)$ is shift-invariant), and (ii) the loss pushes the predicted winner’s score above the loser’s score. To see (ii) intuitively, consider one pair with label $y\in\{0,1\}$ and define
 
 $$
 \Delta r := r_{\boldsymbol\psi}(\mathbf c,\tilde{\mathbf x})-r_{\boldsymbol\psi}(\mathbf c,\mathbf x),
@@ -131,7 +131,7 @@ In summary, RLHF proceeds in two stages: first fit the reward $r^*$ by minimizin
 
 ## 8.5.3 DPO Framework {#subsec-dpo}
 
-**The Bridge from RLHF.** The KL-regularized policy objective in [Equation (8.5.4)](05-preference-alignment.md#eq-rlhf-policy-correct) has a simple closed-form solution for each prompt $\mathbf c$, given the fitted reward $r := r_{\boldsymbol\psi^\times}$, expressed in the following energy-based form ([Peters et al., 2010](references.md#ref-peters2010relative)):
+**The Bridge from RLHF.** The KL-regularized policy objective in [Equation (8.5.4)](05-preference-alignment.md#eq-rlhf-policy-correct) has a simple closed-form solution for each prompt $\mathbf c$, given the fitted reward $r := r_{\boldsymbol\psi^\times}$, expressed in the following energy-based form ([Peters et al., 2010](../../references.md#ref-peters2010relative)):
 
 <span id="eq-rlhf-closed-form"></span>
 

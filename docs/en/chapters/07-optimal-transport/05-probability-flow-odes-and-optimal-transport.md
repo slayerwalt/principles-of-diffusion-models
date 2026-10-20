@@ -4,9 +4,9 @@ In this section, we focus on quadratic-cost optimal transport problem.
 
 ## 7.5.1 PF-ODE Flow Is Generally Not Optimal Transport {#subsec-pfode-not-optimal}
 
-A natural question is whether the deterministic flow map induced by a diffusion process coincides with the optimal transport map under quadratic cost. The answer is no in general, and explicit counterexamples are already available in Gaussian settings. In particular, [Tanana (2017)](references.md#ref-tanana2017comparison) showed that, for a diffusion flow with a more general Gaussian reference, the resulting deterministic transport map can differ from the Brenier optimal transport map even when the endpoint distributions are Gaussian. Since both maps are explicit in this setting, their difference can be verified directly.
+A natural question is whether the deterministic flow map induced by a diffusion process coincides with the optimal transport map under quadratic cost. The answer is no in general, and explicit counterexamples are already available in Gaussian settings. In particular, [Tanana (2017)](../../references.md#ref-tanana2017comparison) showed that, for a diffusion flow with a more general Gaussian reference, the resulting deterministic transport map can differ from the Brenier optimal transport map even when the endpoint distributions are Gaussian. Since both maps are explicit in this setting, their difference can be verified directly.
 
-Below we present the stronger construction of [Lavenant and Santambrogio (2022)](references.md#ref-lavenant2022flow) in the standard-Gaussian Ornstein–Uhlenbeck setting that is directly relevant to diffusion models. Their argument establishes non-optimality for a broader class of initial distributions and provides structural insight into why the corresponding PF-ODE flow map need not be an optimal transport map.
+Below we present the stronger construction of [Lavenant and Santambrogio (2022)](../../references.md#ref-lavenant2022flow) in the standard-Gaussian Ornstein–Uhlenbeck setting that is directly relevant to diffusion models. Their argument establishes non-optimality for a broader class of initial distributions and provides structural insight into why the corresponding PF-ODE flow map need not be an optimal transport map.
 
 <span id="fig-pfode-vs-ot-2d"></span>
 
@@ -60,9 +60,9 @@ $$
 \mathbf{S}_\infty \# p_0 = \mathcal{N}(\boldsymbol{0}, {\mathbf{I}}) =: p_{\text{prior}}.
 $$
 
-**Objective of [Lavenant and Santambrogio (2022)](references.md#ref-lavenant2022flow)’s Argument.**
+**Objective of [Lavenant and Santambrogio (2022)](../../references.md#ref-lavenant2022flow)’s Argument.**
 
-[Lavenant and Santambrogio (2022)](references.md#ref-lavenant2022flow) do not directly assess whether the terminal map $\mathbf{S}_\infty$ from $p_0$ to the Gaussian is optimal. Instead, they construct a specific initial distribution $p_0$ and examine the entire PF-ODE trajectory. Their key observation is that optimality may fail at some point along the flow.
+[Lavenant and Santambrogio (2022)](../../references.md#ref-lavenant2022flow) do not directly assess whether the terminal map $\mathbf{S}_\infty$ from $p_0$ to the Gaussian is optimal. Instead, they construct a specific initial distribution $p_0$ and examine the entire PF-ODE trajectory. Their key observation is that optimality may fail at some point along the flow.
 
 They consider the intermediate marginal $p_t = \mathbf{S}_t \# p_0$ and define the residual transport map from $p_{t_0}$ to the Gaussian as
 
@@ -74,7 +74,7 @@ The core of their argument shows that, for a carefully chosen $p_0$, there exist
 
 This result demonstrates that PF-ODE flows do not, in general, yield optimal transport maps, and that the property of optimality can break down for certain initial distributions.
 
-**Some Tools.** The argument of [Lavenant and Santambrogio (2022)](references.md#ref-lavenant2022flow) crucially relies on the following result, known as *Brenier’s theorem*:
+**Some Tools.** The argument of [Lavenant and Santambrogio (2022)](../../references.md#ref-lavenant2022flow) crucially relies on the following result, known as *Brenier’s theorem*:
 
 <span id="thm-brenier"></span>
 
@@ -88,7 +88,7 @@ $$
 
 The proof also implicitly uses the following fact, which we will not repeat each time: *a map is the optimal transport between two distributions if and only if its inverse is the optimal transport in the reverse direction*.
 
-**Proof Sketch: PF-ODE Is Not an OT Map in General.** [Lavenant and Santambrogio (2022)](references.md#ref-lavenant2022flow) employ a proof by contradiction: they assume that for every $t\ge0$, the map
+**Proof Sketch: PF-ODE Is Not an OT Map in General.** [Lavenant and Santambrogio (2022)](../../references.md#ref-lavenant2022flow) employ a proof by contradiction: they assume that for every $t\ge0$, the map
 
 $$
 \mathbf{T}_t  =  \mathbf{S}_t \circ \mathbf{S}_\infty^{-1}
@@ -224,7 +224,7 @@ $$
 
 Unlike the static Monge formulation ([Equation (7.2.2)](02-transport-problem-setups.md#eq-monge-formulation)), where computing the optimal map requires solving the Monge–Ampère equation ([Equation (7.2.4)](02-transport-problem-setups.md#eq-monge-ampere)), the Benamou–Brenier problem admits a convex reformulation after introducing the momentum field ${\mathbf{m}}_t := p_t {\mathbf{v}}_t$. Nevertheless, discretizing this convex problem on a grid in $\mathbb{R}^D$ remains intractable in high dimensions.
 
-While solving the Benamou-Brenier formulation is generally intractable, [Liu (2022)](references.md#ref-liu2022rectified) and [Lipman et al. (2024)](references.md#ref-lipman2024flow) reveal that its kinetic energy admits a practical upper bound. This is achieved by restricting the search to a simpler family of *conditional flows*, where each path is defined by its fixed endpoints $({\mathbf{x}}_0, {\mathbf{x}}_1)$ drawn from a coupling $\pi_{0,1}$ of the source and target distributions. Within this *conditional flow* family, the canonical linear interpolation emerges as the optimal choice, as formalized below.
+While solving the Benamou-Brenier formulation is generally intractable, [Liu (2022)](../../references.md#ref-liu2022rectified) and [Lipman et al. (2024)](../../references.md#ref-lipman2024flow) reveal that its kinetic energy admits a practical upper bound. This is achieved by restricting the search to a simpler family of *conditional flows*, where each path is defined by its fixed endpoints $({\mathbf{x}}_0, {\mathbf{x}}_1)$ drawn from a coupling $\pi_{0,1}$ of the source and target distributions. Within this *conditional flow* family, the canonical linear interpolation emerges as the optimal choice, as formalized below.
 
 <span id="ot-conditional-flow"></span>
 
@@ -252,7 +252,7 @@ Let $\pi_{0,1}$ be any coupling between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}
 
 **Proof for Proposition.**
 
-The proof relies on a straightforward application of Jensen’s inequality and the tower property of conditional expectations, before solving the simplified variational problem with the Euler-Lagrange equation; we refer to ([Lipman et al., 2024](references.md#ref-lipman2024flow))’s Section 4.7 for the complete argument.
+The proof relies on a straightforward application of Jensen’s inequality and the tower property of conditional expectations, before solving the simplified variational problem with the Euler-Lagrange equation; we refer to ([Lipman et al., 2024](../../references.md#ref-lipman2024flow))’s Section 4.7 for the complete argument.
 
 In other words, the linear interpolation $\boldsymbol{\Psi}^*_t$ (i.e., the forward kernel used by Flow Matching and Rectified Flow) minimizes an upper bound on the true kinetic energy for any chosen coupling $\pi_{0,1}$.
 
@@ -260,7 +260,7 @@ We emphasize that optimality within this class of conditional flows does not gua
 
 **Reflow and Optimal Transport.** The most naive transport plan between two distributions is to connect their samples with straight lines using a simple independent coupling. However, this approach is demonstrably not optimal, as the failure lies not in the straight-line paths themselves, but in the inefficient initial pairing of points.
 
-The Reflow procedure may offer a constructive response. It is an iterative algorithm designed specifically to correct this pairing, and crucially, each step is guaranteed to be cost-non-increasing ([Liu et al., 2022](references.md#ref-liu2022flow)). This property suggests Reflow systematically pushes the transport plan towards a more optimal configuration, which naturally motivates the central question of its convergence.
+The Reflow procedure may offer a constructive response. It is an iterative algorithm designed specifically to correct this pairing, and crucially, each step is guaranteed to be cost-non-increasing ([Liu et al., 2022](../../references.md#ref-liu2022flow)). This property suggests Reflow systematically pushes the transport plan towards a more optimal configuration, which naturally motivates the central question of its convergence.
 
 <span id="question-7-5-2"></span>
 
@@ -288,9 +288,9 @@ $$
 
 where $\boldsymbol{\Psi}_1^{(k)}$ denotes the solution map at time $t=1$ obtained by integrating ${\mathbf{v}}_t^{(k)}$ from initial condition ${\mathbf{x}}_0$.
 
-It has been observed in ([Liu et al., 2022](references.md#ref-liu2022flow)) that for a coupling $\pi$ between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$, the existence of a velocity field ${\mathbf{v}}_t$ that minimizes the Reflow loss, that is, satisfies $\mathcal{L}({\mathbf{v}}_t |\pi) = 0$, does not necessarily imply that the transport is optimal.
+It has been observed in ([Liu et al., 2022](../../references.md#ref-liu2022flow)) that for a coupling $\pi$ between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$, the existence of a velocity field ${\mathbf{v}}_t$ that minimizes the Reflow loss, that is, satisfies $\mathcal{L}({\mathbf{v}}_t |\pi) = 0$, does not necessarily imply that the transport is optimal.
 
-Motivated by the Benamou–Brenier framework, where the optimal transport velocity is known to be the gradient of a potential function, [Liu (2022)](references.md#ref-liu2022rectified) proposed an additional constraint: the velocity field ${\mathbf{v}}_t$ should be a potential field. Accordingly, the objective in [Equation (5.4.1)](../05-flow-based-perspective/04-canonical-affine-flow.md#eq-reflow-loss) is modified to restrict ${\mathbf{v}}_t$ to the space of gradient vector fields, also known as potential flows:
+Motivated by the Benamou–Brenier framework, where the optimal transport velocity is known to be the gradient of a potential function, [Liu (2022)](../../references.md#ref-liu2022rectified) proposed an additional constraint: the velocity field ${\mathbf{v}}_t$ should be a potential field. Accordingly, the objective in [Equation (5.4.1)](../05-flow-based-perspective/04-canonical-affine-flow.md#eq-reflow-loss) is modified to restrict ${\mathbf{v}}_t$ to the space of gradient vector fields, also known as potential flows:
 
 <span id="eq-reflow-loss-gradient"></span>
 
@@ -303,7 +303,7 @@ $$
 
 with the rest of the procedure remaining the same as in `Rectify`. We denote this associated operator as $\texttt{Rectify}_{\perp}$, emphasizing the projection onto irrotational vector fields.
 
-Let $\pi$ be a coupling between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$. [Liu et al. (2022)](references.md#ref-liu2022flow) conjecture the following equivalence characterizing optimality:
+Let $\pi$ be a coupling between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$. [Liu et al. (2022)](../../references.md#ref-liu2022flow) conjecture the following equivalence characterizing optimality:
 
 -   **(i)** $\pi$ *is an optimal transport coupling.*
 
@@ -319,7 +319,7 @@ Let $\pi$ be a coupling between $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$. [Liu 
     \mathcal{L}({\mathbf{v}}_t |\pi) = 0.
     $$
 
-However, [Hertrich et al. (2025)](references.md#ref-hertrich2025relation) exhibit two types of counterexamples:
+However, [Hertrich et al. (2025)](../../references.md#ref-hertrich2025relation) exhibit two types of counterexamples:
 
 1.  When the intermediate distributions $p_t$ have disconnected support, one can find fixed points of $\texttt{Rectify}_{\perp}$ with zero Reflow loss and gradient velocity fields that nonetheless fail to produce the optimal coupling.
 

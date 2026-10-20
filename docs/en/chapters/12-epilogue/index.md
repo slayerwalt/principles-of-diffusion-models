@@ -18,7 +18,7 @@ Every chapter of this book has been about the same thing: how probability mass m
 
 **Reader route.** This chapter is an epilogue rather than a new method chapter. Read it as a synthesis: focus on which principles remain unchanged, and which mathematical objects must change, when moving from continuous to discrete state spaces.
 
-Continue with the sections below and the [chapter references](references.md#chapter-12-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [12.1 The Density-Transport Backbone](01-density-transport-backbone.md#sec-epilogue-backbone)
 

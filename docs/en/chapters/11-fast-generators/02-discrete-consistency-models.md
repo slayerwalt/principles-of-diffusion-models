@@ -161,7 +161,7 @@ $$
 
 This objective enforces that every noisy sample ${\mathbf{x}}_s$ is mapped back to its clean endpoint ${\boldsymbol{\Psi}}_{s\to 0}({\mathbf{x}}_s)$.
 
-The challenge is that the oracle map ${\boldsymbol{\Psi}}_{s\to 0}({\mathbf{x}}_s)$ is not available in practice. To overcome this, [Song et al. (2023)](references.md#ref-song2023consistency) exploit the *semigroup property*: any noisy state and its consecutive step along the same PF-ODE trajectory must map to the same clean endpoint. Concretely, the oracle target is replaced by a *stop-gradient* target taken from a slightly earlier point on the trajectory:
+The challenge is that the oracle map ${\boldsymbol{\Psi}}_{s\to 0}({\mathbf{x}}_s)$ is not available in practice. To overcome this, [Song et al. (2023)](../../references.md#ref-song2023consistency) exploit the *semigroup property*: any noisy state and its consecutive step along the same PF-ODE trajectory must map to the same clean endpoint. Concretely, the oracle target is replaced by a *stop-gradient* target taken from a slightly earlier point on the trajectory:
 
 $$
 \begin{aligned}
@@ -328,7 +328,7 @@ the linear Taylor term vanishes after conditioning on ${\mathbf{x}}_s$. Under th
 
 In summary, CD leverages a teacher model for initialization and supervision, which often stabilizes optimization and reduces variance. In contrast, Consistency Training (CT) requires no pre-trained model and can therefore be trained entirely from scratch. Despite this difference, CT serves as a fully standalone generative model.
 
-**Practical Considerations.** In practice, [Song et al. (2023)](references.md#ref-song2023consistency) adopt the EDM formulation of [Karras et al. (2022)](references.md#ref-karras2022elucidating) (see [Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)) with the forward corruption kernel ${\mathbf{x}}_s = {\mathbf{x}}_0 + s \boldsymbol{\epsilon}$, and use the neural network parameterization proposed therein (cf. [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization)):
+**Practical Considerations.** In practice, [Song et al. (2023)](../../references.md#ref-song2023consistency) adopt the EDM formulation of [Karras et al. (2022)](../../references.md#ref-karras2022elucidating) (see [Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)) with the forward corruption kernel ${\mathbf{x}}_s = {\mathbf{x}}_0 + s \boldsymbol{\epsilon}$, and use the neural network parameterization proposed therein (cf. [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization)):
 
 $$
 {\mathbf{f}}_{\boldsymbol{\theta}}({\mathbf{x}}, s)
@@ -486,7 +486,7 @@ ${\mathbf{x}} \leftarrow {\mathbf{f}}_{\boldsymbol{\theta}^\times}(\hat{{\mathbf
     {\mathbb{E}}[{\mathbf{f}}({\mathbf{x}}_t,t)|{\mathbf{x}}_s]={\mathbf{f}}({\mathbf{x}}_s,s),\quad\text{for all }\quad t\ge s.
     $$
 
-    This generalization was proposed/observed in ([Daras et al., 2023](references.md#ref-daras2023consistent); [Lai et al., 2023](references.md#ref-lai2023fp)), and the theoretical connections are summarized in ([Lai et al., 2023](references.md#ref-lai2023equivalence)).
+    This generalization was proposed/observed in ([Daras et al., 2023](../../references.md#ref-daras2023consistent); [Lai et al., 2023](../../references.md#ref-lai2023fp)), and the theoretical connections are summarized in ([Lai et al., 2023](../../references.md#ref-lai2023equivalence)).
 
 [^3]: The last identity follows directly from the forward corruption process ${\mathbf{x}}_s=\alpha_s {\mathbf{x}}_0+\sigma_s {\boldsymbol{\epsilon}}$ by elementary algebra.
 

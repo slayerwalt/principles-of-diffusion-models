@@ -2,7 +2,7 @@
 
 ## 9.1.1 Fast Sampling as Numerical Integration {#fast-sampling-as-numerical-integration}
 
-The Score SDE framework ([Song et al., 2020](references.md#ref-song2020score)) established a key foundation by linking discrete-time diffusion models and ELBO-based formulations ([Sohl-Dickstein et al., 2015](references.md#ref-sohl2015deep); [Ho et al., 2020](references.md#ref-ho2020denoising)) with continuous-time SDE/ODE generative modeling. This connection gives a clean way to think about sampling: after a diffusion model has been trained, generation can be viewed as solving a learned differential equation from noise back to data.
+The Score SDE framework ([Song et al., 2020](../../references.md#ref-song2020score)) established a key foundation by linking discrete-time diffusion models and ELBO-based formulations ([Sohl-Dickstein et al., 2015](../../references.md#ref-sohl2015deep); [Ho et al., 2020](../../references.md#ref-ho2020denoising)) with continuous-time SDE/ODE generative modeling. This connection gives a clean way to think about sampling: after a diffusion model has been trained, generation can be viewed as solving a learned differential equation from noise back to data.
 
 The practical difficulty is speed. A naive sampler follows this reverse-time trajectory with many small numerical steps, often requiring hundreds or thousands of neural network evaluations. Fast sampling asks whether we can approximate the same generation process with far fewer model calls.
 
@@ -139,7 +139,7 @@ This creates a useful opportunity. Rather than numerically approximating every p
 
 **I. Parameterizations Beyond the Score.** Although the PF-ODE can be written in score form, modern implementations often use noise prediction, clean-data prediction, or velocity prediction. These parameterizations are algebraically related, but they expose different numerical structures.
 
-There is also an important stability reason to avoid direct score prediction in many solvers. As $t\to 0$, the true score $\nabla_{{\mathbf{x}}}\log p_t(\cdot)$ can change very rapidly, especially when the data distribution is concentrated near a low-dimensional manifold ([Kim et al., 2022](references.md#ref-kim2022soft)). This makes it difficult for a neural network trained to approximate the score directly to remain accurate near small noise levels [^1].
+There is also an important stability reason to avoid direct score prediction in many solvers. As $t\to 0$, the true score $\nabla_{{\mathbf{x}}}\log p_t(\cdot)$ can change very rapidly, especially when the data distribution is concentrated near a low-dimensional manifold ([Kim et al., 2022](../../references.md#ref-kim2022soft)). This makes it difficult for a neural network trained to approximate the score directly to remain accurate near small noise levels [^1].
 
 For this reason, a widely used alternative is to predict the noise ${\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}$, or related targets such as clean-data prediction or velocity prediction. In the noise-prediction form, the score approximation is
 

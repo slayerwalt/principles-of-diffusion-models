@@ -1,6 +1,6 @@
 # D. Supplementary Materials and Proofs {#app-supplementary-proofs}
 
-Continue with the sections below and the [appendix references](references.md#chapter-D-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [D.1 Variational Perspective](01-variational-perspective.md#app-sec-var-proof)
 

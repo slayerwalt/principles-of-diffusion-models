@@ -14,7 +14,7 @@ This chapter introduces training-based approaches that accelerate diffusion mode
 
 [^1]: Here, distillation means reducing sampling steps rather than model size.
 
-Continue with the sections below and the [chapter references](references.md#chapter-10-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [10.1 Prologue](01-prologue.md#sec-distillation-prologue)
 

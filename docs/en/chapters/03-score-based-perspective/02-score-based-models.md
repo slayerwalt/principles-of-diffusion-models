@@ -31,7 +31,7 @@ $$
 \tag{3.2.1}
 $$
 
-**Tractable Score Matching.** At first glance, this objective seems infeasible because the true score ${\mathbf{s}}({\mathbf{x}})$, which serves as the regression target, is unknown. Fortunately, [Hyvärinen and Dayan (2005)](references.md#ref-hyvarinen2005estimation) showed that integration by parts yields an equivalent objective that depends only on the model ${\mathbf{s}}_{\boldsymbol{\phi}}$ and the data samples, without requiring access to the true score. We state this key result in the following proposition:
+**Tractable Score Matching.** At first glance, this objective seems infeasible because the true score ${\mathbf{s}}({\mathbf{x}})$, which serves as the regression target, is unknown. Fortunately, [Hyvärinen and Dayan (2005)](../../references.md#ref-hyvarinen2005estimation) showed that integration by parts yields an equivalent objective that depends only on the model ${\mathbf{s}}_{\boldsymbol{\phi}}$ and the data samples, without requiring access to the true score. We state this key result in the following proposition:
 
 <span id="sm-trace"></span>
 

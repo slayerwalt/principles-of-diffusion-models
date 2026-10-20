@@ -27,7 +27,7 @@ $$
 
 where $p_t({\mathbf{c}} | {\mathbf{x}}_t)$ indicates a probability of $\mathbf{c}$ conditioned on $\mathbf{x}_{t}$ which predicts the condition ${\mathbf{c}}$ from the noisy input ${\mathbf{x}}_t$ at time $t$.
 
-This decomposition[^2] motivates the *Classifier Guidance* (CG) approach proposed by [Dhariwal and Nichol (2021)](references.md#ref-dhariwal2021diffusion). To separate the population identity from the learned classifier used in practice, first consider the oracle quantities. For a guidance scale $\omega\geq0$, define at each fixed time $t$
+This decomposition[^2] motivates the *Classifier Guidance* (CG) approach proposed by [Dhariwal and Nichol (2021)](../../references.md#ref-dhariwal2021diffusion). To separate the population identity from the learned classifier used in practice, first consider the oracle quantities. For a guidance scale $\omega\geq0$, define at each fixed time $t$
 
 <span id="eq-cg-density-omega"></span>
 

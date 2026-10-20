@@ -59,7 +59,7 @@ $$
 \tag{5.3.2}
 $$
 
-For the defined Gaussian path $p_t$ (Gaussian for all $t$), the velocity field ${\mathbf{v}}_t(\cdot)$ inducing the ODE flow in [Equation (5.3.2)](03-probability-paths-and-velocities.md#eq-gaussian-sol-map) is uniquely and analytically characterized as follows ([Lipman et al., 2022](references.md#ref-lipman2022flow)):
+For the defined Gaussian path $p_t$ (Gaussian for all $t$), the velocity field ${\mathbf{v}}_t(\cdot)$ inducing the ODE flow in [Equation (5.3.2)](03-probability-paths-and-velocities.md#eq-gaussian-sol-map) is uniquely and analytically characterized as follows ([Lipman et al., 2022](../../references.md#ref-lipman2022flow)):
 
 <span id="closed-form-vf"></span>
 
@@ -152,7 +152,7 @@ $$
 p_t({\mathbf{x}}_t | {\mathbf{z}} = ({\mathbf{x}}_0, {\mathbf{x}}_1)) = \mathcal{N}({\mathbf{x}}_t; a_t{\mathbf{x}}_0 + b_t{\mathbf{x}}_1,  \sigma^2 {\mathbf{I}}),
 $$
 
-where $a_t$ and $b_t$ are time-dependent functions satisfying $a_0 = 1, b_0 = 0$ and $a_1 = 0, b_1 = 1$. A choice suggested by ([Lipman et al., 2022](references.md#ref-lipman2022flow); [Liu, 2022](references.md#ref-liu2022rectified)) is $a_t = 1-t$, $b_t = t$. In the deterministic case $\sigma = 0$, we obtain
+where $a_t$ and $b_t$ are time-dependent functions satisfying $a_0 = 1, b_0 = 0$ and $a_1 = 0, b_1 = 1$. A choice suggested by ([Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Liu, 2022](../../references.md#ref-liu2022rectified)) is $a_t = 1-t$, $b_t = t$. In the deterministic case $\sigma = 0$, we obtain
 
 $$
 p_t({\mathbf{x}}_t |{\mathbf{z}}) = \delta \big({\mathbf{x}}_t - [a_t{\mathbf{x}}_0 + b_t{\mathbf{x}}_1]\big),
@@ -252,7 +252,7 @@ $$
 
 By contrast, diffusion models typically index time from data to noise (i.e., $t=0$ is data and $t=1$ is prior). Here, we adopt the FM convention indexing in the main discussion. For comparison, however, the VE and VP entries in [Table 5.2](03-probability-paths-and-velocities.md#tb-interpolant-instances) are summarized in their usual diffusion-time indexing, where $t=0$ corresponds to data and $t=1$ to prior/noise. If further $p_{\mathrm{src}}=\mathcal N(\boldsymbol 0,{\mathbf{I}})$, then for fixed condition ${\mathbf{x}}_1\sim p_{\mathrm{data}}$, the conditional path $p_t(\cdot |{\mathbf{x}}_1)$ is naturally chosen to be Gaussian, while the target distribution $p_{\mathrm{tgt}}$ itself need not be Gaussian. We refer to this Gaussian conditional-path setting as *Gaussian FM*. Diffusion probability paths form an important subclass of such Gaussian paths. A generic Gaussian schedule, however, need not correspond to a valid forward diffusion SDE; the schedule must additionally satisfy the SDE compatibility condition in [Lemma 4.5.1](../04-score-sde-framework/05-accumulated-perturbation-kernels.md#forward-sde).
 
-Choosing $a_t = 1-t$ and $b_t = t$ (equivalently, $\alpha_t = t$ and $\sigma_t = 1-t$ under the relabeling $a_t:=\sigma_t$, $b_t:=\alpha_t$ in diffusion model) recovers the familiar FM/RF schedule ([Lipman et al., 2022](references.md#ref-lipman2022flow); [Liu, 2022](references.md#ref-liu2022rectified)).
+Choosing $a_t = 1-t$ and $b_t = t$ (equivalently, $\alpha_t = t$ and $\sigma_t = 1-t$ under the relabeling $a_t:=\sigma_t$, $b_t:=\alpha_t$ in diffusion model) recovers the familiar FM/RF schedule ([Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Liu, 2022](../../references.md#ref-liu2022rectified)).
 
 <span id="tb-interpolant-instances"></span>
 
@@ -283,7 +283,7 @@ Choosing $a_t = 1-t$ and $b_t = t$ (equivalently, $\alpha_t = t$ and $\sigma_t =
 </th>
 <th markdown="block">
 
-**Trig.** ([Albergo et al., 2023](references.md#ref-albergo2023stochastic))
+**Trig.** ([Albergo et al., 2023](../../references.md#ref-albergo2023stochastic))
 
 </th>
 </tr>
@@ -479,13 +479,13 @@ $\mathcal{N}(\boldsymbol{0},{\mathbf{I}})$
 </table>
 </div>
 
-In the Gaussian FM setting, both the beam-like and spotlight-like conditional paths lead to training objectives that are similar to the standard diffusion losses. As we will elaborate in [Chapter 6](../06-unified-perspective/index.md#ch-unified-perspective), Gaussian FM can in fact be equivalently interpreted as a diffusion model trained to predict the *velocity*, under the linear schedule $a_t = 1-t$ and $b_t = t$. This perspective highlights that flow matching and diffusion are not fundamentally different, but rather two equivalent formulations that can be transformed into one another. The Gaussian FM objective is particularly appealing in practice: its loss function (${\mathbb{E}}_{t,{\mathbf{x}}_t} \left[\left\lVert{\mathbf{v}}_{\boldsymbol{\phi}}({\mathbf{x}}_t, t) - ({\mathbf{x}}_1 - {\mathbf{x}}_0)\right\rVert_2^2\right]$) is simple, and it has been shown to achieve competitive performance at scale ([Esser et al., 2024](references.md#ref-esser2024scaling)).
+In the Gaussian FM setting, both the beam-like and spotlight-like conditional paths lead to training objectives that are similar to the standard diffusion losses. As we will elaborate in [Chapter 6](../06-unified-perspective/index.md#ch-unified-perspective), Gaussian FM can in fact be equivalently interpreted as a diffusion model trained to predict the *velocity*, under the linear schedule $a_t = 1-t$ and $b_t = t$. This perspective highlights that flow matching and diffusion are not fundamentally different, but rather two equivalent formulations that can be transformed into one another. The Gaussian FM objective is particularly appealing in practice: its loss function (${\mathbb{E}}_{t,{\mathbf{x}}_t} \left[\left\lVert{\mathbf{v}}_{\boldsymbol{\phi}}({\mathbf{x}}_t, t) - ({\mathbf{x}}_1 - {\mathbf{x}}_0)\right\rVert_2^2\right]$) is simple, and it has been shown to achieve competitive performance at scale ([Esser et al., 2024](../../references.md#ref-esser2024scaling)).
 
 ## 5.3.3 Conditional Flow-First Construction of ${\mathbf{v}}_t(\cdot|{\mathbf{z}})$ and $p_t(\cdot|{\mathbf{z}})$ {#subsec-prob-path-flow}
 
 We treat the general case where the endpoints $p_{\mathrm{src}}$ (at $t=0$) and $p_{\mathrm{tgt}}$ (at $t=1$) are arbitrary. Our goal is to design, directly in trajectory space, a conditional flow that transports samples from $p_{\mathrm{src}}$ to $p_{\mathrm{tgt}}$ and yields a closed-form ${\mathbf{v}}_t({\mathbf{x}}_t|{\mathbf{z}})$ usable as a regression target.
 
-**Motivation.** Instead of first designing conditional density path, we may directly specify a conditional flow map ${\boldsymbol{\Psi}}_{0\to t}(\cdot;{\mathbf{z}})$ that moves samples along trajectories. This has two practical advantages: (i) it immediately yields a regression target for training via a time derivative along trajectories; (ii) on geometry-structured spaces (Riemannian manifolds, Lie groups, or constrained submanifolds), it is often natural to construct the conditional flow map ${\boldsymbol{\Psi}}_{0\to t}$ directly from the geometry (e.g., geodesics, exponential maps, or premetrics) ([Lipman et al., 2024](references.md#ref-lipman2024flow)) which yields analytic, simulation-free target velocities for training.
+**Motivation.** Instead of first designing conditional density path, we may directly specify a conditional flow map ${\boldsymbol{\Psi}}_{0\to t}(\cdot;{\mathbf{z}})$ that moves samples along trajectories. This has two practical advantages: (i) it immediately yields a regression target for training via a time derivative along trajectories; (ii) on geometry-structured spaces (Riemannian manifolds, Lie groups, or constrained submanifolds), it is often natural to construct the conditional flow map ${\boldsymbol{\Psi}}_{0\to t}$ directly from the geometry (e.g., geodesics, exponential maps, or premetrics) ([Lipman et al., 2024](../../references.md#ref-lipman2024flow)) which yields analytic, simulation-free target velocities for training.
 
 **Conditional Affine Flow (Link to [Proposition 5.3.1](03-probability-paths-and-velocities.md#closed-form-vf)).** We fix a conditioning variable ${\mathbf{z}}\sim\pi$ (e.g., ${\mathbf{z}}={\mathbf{x}}_1\sim p_{\mathrm{tgt}}$ in one-sided “spotlight’’ training) and push forward ${\mathbf{x}}_0\sim p_{\mathrm{src}}$ through the time-varying *conditional affine flow*
 
@@ -830,7 +830,7 @@ $$
 
 The posterior over endpoint pairs generally changes with $({\mathbf{x}},t)$. Consequently, the velocity encountered along a marginal ODE trajectory need not remain constant, even though every conditional interpolation used for training is a straight line.
 
-Thus, choosing the canonical affine schedule alone does not imply that the learned marginal ODE is exactly straight or that one Euler step is exact. Rectified Flow addresses precisely this distinction: its rectification or `Reflow` procedure changes the endpoint coupling so that the induced causal flow can become progressively closer to a straight flow ([Liu et al., 2022](references.md#ref-liu2022flow)).
+Thus, choosing the canonical affine schedule alone does not imply that the learned marginal ODE is exactly straight or that one Euler step is exact. Rectified Flow addresses precisely this distinction: its rectification or `Reflow` procedure changes the endpoint coupling so that the induced causal flow can become progressively closer to a straight flow ([Liu et al., 2022](../../references.md#ref-liu2022flow)).
 
 The following example makes the distinction explicit.
 
@@ -915,7 +915,7 @@ Therefore, even though every conditional interpolation path is straight, the ind
 
 Source: Created by the authors with AI-assisted coding.
 
-[^1]: In ([Lipman et al., 2022](references.md#ref-lipman2022flow)), the authors consider $\boldsymbol{\Psi}_{0\to t}({\mathbf{x}}) = \boldsymbol{\mu}(t) + \sigma(t){\mathbf{x}}$, which requires constraints on $\boldsymbol{\mu}(t)$ and $\sigma(t)$ to ensure boundary conditions. We adopt an equivalent normalized formulation that avoids such constraints.
+[^1]: In ([Lipman et al., 2022](../../references.md#ref-lipman2022flow)), the authors consider $\boldsymbol{\Psi}_{0\to t}({\mathbf{x}}) = \boldsymbol{\mu}(t) + \sigma(t){\mathbf{x}}$, which requires constraints on $\boldsymbol{\mu}(t)$ and $\sigma(t)$ to ensure boundary conditions. We adopt an equivalent normalized formulation that avoids such constraints.
 
 [^2]: One may instead add a fixed conditional variance $\sigma^2{\mathbf{I}}$. The conditional velocity remains $a_t'{\mathbf{x}}_0+b_t'{\mathbf{x}}_1$ because the variance is constant in time, but the endpoint marginals then become Gaussian smoothings of $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$, approaching the desired endpoints as $\sigma\to0$.
 

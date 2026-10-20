@@ -4,7 +4,7 @@
 >
 > — Heraclitus
 
-The *change-of-variables formula*, a cornerstone of probability theory ([Tabak and Vanden-Eijnden, 2010](references.md#ref-tabak2010density); [Turner, 2013](references.md#ref-tabak2013family)), takes on new life in modern generative modeling. In [Chapter 4](../04-score-sde-framework/index.md#ch-score-sde), we saw that the Fokker–Planck equation describes how probability densities evolve under a diffusion process, and that the same marginal density evolution can also be realized deterministically through the associated PF-ODE. This naturally suggests studying generative modeling directly from the viewpoint of deterministic probability transport.
+The *change-of-variables formula*, a cornerstone of probability theory ([Tabak and Vanden-Eijnden, 2010](../../references.md#ref-tabak2010density); [Turner, 2013](../../references.md#ref-tabak2013family)), takes on new life in modern generative modeling. In [Chapter 4](../04-score-sde-framework/index.md#ch-score-sde), we saw that the Fokker–Planck equation describes how probability densities evolve under a diffusion process, and that the same marginal density evolution can also be realized deterministically through the associated PF-ODE. This naturally suggests studying generative modeling directly from the viewpoint of deterministic probability transport.
 
 **Change-of-Variables Formula of Densities.** Given an invertible transformation ${\mathbf{f}}$, the density of ${\mathbf{x}}={\mathbf{f}}({\mathbf{z}})$, where ${\mathbf{z}}\sim p_{\mathrm{prior}}$, is
 
@@ -60,7 +60,7 @@ To support a solid understanding of this chapter, we provide in [Appendix B](../
 
 **Reader route.** Readers already comfortable with Normalizing Flows and Neural ODEs may skim [Section 5.1](01-normalizing-flows-and-neural-odes.md#sec-flow-based-method) and begin with [Section 5.2.1](02-flow-matching-framework.md#subsec-lesson-score). For a first pass, focus on the connection between the Score SDE and Flow Matching views, the continuity equation, and the conditional-to-marginal velocity construction. The detailed path constructions and optional theoretical properties can be revisited afterward.
 
-Continue with the sections below and the [chapter references](references.md#chapter-05-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [5.1 Flow-Based Models: Normalizing Flows and Neural ODEs](01-normalizing-flows-and-neural-odes.md#sec-flow-based-method)
 

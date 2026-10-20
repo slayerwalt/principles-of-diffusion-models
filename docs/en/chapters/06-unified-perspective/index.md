@@ -30,7 +30,7 @@ Finally, [Section 6.4](04-fokker-planck-connections.md#sec-comparison-connection
 
 **Reader route.** This chapter is the conceptual keystone of the book. For a first pass, focus on the conditioning principle, the relationships among the four prediction types, and the continuity/Fokker–Planck view that connects the three perspectives. The central lesson is not to memorize every conversion formula, but to ask what notion of equivalence is being used and what that equivalence actually preserves. The detailed analysis of weighting, schedules, and parameterization choices can then be revisited to understand why mathematically equivalent formulations may still behave differently in practice.
 
-Continue with the sections below and the [chapter references](references.md#chapter-06-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [6.1 Conditional Tricks: The Secret Sauce of Diffusion Models](01-conditioning-tricks.md#sec-conditional-trick)
 

@@ -32,7 +32,7 @@ This formulation provides a principled way to transport probability mass from th
 
 [^1]: See [Equation (4.2.2)](../04-score-sde-framework/02-matching-marginals.md#eq-flow-map-def) and the surrounding discussion for the mathematical and historical background of flow maps.
 
-Continue with the sections below and the [chapter references](references.md#chapter-11-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [11.1 Prologue](01-prologue.md#sec-fast-scratch-prologue)
 

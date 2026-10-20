@@ -61,7 +61,7 @@ $$
 \mathcal{D}(p_{{\boldsymbol{\phi}}_\tau},p_{\mathrm{data}})
 $$
 
-be a discrepancy between the current model distribution and the data distribution. *Wasserstein gradient flow* ([Jordan et al., 1998](references.md#ref-jordan1998variational); [Ambrosio et al., 2005](references.md#ref-ambrosio2005gradient)) chooses the particle velocity that decreases this discrepancy most directly under the geometry of moving probability mass.
+be a discrepancy between the current model distribution and the data distribution. *Wasserstein gradient flow* ([Jordan et al., 1998](../../references.md#ref-jordan1998variational); [Ambrosio et al., 2005](../../references.md#ref-ambrosio2005gradient)) chooses the particle velocity that decreases this discrepancy most directly under the geometry of moving probability mass.
 
 To choose the velocity field, we first ask how the discrepancy changes when the current distribution is infinitesimally perturbed. Think of $\mathcal{D}(p,p_{\mathrm{data}})$ as a global energy of the distribution $p$. Its first variation gives a pointwise energy potential: it tells us which regions of space are costly for the current distribution and which regions are favorable.
 
@@ -337,7 +337,7 @@ provides the distribution-level descent direction that drives the parameter grad
 
 The main strength of reverse-KL training is that it is naturally compatible with implicit generators once the relevant scores can be estimated. It is also mode-seeking, which can improve visual fidelity in one-step or few-step generation. Its limitation is that it can drop modes, depends strongly on the quality of score estimates, and may require an additional model-score network or a strong teacher.
 
-The same attraction-repulsion interpretation also appears in drifting-style particle updates ([Weber, 2023](references.md#ref-weber2023the); [Deng et al., 2026](references.md#ref-deng2026generative)). In the terminology of [Lai et al. (2026)](references.md#ref-lai2026unified), DMD/VSD/SiD provide parametric score-based instantiations of this score-mismatch dynamics, while drifting-style approaches ([Weber, 2023](references.md#ref-weber2023the); [Deng et al., 2026](references.md#ref-deng2026generative)) provide a nonparametric kernel-based instantiation.
+The same attraction-repulsion interpretation also appears in drifting-style particle updates ([Weber, 2023](../../references.md#ref-weber2023the); [Deng et al., 2026](../../references.md#ref-deng2026generative)). In the terminology of [Lai et al. (2026)](../../references.md#ref-lai2026unified), DMD/VSD/SiD provide parametric score-based instantiations of this score-mismatch dynamics, while drifting-style approaches ([Weber, 2023](../../references.md#ref-weber2023the); [Deng et al., 2026](../../references.md#ref-deng2026generative)) provide a nonparametric kernel-based instantiation.
 
 **Closing Remarks.** In summary, the continuity equation provides the common language behind both diffusion dynamics and distribution-level training. In diffusion models, it describes how the intermediate distributions $p_t$ evolve along a prescribed noise or probability-flow dynamics. In Wasserstein gradient flow, the same equation describes how the model distribution $p_{{\boldsymbol{\phi}}_\tau}$ evolves during training as generated particles move toward the data distribution $p_{\mathrm{data}}$.
 

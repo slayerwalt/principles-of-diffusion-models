@@ -134,4 +134,4 @@ $$
 
 where $p_{\boldsymbol{\phi}}$ denotes the generated marginal at data time.
 
-Combining this with [Equation (C.2.1)](02-girsanov-theorem.md#eq-girsanov-kl) shows that likelihood-weighted score matching, together with the terminal-distribution mismatch, provides an upper bound on the data-side KL divergence and therefore on the expected negative log-likelihood up to a constant independent of $\boldsymbol{\phi}$ ([Song et al., 2021](references.md#ref-song2021maximum)).
+Combining this with [Equation (C.2.1)](02-girsanov-theorem.md#eq-girsanov-kl) shows that likelihood-weighted score matching, together with the terminal-distribution mismatch, provides an upper bound on the data-side KL divergence and therefore on the expected negative log-likelihood up to a constant independent of $\boldsymbol{\phi}$ ([Song et al., 2021](../../references.md#ref-song2021maximum)).

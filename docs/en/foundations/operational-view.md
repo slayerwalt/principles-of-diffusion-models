@@ -263,7 +263,7 @@ When the noise level is clear from context, we will often shorten this to ${\mat
 
 <li id="fn:6" markdown="block">
 
-We will later connect this deterministic update to DDIM sampling and its Euler-type interpretation ([Song et al., 2020](../chapters/09-numerical-solvers/references.md#ref-song2020denoising)) in [Section 9.2](../chapters/09-numerical-solvers/02-ddim.md#sec-revisit-ddim); the stochastic DDPM sampler is introduced in [Section 2.2](../chapters/02-variational-perspective/02-ddpm.md#sec-ddpm).
+We will later connect this deterministic update to DDIM sampling and its Euler-type interpretation ([Song et al., 2020](../references.md#ref-song2020denoising)) in [Section 9.2](../chapters/09-numerical-solvers/02-ddim.md#sec-revisit-ddim); the stochastic DDPM sampler is introduced in [Section 2.2](../chapters/02-variational-perspective/02-ddpm.md#sec-ddpm).
 
 <a class="footnote-backref" href="#fnref:6" aria-label="Back to footnote 6 in the text">↩</a>
 

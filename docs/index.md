@@ -21,7 +21,7 @@ The [Abstract](en/front-matter/abstract.md), [Acknowledgements](en/front-matter/
 
 Use the chapter navigation to move between sections and the page contents to find a topic within a section. The search field covers the pages available in this edition. On smaller screens, open the navigation menu; wide equations can be scrolled horizontally.
 
-Original equation and figure numbers are retained. The [book contents](en/book-outline.md) follow the original reading order. The [preface references](en/front-matter/references.md) and the references for each chapter or appendix are included with their respective content; the complete bibliography is awaiting conversion.
+Original equation and figure numbers are retained. The [book contents](en/book-outline.md) follow the original reading order. References cited in the preface, chapters, and appendices are collected on a single [References page](en/references.md).
 
 ## English first, Chinese later
 

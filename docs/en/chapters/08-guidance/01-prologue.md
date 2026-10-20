@@ -25,7 +25,7 @@ $$
 \tag{8.1.1}
 $$
 
-This identity shows that the exact conditional reverse dynamics are obtained by adding the guidance term $\nabla_{{\mathbf{x}}_t}\log p_t({\mathbf{c}}|{\mathbf{x}}_t)$ on top of the unconditional score. We will see later on that classifier guidance ([Dhariwal and Nichol, 2021](references.md#ref-dhariwal2021diffusion)) estimates this term directly, classifier-free guidance ([Ho and Salimans, 2021](references.md#ref-ho2021classifier)) estimates it implicitly as the difference between jointly learned conditional and unconditional scores, and more general training-free methods may instead use a task-specific surrogate guidance direction.
+This identity shows that the exact conditional reverse dynamics are obtained by adding the guidance term $\nabla_{{\mathbf{x}}_t}\log p_t({\mathbf{c}}|{\mathbf{x}}_t)$ on top of the unconditional score. We will see later on that classifier guidance ([Dhariwal and Nichol, 2021](../../references.md#ref-dhariwal2021diffusion)) estimates this term directly, classifier-free guidance ([Ho and Salimans, 2021](../../references.md#ref-ho2021classifier)) estimates it implicitly as the difference between jointly learned conditional and unconditional scores, and more general training-free methods may instead use a task-specific surrogate guidance direction.
 
 With the exact conditional score, the PF-ODE becomes
 
@@ -52,7 +52,7 @@ We formulate the discussion below in score prediction for clarity. Since the sta
      \approx  \nabla_{{\mathbf{x}}_t}\log p_t({\mathbf{c}} | {\mathbf{x}}_t),
     $$
 
-    which is then added to the unconditional score ([Dhariwal and Nichol, 2021](references.md#ref-dhariwal2021diffusion)).
+    which is then added to the unconditional score ([Dhariwal and Nichol, 2021](../../references.md#ref-dhariwal2021diffusion)).
 
 2.  **Classifier-Free Guidance (CFG).** In [Section 8.3](03-classifier-free-guidance.md#sec-cfg), CFG directly trains a single conditional model
 
@@ -161,7 +161,7 @@ where $r({\mathbf{x}}_0,{\mathbf{c}})$ is a scalar alignment rating for a clean 
 
 Existing methods for achieving such steerability typically collect human labels of the relative quality of model generations and fine-tune the conditional diffusion model to align with these preferences, often through reinforcement learning from human feedback (RLHF). However, RLHF is a complex and often unstable procedure: it first fits a reward model to capture human preferences, and then fine-tunes the conditional diffusion model with reinforcement learning to maximize this estimated reward while constraining policy drift from the original model.
 
-This naturally raises the question: *can we remove the reward model training stage altogether?* We address this with Diffusion-DPO ([Wallace et al., 2024](references.md#ref-wallace2024diffusion)), an adaptation of Direct Preference Optimization ([Rafailov et al., 2023](references.md#ref-rafailov2023direct)) originally developed for large language models. As described in [Section 8.5](05-preference-alignment.md#sec-rlhf-dpo), Diffusion-DPO learns the preference tilt directly from pairwise choices, so the conditional diffusion model is fine-tuned to align to preferences without a separate reward model.
+This naturally raises the question: *can we remove the reward model training stage altogether?* We address this with Diffusion-DPO ([Wallace et al., 2024](../../references.md#ref-wallace2024diffusion)), an adaptation of Direct Preference Optimization ([Rafailov et al., 2023](../../references.md#ref-rafailov2023direct)) originally developed for large language models. As described in [Section 8.5](05-preference-alignment.md#sec-rlhf-dpo), Diffusion-DPO learns the preference tilt directly from pairwise choices, so the conditional diffusion model is fine-tuned to align to preferences without a separate reward model.
 
 [^1]: Indeed,
 

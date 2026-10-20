@@ -1,6 +1,6 @@
 # 5.4 (Optional) Properties of the Canonical Affine Flow {#sec-optimal-canonical}
 
-Given two endpoint distributions $p_0=p_{\mathrm{src}}$ and $p_1=p_{\mathrm{tgt}}$, a natural and widely used choice for defining the conditional path in flow matching (FM) ([Lipman et al., 2022](references.md#ref-lipman2022flow)) and rectified flow (RF) ([Liu et al., 2022](references.md#ref-liu2022flow)) is the linear interpolation
+Given two endpoint distributions $p_0=p_{\mathrm{src}}$ and $p_1=p_{\mathrm{tgt}}$, a natural and widely used choice for defining the conditional path in flow matching (FM) ([Lipman et al., 2022](../../references.md#ref-lipman2022flow)) and rectified flow (RF) ([Liu et al., 2022](../../references.md#ref-liu2022flow)) is the linear interpolation
 
 $$
 a_t = 1 - t, \qquad b_t = t,
@@ -206,7 +206,7 @@ $$
 
 **Proof for Proposition.**
 
-Follows from Jensen’s inequality. See [Liu et al. (2022)](references.md#ref-liu2022flow) for a full derivation.
+Follows from Jensen’s inequality. See [Liu et al. (2022)](../../references.md#ref-liu2022flow) for a full derivation.
 
 Applying this result recursively shows that the `Reflow` process does not increase the transport cost.
 
@@ -230,7 +230,7 @@ $$
 
 **Proof for Proposition.**
 
-See Theorem 3.7 of [Liu et al. (2022)](references.md#ref-liu2022flow).
+See Theorem 3.7 of [Liu et al. (2022)](../../references.md#ref-liu2022flow).
 
 <span id="fig-ill-reflow"></span>
 
@@ -238,9 +238,9 @@ See Theorem 3.7 of [Liu et al. (2022)](references.md#ref-liu2022flow).
 
 **Figure 5.11:** **Illustration of `Reflow`.** Paths become progressively straighter with `Rectify` procedure.
 
-Source: Adapted from [Liu et al. (2022)](references.md#ref-liu2022flow).
+Source: Adapted from [Liu et al. (2022)](../../references.md#ref-liu2022flow).
 
-The FM or RF formulation with linear interpolation kernels, together with the `Reflow` procedure, provides a simpler training objective and a practical method for refining stochastic couplings. For theoretical details, we refer readers to ([Liu et al., 2022](references.md#ref-liu2022flow); [Liu, 2022](references.md#ref-liu2022rectified)).
+The FM or RF formulation with linear interpolation kernels, together with the `Reflow` procedure, provides a simpler training objective and a practical method for refining stochastic couplings. For theoretical details, we refer readers to ([Liu et al., 2022](../../references.md#ref-liu2022flow); [Liu, 2022](../../references.md#ref-liu2022rectified)).
 
 **III. Connection to Optimal Transport.** Lastly, we note that straight-line couplings are not necessarily optimal in the sense of optimal transport (OT). This involves some terminology that will be introduced in [Section 7.2](../07-optimal-transport/02-transport-problem-setups.md#sec-ot-intro); we therefore refer readers who are not familiar with OT to that section.
 

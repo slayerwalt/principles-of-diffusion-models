@@ -1,8 +1,8 @@
 # 11.4 General Flow Map: Consistency Trajectory Model {#sec-ctm}
 
-Consistency Trajectory Model (CTM) ([Kim et al., 2024](references.md#ref-kim2023consistency)) is among the first methods to learn a *general* flow map ${\boldsymbol{\Psi}}_{s\to t}$.
+Consistency Trajectory Model (CTM) ([Kim et al., 2024](../../references.md#ref-kim2023consistency)) is among the first methods to learn a *general* flow map ${\boldsymbol{\Psi}}_{s\to t}$.
 
-**Setup of CTM in Practice.** Similar to the CM family, CTM originally follows the formulation of EDM ([Karras et al., 2022](references.md#ref-karras2022elucidating)) ([Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)), using the PF-ODE in ${\mathbf{x}}$-prediction form with the noise schedule $\alpha_t = 1$ and $\sigma_t = t$. Under this setup, the PF-ODE becomes
+**Setup of CTM in Practice.** Similar to the CM family, CTM originally follows the formulation of EDM ([Karras et al., 2022](../../references.md#ref-karras2022elucidating)) ([Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)), using the PF-ODE in ${\mathbf{x}}$-prediction form with the noise schedule $\alpha_t = 1$ and $\sigma_t = t$. Under this setup, the PF-ODE becomes
 
 $$
 \begin{aligned}
@@ -184,7 +184,7 @@ $$
 \approx {\boldsymbol{\Psi}}_{s\to t}({\mathbf{x}}_s, s, t).
 $$
 
-With a strong teacher, the solver can recover ${\boldsymbol{\Psi}}_{s\to t}$ up to discretization error, so the optimal student closely matches the ground truth (see ([Kim et al., 2024](references.md#ref-kim2023consistency)), Propositions 3 and 4).
+With a strong teacher, the solver can recover ${\boldsymbol{\Psi}}_{s\to t}$ up to discretization error, so the optimal student closely matches the ground truth (see ([Kim et al., 2024](../../references.md#ref-kim2023consistency)), Propositions 3 and 4).
 
 However, solving across the full interval $[t,s]$ during training loop can be costly when $s$ and $t$ are far apart. To improve efficiency and provide a smoother signal, CTM introduces *soft consistency matching*, which operationalizes the semigroup property. As illustrated in [Figure 11.5](04-consistency-trajectory-models.md#fig-ill-models), CTM compares two predictions at time $t$: the direct student output $\mathbf{G}_{\boldsymbol{\theta}}({\mathbf{x}}_s, s, t)$, and a mixed teacher–student path that first advances the teacher from $s$ to a random $u \sim \mathcal{U}[t,s)$, then lets the student jump from $u$ to $t$:
 
@@ -312,11 +312,11 @@ Conceptually, this is self-distillation within CTM: the model supplies its own s
 
 **Figure 11.5:** **Illustration of CTM’s semigroup property.** For any $s \ge u \ge t$, CTM enforces ${\mathbf{G}}_{{\boldsymbol{\theta}}}({\mathbf{x}}_s, s, t) \approx {\mathbf{G}}_{{\boldsymbol{\theta}}^-} \big(\mathtt{Solver}_{s\to u}({\mathbf{x}}_s), u , t\big)$, i.e., a short solver segment $s \to u$ followed by a CTM “jump” to $t$ matches the direct CTM map $s\to t$. The solver may be a pre-trained diffusion or a CTM’s self-induced teacher.
 
-Source: Adapted from [Kim et al. (2024)](references.md#ref-kim2023consistency).
+Source: Adapted from [Kim et al. (2024)](../../references.md#ref-kim2023consistency).
 
 ## 11.4.3 Auxiliary Losses in CTM {#subsec-ctm-auxiliary}
 
-(Self-)distillation can underperform the teacher because it optimizes only teacher generated targets, lacking direct supervision from real data. By contrast, CTM can naturally incorporate data driven regularizers, for example by augmenting its objective with denoising score matching and an adversarial (GAN) term ([Goodfellow et al., 2014](references.md#ref-goodfellow2014generative)), to better learn the flow map.
+(Self-)distillation can underperform the teacher because it optimizes only teacher generated targets, lacking direct supervision from real data. By contrast, CTM can naturally incorporate data driven regularizers, for example by augmenting its objective with denoising score matching and an adversarial (GAN) term ([Goodfellow et al., 2014](../../references.md#ref-goodfellow2014generative)), to better learn the flow map.
 
 **Natural Integration of Diffusion Loss.** The diffusion–model loss (more precisely, the conditional flow matching loss; see [Equation (5.2.10)](../05-flow-based-perspective/02-flow-matching-framework.md#eq-fm-cfm)) integrates naturally into CTM and provides a fixed regression target that facilitates the learning of the flow map model. To see this, note that we have
 
@@ -374,7 +374,7 @@ $$
 \end{aligned}
 $$
 
-where $D_{\boldsymbol{\zeta}}$ is maximized and ${\mathbf{G}}_{\boldsymbol{\theta}}$ is minimized. Intuitively, the discriminator acts as an adaptive perceptual distance that encourages realistic detail. Theoretically, the GAN term drives distributional matching (Jensen–Shannon divergence) between $p_{\mathrm{data}}$ and the model distribution induced by ${\mathbf{G}}_{\boldsymbol{\theta}}$ ([Goodfellow et al., 2014](references.md#ref-goodfellow2014generative)), which can raise fidelity beyond the teacher.
+where $D_{\boldsymbol{\zeta}}$ is maximized and ${\mathbf{G}}_{\boldsymbol{\theta}}$ is minimized. Intuitively, the discriminator acts as an adaptive perceptual distance that encourages realistic detail. Theoretically, the GAN term drives distributional matching (Jensen–Shannon divergence) between $p_{\mathrm{data}}$ and the model distribution induced by ${\mathbf{G}}_{\boldsymbol{\theta}}$ ([Goodfellow et al., 2014](../../references.md#ref-goodfellow2014generative)), which can raise fidelity beyond the teacher.
 
 **Overall CTM Objective.** In summary, CTM unifies (self-)distillation, diffusion, and GAN losses into a single training framework:
 
@@ -387,7 +387,7 @@ $$
 \end{aligned}
 $$
 
-where the teacher is either an external pre-trained model $\boldsymbol{\phi}^\times$ or the self-induced teacher $\boldsymbol{\theta}^-$. The regression style components $\mathcal{L}_{\mathrm{consist}}$ and $\mathcal{L}_{\mathrm{DM}}$ act as strong regularizers, while the optional GAN term improves fine scale detail without sacrificing stability ([Kim et al., 2024](references.md#ref-kim2024pagoda)).
+where the teacher is either an external pre-trained model $\boldsymbol{\phi}^\times$ or the self-induced teacher $\boldsymbol{\theta}^-$. The regression style components $\mathcal{L}_{\mathrm{consist}}$ and $\mathcal{L}_{\mathrm{DM}}$ act as strong regularizers, while the optional GAN term improves fine scale detail without sacrificing stability ([Kim et al., 2024](../../references.md#ref-kim2024pagoda)).
 
 ## 11.4.4 Flexible Sampling with CTM {#flexible-sampling}
 
@@ -483,7 +483,7 @@ Diffuse $\mathbf{x}_{\tau_{n+1}}\leftarrow\mathbf{x}_{\tilde{\tau}_{n+1}}+\gamma
 
 **Figure 11.6:** **Illustration of $\gamma$-sampling with varying $\gamma$ value.** The procedure alternates between denoising with a network evaluation and adding noise in reverse, $(\tau_{n}\xrightarrow{\text{Denoise}} \sqrt{1-\gamma^{2}}\tau_{n+1}\xrightarrow{\text{Noisify}} \tau_{n+1})_{n=0}^{M-1}$. The leftmost panel illustrates $\gamma=1$, corresponding to the fully stochastic case. The rightmost panel shows $\gamma=0$, corresponding to the fully deterministic case. The middle panel depicts intermediate values $\gamma\in(0,1)$, which interpolate between these two extremes.
 
-Source: Adapted from [Kim et al. (2024)](references.md#ref-kim2023consistency).
+Source: Adapted from [Kim et al. (2024)](../../references.md#ref-kim2023consistency).
 
 -   [Figure 11.6](04-consistency-trajectory-models.md#fig-gamma-sampling)-(Left): When $\gamma=1$, it coincides with the multistep sampling introduced in CM (i.e., a special flow map ${\boldsymbol{\Psi}}_{s\to 0}$), which is fully stochastic and results in semantic variation when the number of steps changes.
 
@@ -511,7 +511,7 @@ Here, $\mathcal{D}_{\mathrm{TV}}$ denotes the total variation between distributi
 
 **Proof for Proposition.**
 
-We refer the reader to Theorem 8 of [Kim et al. (2024)](references.md#ref-kim2023consistency) for the general case when the number of sampling steps is $M$.
+We refer the reader to Theorem 8 of [Kim et al. (2024)](../../references.md#ref-kim2023consistency) for the general case when the number of sampling steps is $M$.
 
 The insights from the above theorem can be summarized as follows:
 

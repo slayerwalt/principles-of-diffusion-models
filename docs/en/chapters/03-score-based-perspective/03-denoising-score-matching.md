@@ -12,7 +12,7 @@ $$
 
 is more tractable, it still requires computing the trace of the Jacobian, $\mathrm{Tr}(\nabla_{{\mathbf{x}}}{\mathbf{s}}_{\boldsymbol{\phi}}({\mathbf{x}}))$. Although this does not require forming the full Jacobian matrix, exact evaluation generally becomes more expensive as the input dimension $D$ increases, since it requires aggregating derivative information across input coordinates. This can therefore be computationally expensive in high dimensions.
 
-To address this, sliced score matching ([Song et al., 2020](references.md#ref-song2020sliced)) replaces the trace term with a stochastic estimate based on random projections. We briefly outline the idea below.
+To address this, sliced score matching ([Song et al., 2020](../../references.md#ref-song2020sliced)) replaces the trace term with a stochastic estimate based on random projections. We briefly outline the idea below.
 
 **Sliced Score Matching and Hutchinson’s Estimator.** Sliced score matching replaces the trace in score matching by averaging directional derivatives along random “slices”. Let ${\mathbf{u}}\in{\mathbb{R}}^D$ be an *isotropic* random vector (e.g., Rademacher or standard Gaussian) with ${\mathbb{E}}[{\mathbf{u}}]=0$ and ${\mathbb{E}}[{\mathbf{u}}{\mathbf{u}}^\top]=\mathbf I$. By Hutchinson’s identity
 
@@ -31,7 +31,7 @@ This objective can be evaluated efficiently with automatic differentiation, usin
 
 **From Sliced to Denoising Score Matching.** Sliced score matching sidesteps Jacobians but still relies on the raw data distribution. This makes it fragile: for image data lying on low-dimensional manifolds, the score $\nabla_{{\mathbf{x}}}\log p_{\mathrm{data}}({\mathbf{x}})$ may be undefined or unstable, and the method only constrains the vector field at observed points, providing weak control in their neighborhoods. It further suffers from probe-induced variance and repeated JVP/VJP costs.
 
-A more robust alternative, which we focus on here, is *Denoising Score Matching* (DSM) ([Vincent, 2011](references.md#ref-vincent2011connection)), which offers a principled and scalable solution.
+A more robust alternative, which we focus on here, is *Denoising Score Matching* (DSM) ([Vincent, 2011](../../references.md#ref-vincent2011connection)), which offers a principled and scalable solution.
 
 ## 3.3.2 Training {#training}
 
@@ -45,7 +45,7 @@ $$
 
 where the issue arises from the intractable term $\nabla_{{\mathbf{x}}} \log p_{\text{data}}({\mathbf{x}})$.
 
-**[Vincent (2011)](references.md#ref-vincent2011connection)’s Solution by Conditioning.** To overcome the intractability of $\nabla_{{\mathbf{x}}} \log p_{\text{data}}({\mathbf{x}})$, [Vincent (2011)](references.md#ref-vincent2011connection) proposed injecting noise into the data ${\mathbf{x}} \sim p_{\text{data}}$ via a known conditional distribution $p_{\sigma}(\tilde{{\mathbf{x}}}|{\mathbf{x}})$ with scale $\sigma$. The neural network ${\mathbf{s}}_{\boldsymbol{\phi}}(\tilde{{\mathbf{x}}}, \sigma)$ is trained to approximate the score of the marginal perturbed distribution
+**[Vincent (2011)](../../references.md#ref-vincent2011connection)’s Solution by Conditioning.** To overcome the intractability of $\nabla_{{\mathbf{x}}} \log p_{\text{data}}({\mathbf{x}})$, [Vincent (2011)](../../references.md#ref-vincent2011connection) proposed injecting noise into the data ${\mathbf{x}} \sim p_{\text{data}}$ via a known conditional distribution $p_{\sigma}(\tilde{{\mathbf{x}}}|{\mathbf{x}})$ with scale $\sigma$. The neural network ${\mathbf{s}}_{\boldsymbol{\phi}}(\tilde{{\mathbf{x}}}, \sigma)$ is trained to approximate the score of the marginal perturbed distribution
 
 $$
 p_\sigma(\tilde{{\mathbf{x}}}) = \int p_{\sigma}(\tilde{{\mathbf{x}}}|{\mathbf{x}}) p_{\text{data}}({\mathbf{x}}) \mathop{}\!\mathrm{d} {\mathbf{x}}
@@ -62,7 +62,7 @@ $$
 \tag{3.3.1}
 $$
 
-Even though $\nabla_{\tilde{{\mathbf{x}}}} \log p_\sigma(\tilde{{\mathbf{x}}})$ is generally intractable, [Vincent (2011)](references.md#ref-vincent2011connection) showed that *conditioning* on ${\mathbf{x}} \sim p_{\text{data}}$ yields an equivalent, tractable objective—the *Denoising Score Matching* (DSM) loss:
+Even though $\nabla_{\tilde{{\mathbf{x}}}} \log p_\sigma(\tilde{{\mathbf{x}}})$ is generally intractable, [Vincent (2011)](../../references.md#ref-vincent2011connection) showed that *conditioning* on ${\mathbf{x}} \sim p_{\text{data}}$ yields an equivalent, tractable objective—the *Denoising Score Matching* (DSM) loss:
 
 <span id="eq-dsm-loss"></span>
 
@@ -131,7 +131,7 @@ This theorem, like [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-
 
 **Insight 3.3.1: Conditioning Technique**
 
-The conditioning technique also appears in the variational view of diffusion models in DDPM (see [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl)), where conditioning on a data point ${\mathbf{x}}$ turns an intractable loss into a tractable one for Monte Carlo estimation. A similar idea arises in the flow-based perspective (e.g., Flow Matching ([Lipman et al., 2022](references.md#ref-lipman2022flow))), as we will see in [Section 5.2](../05-flow-based-perspective/02-flow-matching-framework.md#sec-flow-matching-framework).
+The conditioning technique also appears in the variational view of diffusion models in DDPM (see [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl)), where conditioning on a data point ${\mathbf{x}}$ turns an intractable loss into a tractable one for Monte Carlo estimation. A similar idea arises in the flow-based perspective (e.g., Flow Matching ([Lipman et al., 2022](../../references.md#ref-lipman2022flow))), as we will see in [Section 5.2](../05-flow-based-perspective/02-flow-matching-framework.md#sec-flow-matching-framework).
 
 <span id="fig-dsm-graph"></span>
 
@@ -200,7 +200,7 @@ $$
 
 for $n = 0, 1, 2, \dots$, starting from an initial value $\tilde{{\mathbf{x}}}_0$. If $\sigma$ is sufficiently small, then after enough iterations, $\tilde{{\mathbf{x}}}_n$ approximates samples from $p_{\text{data}}$.
 
-**Advantages of Noise Injection.** We additionally remark that, compared to vanilla score matching in [Equation (3.2.1)](02-score-based-models.md#eq-sm), injecting Gaussian noise to form $p_\sigma$ (e.g., [Equation (3.3.4)](03-denoising-score-matching.md#eq-gaussian-dsm)) provides two key advantages ([Song and Ermon, 2019](references.md#ref-song2019generative)):
+**Advantages of Noise Injection.** We additionally remark that, compared to vanilla score matching in [Equation (3.2.1)](02-score-based-models.md#eq-sm), injecting Gaussian noise to form $p_\sigma$ (e.g., [Equation (3.3.4)](03-denoising-score-matching.md#eq-gaussian-dsm)) provides two key advantages ([Song and Ermon, 2019](../../references.md#ref-song2019generative)):
 
 -   **Well-Defined Gradients.** The noise perturbs data away from its lower-dimensional manifold, resulting in a distribution $p_\sigma$ with full support in $\mathbb{R}^D$. Consequently, the score function $\nabla_{\tilde{{\mathbf{x}}}} \log p_\sigma(\tilde{{\mathbf{x}}})$ is well-defined everywhere.
 
@@ -208,7 +208,7 @@ for $n = 0, 1, 2, \dots$, starting from an initial value $\tilde{{\mathbf{x}}}_0
 
 ## 3.3.4 Why DSM is Denoising: Tweedie's Formula {#subsec-why-dsm-denoising-tweedie}
 
-We begin with *Tweedie’s formula* ([Efron, 2011](references.md#ref-efron2011tweedie)), which provides a principled basis for denoising from noisy observations alone. Concretely, it states that: given a single Gaussian–corrupted observation $\tilde{{\mathbf{x}}}\sim\mathcal N(\,\cdot\,;\alpha{\mathbf{x}},\sigma^2\mathrm{I})$ from an unknown ${\mathbf{x}} \sim p_{\mathrm{data}}$, a denoised estimate (the average over all plausible clean signals given $\tilde{{\mathbf{x}}}$) is obtained by nudging $\tilde{{\mathbf{x}}}$ a step of size $\sigma^2$ in the direction of the score $\nabla_{\tilde{{\mathbf{x}}}}\log p_\sigma(\tilde{{\mathbf{x}}})$ of its noisy marginal defined as:
+We begin with *Tweedie’s formula* ([Efron, 2011](../../references.md#ref-efron2011tweedie)), which provides a principled basis for denoising from noisy observations alone. Concretely, it states that: given a single Gaussian–corrupted observation $\tilde{{\mathbf{x}}}\sim\mathcal N(\,\cdot\,;\alpha{\mathbf{x}},\sigma^2\mathrm{I})$ from an unknown ${\mathbf{x}} \sim p_{\mathrm{data}}$, a denoised estimate (the average over all plausible clean signals given $\tilde{{\mathbf{x}}}$) is obtained by nudging $\tilde{{\mathbf{x}}}$ a step of size $\sigma^2$ in the direction of the score $\nabla_{\tilde{{\mathbf{x}}}}\log p_\sigma(\tilde{{\mathbf{x}}})$ of its noisy marginal defined as:
 
 $$
 p_\sigma(\tilde{{\mathbf{x}}}):= \int \mathcal{N}(\tilde{{\mathbf{x}}};\alpha {\mathbf{x}},\sigma^2\mathrm{I})p_{\mathrm{data}}({\mathbf{x}})\mathop{}\!\mathrm{d}{\mathbf{x}}.
@@ -258,7 +258,7 @@ $$
 
 is the denoiser.
 
-**(Optional) Higher Order Tweedie’s Formula.** The classical Tweedie’s formula expresses the posterior mean ${\mathbb{E}}[{\mathbf{x}}_0|\tilde{{\mathbf{x}}}]$ through the gradient $\nabla_{\tilde{{\mathbf{x}}}}\log p(\tilde{{\mathbf{x}}})$. Higher order extensions ([Meng et al., 2021](references.md#ref-meng2021estimating)) express the posterior covariance and higher cumulants through higher derivatives of $\log p(\tilde{{\mathbf{x}}})$.
+**(Optional) Higher Order Tweedie’s Formula.** The classical Tweedie’s formula expresses the posterior mean ${\mathbb{E}}[{\mathbf{x}}_0|\tilde{{\mathbf{x}}}]$ through the gradient $\nabla_{\tilde{{\mathbf{x}}}}\log p(\tilde{{\mathbf{x}}})$. Higher order extensions ([Meng et al., 2021](../../references.md#ref-meng2021estimating)) express the posterior covariance and higher cumulants through higher derivatives of $\log p(\tilde{{\mathbf{x}}})$.
 
 **Exponential Family Setup with the Log-Normalizer $\lambda(\tilde{{\mathbf{x}}})$.** Assume the conditional law of $\tilde{{\mathbf{x}}}$ given a latent natural parameter $\boldsymbol\eta\in{\mathbb{R}}^D$ belongs to a natural exponential family written as
 
@@ -318,7 +318,7 @@ $$
 
 and higher cumulants scale with higher derivatives of $\log p_\sigma(\tilde{{\mathbf{x}}})$.
 
-Several studies have explored training neural networks to estimate higher order scores ([Meng et al., 2021](references.md#ref-meng2021estimating); [Lu et al., 2022](references.md#ref-lu2022maximum); [Lai et al., 2023](references.md#ref-lai2023fp)). In contrast, our aim is to clarify their relationship with statistical quantities, and we refer the reader to these works for methodological details.
+Several studies have explored training neural networks to estimate higher order scores ([Meng et al., 2021](../../references.md#ref-meng2021estimating); [Lu et al., 2022](../../references.md#ref-lu2022maximum); [Lai et al., 2023](../../references.md#ref-lai2023fp)). In contrast, our aim is to clarify their relationship with statistical quantities, and we refer the reader to these works for methodological details.
 
 ## 3.3.5 (Optional) Why DSM is Denoising: SURE {#subsec-why-dsm-denoising-sure}
 
@@ -519,4 +519,4 @@ For $\mathcal L=\nabla$ we have $\mathcal L^\dagger=-\nabla\!\,\cdot$, which rec
 
 -   **Higher Order Targets.** Stacking derivatives inside $\mathcal L$ exposes $\nabla^2\log p$ and higher derivatives, which align with posterior covariance and higher order cumulants.
 
-**Extensions and Use Cases.** Generalized score matching extends beyond continuous variables to discrete settings, including language modeling ([Meng et al., 2022](references.md#ref-meng2022concrete); [Lou et al., 2024](references.md#ref-lou2024discrete)). It also motivates score inspired training that yields denoising style objectives. This operator view unifies a range of objectives, admits empirical estimation from data, and offers a general principle for designing loss functions through suitable choices of $\mathcal L$.
+**Extensions and Use Cases.** Generalized score matching extends beyond continuous variables to discrete settings, including language modeling ([Meng et al., 2022](../../references.md#ref-meng2022concrete); [Lou et al., 2024](../../references.md#ref-lou2024discrete)). It also motivates score inspired training that yields denoising style objectives. This operator view unifies a range of objectives, admits empirical estimation from data, and offers a general principle for designing loss functions through suitable choices of $\mathcal L$.

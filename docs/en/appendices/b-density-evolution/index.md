@@ -26,7 +26,7 @@ In [Section B.2](02-continuity-equation-intuition.md#sec-intuition-continuity), 
 
 Source: Created by the authors.
 
-Continue with the sections below and the [appendix references](references.md#appendix-b-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [B.1 Change-of-Variable Formula: From Deterministic Maps to Stochastic Flows](01-change-of-variable.md#sec-cov)
 

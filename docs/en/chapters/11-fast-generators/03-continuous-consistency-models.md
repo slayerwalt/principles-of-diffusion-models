@@ -29,7 +29,7 @@ $$
 
 This relationship shows that the consistency function ${\mathbf{f}}^*$ remains constant along any solution trajectory of the ODE. The velocity field ${\mathbf{v}}^*$ can be estimated in practice either from a pre-trained diffusion model (when such a model is available) or from a direct one-point approximation, such as $\alpha_s' {\mathbf{x}}_0 + \sigma_s' {\boldsymbol{\epsilon}}$, as explained in [Section 11.2](02-discrete-consistency-models.md#sec-discrete-cm).
 
-[Equation (11.3.1)](03-continuous-consistency-models.md#eq-conti-ct-motivation) suggests a natural continuous-time characterization of consistency along PF-ODE trajectories. One possible approach is to enforce this differential condition directly by minimizing the residual, in a manner similar to physics-informed neural networks (PINNs) ([Raissi, 2018](references.md#ref-raissi2018deep); [Boffi et al., 2025](references.md#ref-boffi2024flow)):
+[Equation (11.3.1)](03-continuous-consistency-models.md#eq-conti-ct-motivation) suggests a natural continuous-time characterization of consistency along PF-ODE trajectories. One possible approach is to enforce this differential condition directly by minimizing the residual, in a manner similar to physics-informed neural networks (PINNs) ([Raissi, 2018](../../references.md#ref-raissi2018deep); [Boffi et al., 2025](../../references.md#ref-boffi2024flow)):
 
 $$
 \begin{aligned}
@@ -46,7 +46,7 @@ $$
 \end{aligned}
 $$
 
-In practice, however, [Song et al. (2023)](references.md#ref-song2023consistency) and [Lu and Song (2024)](references.md#ref-lu2024simplifying) employ teacher-based consistency objectives rather than directly optimizing this residual. This motivates asking whether the discrete consistency loss admits a meaningful infinitesimal counterpart as $\Delta s \to 0$. The proposition below shows that, at the comparison point where the stop-gradient target coincides with the online network, the scaled discrete-time gradient converges to the gradient of a continuous-time objective:
+In practice, however, [Song et al. (2023)](../../references.md#ref-song2023consistency) and [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) employ teacher-based consistency objectives rather than directly optimizing this residual. This motivates asking whether the discrete consistency loss admits a meaningful infinitesimal counterpart as $\Delta s \to 0$. The proposition below shows that, at the comparison point where the stop-gradient target coincides with the online network, the scaled discrete-time gradient converges to the gradient of a continuous-time objective:
 
 <span id="eq-cm-discrete"></span>
 
@@ -214,21 +214,21 @@ So far, we have introduced all the fundamental approaches listed in [Table 11.1]
 
 ![Continuous-time consistency distillation and training losses](../../assets/chapter-11/cd-ct-loss.png)
 
-**Figure 11.4:** **Diagram showing relationships between discrete/continuous-time CD and CT under the $\ell_2$ distance metric: $d({\mathbf{x}},{\mathbf{y}})=\|{\mathbf{x}}-{\mathbf{y}}\|_2^2$.** The marked theorems follow the labeling in ([Song et al., 2023](references.md#ref-song2023consistency)). Whenever the theorems involve CT, we assume a perfect score: ${\mathbf{s}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}, t) \equiv \nabla_{\mathbf{x}} \log p_t({\mathbf{x}})$. $\mathcal{L}^\infty_{\text{CT}}$ is defined in [Equation (11.3.4)](03-continuous-consistency-models.md#eq-conti-ct-loss), while $\mathcal{L}^\infty_{\text{CD}}$ is defined in [Equation (11.3.5)](03-continuous-consistency-models.md#eq-cd-continuous-time).
+**Figure 11.4:** **Diagram showing relationships between discrete/continuous-time CD and CT under the $\ell_2$ distance metric: $d({\mathbf{x}},{\mathbf{y}})=\|{\mathbf{x}}-{\mathbf{y}}\|_2^2$.** The marked theorems follow the labeling in ([Song et al., 2023](../../references.md#ref-song2023consistency)). Whenever the theorems involve CT, we assume a perfect score: ${\mathbf{s}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}, t) \equiv \nabla_{\mathbf{x}} \log p_t({\mathbf{x}})$. $\mathcal{L}^\infty_{\text{CT}}$ is defined in [Equation (11.3.4)](03-continuous-consistency-models.md#eq-conti-ct-loss), while $\mathcal{L}^\infty_{\text{CD}}$ is defined in [Equation (11.3.5)](03-continuous-consistency-models.md#eq-cd-continuous-time).
 
 Source: Created by the authors.
 
 Figure link: [Theorem 11.2.1](02-discrete-consistency-models.md#thm-ct-cm).
 
-However, the tangent vector $\tfrac{\mathop{}\!\mathrm{d} }{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\boldsymbol{\theta}^-}$ often causes instability during training. In the following optional section, we present techniques from *Simplifying, Stabilizing and Scaling Continuous Time Consistency Models* (sCM) ([Lu and Song, 2024](references.md#ref-lu2024simplifying)) that mitigate these issues.
+However, the tangent vector $\tfrac{\mathop{}\!\mathrm{d} }{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\boldsymbol{\theta}^-}$ often causes instability during training. In the following optional section, we present techniques from *Simplifying, Stabilizing and Scaling Continuous Time Consistency Models* (sCM) ([Lu and Song, 2024](../../references.md#ref-lu2024simplifying)) that mitigate these issues.
 
 ## 11.3.3 (Optional) Practical Considerations of Continuous-Time CT {#practical-considerations}
 
 Our interest lies in the training from scratch scenario, since it yields a standalone generative model that does not rely on external pre-trained diffusion models. Hence, we focus our discussion on the continuous time case.
 
-In practice, however, training directly with [Equation (11.3.4)](03-continuous-consistency-models.md#eq-conti-ct-loss) is often unstable, as the term $\tfrac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\boldsymbol{\theta}^-}$ can exhibit large or unbounded time derivatives, leading to exploding gradients during optimization. To overcome this, suitable parameterizations and stabilization strategies are typically required ([Geng et al., 2025](references.md#ref-geng2025consistency); [Lu and Song, 2024](references.md#ref-lu2024simplifying)). As summarized in [Section 6.2.2](../06-unified-perspective/02-training-objectives.md#subsec-summary-disentagle), the main factors that influence stable training include the *diffusion process*, *parameterization choices*, *time weighting function*, and *time sampling distribution*, all of which should be carefully designed and disentangled also in continuous-time CM.
+In practice, however, training directly with [Equation (11.3.4)](03-continuous-consistency-models.md#eq-conti-ct-loss) is often unstable, as the term $\tfrac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\boldsymbol{\theta}^-}$ can exhibit large or unbounded time derivatives, leading to exploding gradients during optimization. To overcome this, suitable parameterizations and stabilization strategies are typically required ([Geng et al., 2025](../../references.md#ref-geng2025consistency); [Lu and Song, 2024](../../references.md#ref-lu2024simplifying)). As summarized in [Section 6.2.2](../06-unified-perspective/02-training-objectives.md#subsec-summary-disentagle), the main factors that influence stable training include the *diffusion process*, *parameterization choices*, *time weighting function*, and *time sampling distribution*, all of which should be carefully designed and disentangled also in continuous-time CM.
 
-**Diffusion Process.** Instead of using the standard diffusion parameterization ${\mathbf{x}}_s = \alpha_s {\mathbf{x}}_0 + \sigma_s \boldsymbol{\epsilon}$ with $\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$, [Lu and Song (2024)](references.md#ref-lu2024simplifying) adopt a trigonometric schedule. This schedule, although mathematically equivalent to the original form (as shown in [Equation (6.3.4)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-trig-para)), provides a cleaner structure and a better separation in the training objective, which contributes to improved stability during training [^1]. In addition, they incorporate the standard deviation $\sigma_{\mathrm{d}}$ of the data distribution $p_{\mathrm{data}}$, in line with EDM’s design in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm):
+**Diffusion Process.** Instead of using the standard diffusion parameterization ${\mathbf{x}}_s = \alpha_s {\mathbf{x}}_0 + \sigma_s \boldsymbol{\epsilon}$ with $\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$, [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) adopt a trigonometric schedule. This schedule, although mathematically equivalent to the original form (as shown in [Equation (6.3.4)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-trig-para)), provides a cleaner structure and a better separation in the training objective, which contributes to improved stability during training [^1]. In addition, they incorporate the standard deviation $\sigma_{\mathrm{d}}$ of the data distribution $p_{\mathrm{data}}$, in line with EDM’s design in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm):
 
 <span id="eq-trig-scm"></span>
 
@@ -247,7 +247,7 @@ $$
 
 by defining ${\mathbf{z}} := \sigma_{\mathrm{d}} \boldsymbol{\epsilon}$, $\alpha'_s := \alpha_s$, and $\sigma'_s := \frac{\sigma_s}{\sigma_{\mathrm{d}}}$. The transformed pair $(\alpha'_s, \sigma'_s)$ can then be mapped to the trigonometric form $(\cos(s), \sin(s))$ using the normalization described in [Equation (6.3.5)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-any-to-trig).
 
-**Parametrizations.** By considering the analogous principles of EDM in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm), [Lu and Song (2024)](references.md#ref-lu2024simplifying) propose the following parametrization for the neural network similar to [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization):
+**Parametrizations.** By considering the analogous principles of EDM in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm), [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) propose the following parametrization for the neural network similar to [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization):
 
 $$
 \begin{aligned}
@@ -255,7 +255,7 @@ $$
 \end{aligned}
 $$
 
-Here, $c_{\mathrm{skip}}(s)$, $c_{\mathrm{out}}(s)$, and $c_{\mathrm{in}}(s)$ can be derived using the same criteria presented in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm) (see Appendix B of [Lu and Song (2024)](references.md#ref-lu2024simplifying) for detailed derivations), and are given by
+Here, $c_{\mathrm{skip}}(s)$, $c_{\mathrm{out}}(s)$, and $c_{\mathrm{in}}(s)$ can be derived using the same criteria presented in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm) (see Appendix B of [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) for detailed derivations), and are given by
 
 $$
 c_{\mathrm{skip}}(s) = \cos(s), \quad c_{\mathrm{out}}(s) = -\sigma_{\mathrm{d}} \sin(s), \quad c_{\mathrm{in}}(s) \equiv \frac{1}{\sigma_{\mathrm{d}}}.
@@ -285,7 +285,7 @@ $$
 \tag{11.3.9}
 $$
 
-In theory, training with the gradient update in [Equation (11.3.9)](03-continuous-consistency-models.md#eq-conti-ct-loss-trig) may be sufficient to learn a consistency function. However, [Lu and Song (2024)](references.md#ref-lu2024simplifying) empirically observed that the training process can become unstable in practice due to the behavior of the tangent function, given by
+In theory, training with the gradient update in [Equation (11.3.9)](03-continuous-consistency-models.md#eq-conti-ct-loss-trig) may be sufficient to learn a consistency function. However, [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) empirically observed that the training process can become unstable in practice due to the behavior of the tangent function, given by
 
 $$
 \begin{aligned}
@@ -327,11 +327,11 @@ Therefore, some additional empirical techniques are introduced to mitigate the i
 
 -   **B. Tangent Warm-Up.** Since the term $\sin(s)({\mathbf{x}}_s + \sigma_{\mathrm{d}} \frac{\mathop{}\!\mathrm{d} }{\mathop{}\!\mathrm{d} s}{\mathbf{F}}_{\boldsymbol{\theta}^-})$ may induce instability, an optional technique can be applied by replacing the coefficient $\sin(s)$ with $r \cdot \sin(s)$, where $r$ linearly increases from 0 to 1 over the first few training iterations.
 
--   **C. Time Embedding.** In light of the derivative chain in [Equation (11.3.10)](03-continuous-consistency-models.md#eq-ds-decomposition), [Lu and Song (2024)](references.md#ref-lu2024simplifying) opted for a smaller magnitude parameter to control the derivative $\frac{\partial \text{emb}(c_{\mathrm{noise}})}{\partial c_{\mathrm{noise}}}$. For a similar reason, $c_{\mathrm{noise}}(s) = s$ is chosen, where $\partial_s c_{\mathrm{noise}}(s)=1$, a bounded constant.
+-   **C. Time Embedding.** In light of the derivative chain in [Equation (11.3.10)](03-continuous-consistency-models.md#eq-ds-decomposition), [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) opted for a smaller magnitude parameter to control the derivative $\frac{\partial \text{emb}(c_{\mathrm{noise}})}{\partial c_{\mathrm{noise}}}$. For a similar reason, $c_{\mathrm{noise}}(s) = s$ is chosen, where $\partial_s c_{\mathrm{noise}}(s)=1$, a bounded constant.
 
 On top of these, architectural changes for improved normalization (for stability) and efficient JVP-based computation of $\frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\theta^-}$ are often necessary, but beyond our scope.
 
-**Time-Weighting Function.** Manual design of the time-weighting function $\omega(s)$ may lead to suboptimal performance. To address this, following a similar approach to EDM-2 ([Karras et al., 2024](references.md#ref-karras2024analyzing)), [Lu and Song (2024)](references.md#ref-lu2024simplifying) learn an adaptive weighting function $\omega_{\boldsymbol{\varphi}}(s)$ to balance the training loss variance across different times $s$ (see [Equation (11.3.11)](03-continuous-consistency-models.md#eq-effect-adaptive-wgt) for the desired outcome).
+**Time-Weighting Function.** Manual design of the time-weighting function $\omega(s)$ may lead to suboptimal performance. To address this, following a similar approach to EDM-2 ([Karras et al., 2024](../../references.md#ref-karras2024analyzing)), [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) learn an adaptive weighting function $\omega_{\boldsymbol{\varphi}}(s)$ to balance the training loss variance across different times $s$ (see [Equation (11.3.11)](03-continuous-consistency-models.md#eq-effect-adaptive-wgt) for the desired outcome).
 
 To elaborate further, we observe that the objective function in [Equation (11.3.9)](03-continuous-consistency-models.md#eq-conti-ct-loss-trig) takes the form
 
@@ -348,7 +348,7 @@ $$
 \end{aligned}
 $$
 
-Based on this observation, [Lu and Song (2024)](references.md#ref-lu2024simplifying) propose additionally training an adaptive weighting network $\omega_{\boldsymbol{\varphi}}(s)$ to estimate the loss norm, formulated as the following minimization problem:
+Based on this observation, [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) propose additionally training an adaptive weighting network $\omega_{\boldsymbol{\varphi}}(s)$ to estimate the loss norm, formulated as the following minimization problem:
 
 $$
 \begin{aligned}
@@ -379,7 +379,7 @@ $$
 
 That is, for an unconstrained pointwise weighting function, the expected rescaled loss is normalized separately at each time $s$. As a result, the adaptive weighting effectively reduces the variance of the training loss across different time steps, leading to more balanced and stable training.
 
-**Time Sampling Distribution.** [Lu and Song (2024)](references.md#ref-lu2024simplifying) opt to sample $\tan(s)$ from a log-normal proposal distribution ([Karras et al., 2022](references.md#ref-karras2022elucidating)), that is,
+**Time Sampling Distribution.** [Lu and Song (2024)](../../references.md#ref-lu2024simplifying) opt to sample $\tan(s)$ from a log-normal proposal distribution ([Karras et al., 2022](../../references.md#ref-karras2022elucidating)), that is,
 
 <span id="eq-s-dist"></span>
 
@@ -390,7 +390,7 @@ $$
 \tag{11.3.12}
 $$
 
-Here, $P_{\text{mean}}$ and $P_{\text{std}}$ are two hyper-parameters. Following [Lu and Song (2024)](references.md#ref-lu2024simplifying), we can use the prior weighting
+Here, $P_{\text{mean}}$ and $P_{\text{std}}$ are two hyper-parameters. Following [Lu and Song (2024)](../../references.md#ref-lu2024simplifying), we can use the prior weighting
 
 $$
 \omega(s)=\frac{1}{\sigma_{\mathrm{d}}\tan(s)},

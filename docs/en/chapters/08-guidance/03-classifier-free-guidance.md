@@ -10,7 +10,7 @@
 
 Source: Created by the authors.
 
-*Classifier-free guidance* (CFG) ([Ho and Salimans, 2021](references.md#ref-ho2021classifier)) removes the need for a separately trained classifier by expressing the classifier-guidance direction through conditional and unconditional scores. Bayes’ rule gives
+*Classifier-free guidance* (CFG) ([Ho and Salimans, 2021](../../references.md#ref-ho2021classifier)) removes the need for a separately trained classifier by expressing the classifier-guidance direction through conditional and unconditional scores. Bayes’ rule gives
 
 <span id="eq-cfg-bayes-direction"></span>
 

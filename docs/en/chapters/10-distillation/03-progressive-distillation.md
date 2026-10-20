@@ -1,6 +1,6 @@
 # 10.3 Progressive Distillation {#sec-pd}
 
-Progressive Distillation (PD) ([Salimans and Ho, 2021](references.md#ref-salimans2021progressive)) consists of two procedures that together enable a diffusion model to learn the PF-ODE trajectory more efficiently. The key idea is to progressively reduce the number of integration steps required for high-quality sampling while retaining fidelity to the teacher trajectory.
+Progressive Distillation (PD) ([Salimans and Ho, 2021](../../references.md#ref-salimans2021progressive)) consists of two procedures that together enable a diffusion model to learn the PF-ODE trajectory more efficiently. The key idea is to progressively reduce the number of integration steps required for high-quality sampling while retaining fidelity to the teacher trajectory.
 
 -   **Distillation Operation:** Distills a deterministic sampler (e.g., DDIM) based on a pre-trained teacher model (initially a diffusion model) into a student model that reproduces the same trajectory using only half as many sampling steps.
 
@@ -217,7 +217,7 @@ For a stochastic sampler, the same pathwise logic applies after fixing or coupli
 
 ## 10.3.4 PD with Guidance {#subsec-pd-guidance}
 
-[Meng et al. (2023)](references.md#ref-meng2023distillation) proposed a two-stage pipeline for distilling classifier-free guided (CFG) diffusion models: (1) *distill the guidance* into a single network that takes the guidance weight as input, and (2) apply *progressive distillation (PD)* to reduce the sampling steps. They demonstrated this both in pixel space and in latent space (e.g., Stable Diffusion).
+[Meng et al. (2023)](../../references.md#ref-meng2023distillation) proposed a two-stage pipeline for distilling classifier-free guided (CFG) diffusion models: (1) *distill the guidance* into a single network that takes the guidance weight as input, and (2) apply *progressive distillation (PD)* to reduce the sampling steps. They demonstrated this both in pixel space and in latent space (e.g., Stable Diffusion).
 
 **Stage-One Distillation: Distilling Guidance.** Let ${\mathbf{x}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}_s, s, {\mathbf{c}})$ denote the (pre-trained) conditional diffusion model output in the “${\mathbf{x}}$-prediction” parameterization (i.e., a clean estimate) at time $s$ and condition ${\mathbf{c}}$; the condition can also be null, ${\mathbf{c}}=\emptyset$ (unconditional branch). The $\omega$-weighted CFG combination in [Equation (8.3.3)](../08-guidance/03-classifier-free-guidance.md#eq-cfg-model-nn) can be written as
 

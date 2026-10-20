@@ -16,7 +16,7 @@ In this chapter we review the foundations of optimal transport, entropic optimal
 
 **Reader route.** This chapter is optional for the main diffusion-model story. Read it for a precise answer to the question “in what sense, if any, is diffusion optimal transport?”
 
-Continue with the sections below and the [chapter references](references.md#chapter-07-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [7.1 Prologue of Distribution-to-Distribution Translation](01-distribution-translation.md#sec-distribution-translation)
 

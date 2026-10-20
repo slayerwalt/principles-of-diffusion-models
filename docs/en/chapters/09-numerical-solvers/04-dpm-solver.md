@@ -1,6 +1,6 @@
 # 9.4 DPM-Solver {#sec-dpm}
 
-DPM-Solver ([Lu et al., 2022](references.md#ref-lu2022dpm)) develops higher-order solvers for the empirical PF-ODE by exploiting the same diffusion-specific structure that appeared in our discussion of DDIM. The central goal is to obtain accurate samples using far fewer neural-network evaluations than a first-order sampler. The original DPM-Solver focuses on noise prediction and constructs first-, second-, and third-order single-step solvers; later extensions, including DPM-Solver`++` ([Lu et al., 2022](references.md#ref-lu2022dpm2)) and DPM-Solver-v3 ([Zheng et al., 2023](references.md#ref-zheng2023dpm)), further develop this family.
+DPM-Solver ([Lu et al., 2022](../../references.md#ref-lu2022dpm)) develops higher-order solvers for the empirical PF-ODE by exploiting the same diffusion-specific structure that appeared in our discussion of DDIM. The central goal is to obtain accurate samples using far fewer neural-network evaluations than a first-order sampler. The original DPM-Solver focuses on noise prediction and constructs first-, second-, and third-order single-step solvers; later extensions, including DPM-Solver`++` ([Lu et al., 2022](../../references.md#ref-lu2022dpm2)) and DPM-Solver-v3 ([Zheng et al., 2023](../../references.md#ref-zheng2023dpm)), further develop this family.
 
 **High-Level Idea of DPM-Solver.** The DDIM discussion in [Section 9.2](02-ddim.md#sec-revisit-ddim) showed that, under ${\boldsymbol{\epsilon}}$-prediction, a first-order update can be obtained by retaining the known diffusion schedule analytically while holding the neural prediction fixed over each step,
 
@@ -10,7 +10,7 @@ $$
 {\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}(\tilde{\mathbf{x}}_s,s).
 $$
 
-DPM-Solver ([Lu et al., 2022](references.md#ref-lu2022dpm)) builds naturally on this idea: rather than treating the neural prediction as constant, it seeks higher-order approximations of how the prediction varies along the trajectory. Like DEIS, it starts from the semilinear ${\boldsymbol{\epsilon}}$-prediction form of the PF-ODE,
+DPM-Solver ([Lu et al., 2022](../../references.md#ref-lu2022dpm)) builds naturally on this idea: rather than treating the neural prediction as constant, it seeks higher-order approximations of how the prediction varies along the trajectory. Like DEIS, it starts from the semilinear ${\boldsymbol{\epsilon}}$-prediction form of the PF-ODE,
 
 <span id="eq-noise-alpha-sigma"></span>
 
@@ -31,7 +31,7 @@ $$
 \tag{9.4.1}
 $$
 
-and its variation-of-constants representation introduced in the Prologue. Its key additional ingredient is to reparameterize time by the *half-log signal-to-noise ratio*, following the log-SNR parameterization of VDM ([Kingma et al., 2021](references.md#ref-kingma2021variational)),
+and its variation-of-constants representation introduced in the Prologue. Its key additional ingredient is to reparameterize time by the *half-log signal-to-noise ratio*, following the log-SNR parameterization of VDM ([Kingma et al., 2021](../../references.md#ref-kingma2021variational)),
 
 <span id="eq-lambda"></span>
 
@@ -279,7 +279,7 @@ More importantly, $\lambda(t)$ measures progress through the diffusion process d
 
     Hence, a uniform grid in $\lambda$ induces very small steps in $t$ near both endpoints $t\to0$ and $t\to1$, and larger steps around the middle of the trajectory.
 
--   **$(\alpha_t,\sigma_t)=(1,t)$.** This corresponds to the EDM parameterization ([Karras et al., 2022](references.md#ref-karras2022elucidating)) when the independent variable $t$ is taken directly as the noise level $\sigma_t$. Then
+-   **$(\alpha_t,\sigma_t)=(1,t)$.** This corresponds to the EDM parameterization ([Karras et al., 2022](../../references.md#ref-karras2022elucidating)) when the independent variable $t$ is taken directly as the noise level $\sigma_t$. Then
 
     $$
     \lambda(t)
@@ -456,7 +456,7 @@ $$
 
 This finite-step update is exactly the deterministic DDIM update, as shown in [Section 9.4.4](04-dpm-solver.md#subsec-ddim-dpm-solver-1).
 
-DPM-Solver-$n$ with $n \geq 2$ requires evaluating the $k^{\text{th}}$-derivative ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda, \lambda)}$ for $k \leq n-1$. However, directly computing higher-order derivatives is computationally expensive in practice. [Lu et al. (2022)](references.md#ref-lu2022dpm) also propose efficient approximation methods for these derivatives, which will be detailed in the next subsection.
+DPM-Solver-$n$ with $n \geq 2$ requires evaluating the $k^{\text{th}}$-derivative ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda, \lambda)}$ for $k \leq n-1$. However, directly computing higher-order derivatives is computationally expensive in practice. [Lu et al. (2022)](../../references.md#ref-lu2022dpm) also propose efficient approximation methods for these derivatives, which will be detailed in the next subsection.
 
 ## 9.4.3 Implementation of DPM-Solver-$n$ {#subsec-dpm-n-method}
 
@@ -464,7 +464,7 @@ DPM-Solver-$n$ with $n \geq 2$ requires evaluating the $k^{\text{th}}$-derivativ
 
 -   Precomputing the coefficients ${\color{orange}C_k}$;
 
--   Approximating the $k^{\text{th}}$ derivative ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda,\lambda)}$ for $k \leq n-1$ to circumvent the costly computation of exact higher-order derivatives—a challenge well-studied in the ODE literature ([Hochbruck and Ostermann, 2005](references.md#ref-hochbruck2005explicit); [Luan, 2021](references.md#ref-luan2021efficient)). One common strategy is finite difference approximation.
+-   Approximating the $k^{\text{th}}$ derivative ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda,\lambda)}$ for $k \leq n-1$ to circumvent the costly computation of exact higher-order derivatives—a challenge well-studied in the ODE literature ([Hochbruck and Ostermann, 2005](../../references.md#ref-hochbruck2005explicit); [Luan, 2021](../../references.md#ref-luan2021efficient)). One common strategy is finite difference approximation.
 
 We now elaborate on the first two points.
 
@@ -556,7 +556,7 @@ e^h-\frac{h^2}{2}-h-1
 \tag{9.4.10}
 $$
 
-**Approximating ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda,\lambda)}$ for $k \leq n-1$.** For $n \geq 2$, following the standard approach of single-step ODE solvers ([Atkinson et al., 2009](references.md#ref-atkinson2009numerical)), [Lu et al. (2022)](references.md#ref-lu2022dpm) use additional model evaluations within the current step to approximate the higher-order derivatives. We illustrate this idea for $n=2$.
+**Approximating ${\color{cyan}\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}^{(k)}(\hat{\mathbf{x}}_\lambda,\lambda)}$ for $k \leq n-1$.** For $n \geq 2$, following the standard approach of single-step ODE solvers ([Atkinson et al., 2009](../../references.md#ref-atkinson2009numerical)), [Lu et al. (2022)](../../references.md#ref-lu2022dpm) use additional model evaluations within the current step to approximate the higher-order derivatives. We illustrate this idea for $n=2$.
 
 Let $\gamma\in(0,1]$ specify a stage point in the log-SNR interval $[\lambda_s,\lambda_t]$. Given an estimate $\tilde{\mathbf{x}}_s$ at $s$, define
 

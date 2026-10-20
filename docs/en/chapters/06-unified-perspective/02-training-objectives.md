@@ -16,7 +16,7 @@ Let $\omega: [0, T] \to \mathbb{R}_{>0}$ denote a positive time-weighting functi
 
 **Variational View.** Based on the KL divergence in DDPMs (see [Section 2.2.4](../02-variational-perspective/02-ddpm.md#subsec-ddpm-prediction) and [Section 4.5.2](../04-score-sde-framework/05-accumulated-perturbation-kernels.md#subsec-connection-vdm)), this approach reduces to predicting either the expected noise that produces $\mathbf{x}_t$ or the expected clean signal that $\mathbf{x}_t$ was perturbed from.
 
-1.  **${\boldsymbol{\epsilon}}$-Prediction (Noise Prediction)** ([Ho et al., 2020](references.md#ref-ho2020denoising)):
+1.  **${\boldsymbol{\epsilon}}$-Prediction (Noise Prediction)** ([Ho et al., 2020](../../references.md#ref-ho2020denoising)):
 
     <span id="eq-noise-def"></span>
 
@@ -33,7 +33,7 @@ Let $\omega: [0, T] \to \mathbb{R}_{>0}$ denote a positive time-weighting functi
 
     Here, ${\boldsymbol{\epsilon}}^*$ means the average noise that was injected to obtain the given ${\mathbf{x}}_t$.
 
-2.  **${\mathbf{x}}$-Prediction (Clean Prediction)** ([Kingma et al., 2021](references.md#ref-kingma2021variational); [Karras et al., 2022](references.md#ref-karras2022elucidating); [Song et al., 2023](references.md#ref-song2023consistency)):
+2.  **${\mathbf{x}}$-Prediction (Clean Prediction)** ([Kingma et al., 2021](../../references.md#ref-kingma2021variational); [Karras et al., 2022](../../references.md#ref-karras2022elucidating); [Song et al., 2023](../../references.md#ref-song2023consistency)):
 
     <span id="eq-clean-def"></span>
 
@@ -52,7 +52,7 @@ Let $\omega: [0, T] \to \mathbb{R}_{>0}$ denote a positive time-weighting functi
 
 **Score-Based View.** Predicts the score function at noise level $t$, which points in the average direction to denoise $\mathbf{x}_t$ back toward all possible clean samples that could have generated it:
 
-3.  **Score Prediction** ([Song and Ermon, 2019](references.md#ref-song2019generative); [Song et al., 2020](references.md#ref-song2020score)):
+3.  **Score Prediction** ([Song and Ermon, 2019](../../references.md#ref-song2019generative); [Song et al., 2020](../../references.md#ref-song2020score)):
 
     <span id="eq-score-def"></span>
 
@@ -71,7 +71,7 @@ Let $\omega: [0, T] \to \mathbb{R}_{>0}$ denote a positive time-weighting functi
 
 **Flow-Based View.** Predicts the instantaneous average velocity of the data as it evolves through $\mathbf{x}_t$:
 
-4.  **${\mathbf{v}}$-Prediction (Velocity Prediction)** ([Lipman et al., 2022](references.md#ref-lipman2022flow); [Liu, 2022](references.md#ref-liu2022rectified); [Salimans and Ho, 2021](references.md#ref-salimans2021progressive); [Albergo et al., 2023](references.md#ref-albergo2023stochastic)):
+4.  **${\mathbf{v}}$-Prediction (Velocity Prediction)** ([Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Liu, 2022](../../references.md#ref-liu2022rectified); [Salimans and Ho, 2021](../../references.md#ref-salimans2021progressive); [Albergo et al., 2023](../../references.md#ref-albergo2023stochastic)):
 
     <span id="eq-velocity-def"></span>
 
@@ -105,7 +105,7 @@ $$
 \tag{6.2.5}
 $$
 
-Here, to enhance training efficiency and optimize the diffusion model learning pipeline, several key design choices are crucial ([Karras et al., 2022](references.md#ref-karras2022elucidating); [Lu and Song, 2024](references.md#ref-lu2024simplifying)):
+Here, to enhance training efficiency and optimize the diffusion model learning pipeline, several key design choices are crucial ([Karras et al., 2022](../../references.md#ref-karras2022elucidating); [Lu and Song, 2024](../../references.md#ref-lu2024simplifying)):
 
 -   **(A)** Noise schedule in the forward process of $\bbox[2px,#ffe7e4]{\color{black}{{\mathbf{x}}_t}}$ via $\alpha_t$ and $\sigma_t$;
 
@@ -379,11 +379,11 @@ same objective, different estimator
 
 We therefore keep time sampling and loss weighting conceptually separate. Uniform time sampling makes this distinction less visible because its density contributes only a constant factor, whereas with nonuniform sampling one must specify whether the sampling distribution defines the objective or merely serves as an importance-sampling proposal.
 
-Both uses appear in diffusion-model training. ScoreFlow explicitly uses importance sampling to reduce the variance of a fixed likelihood-weighted objective ([Song et al., 2021](references.md#ref-song2021maximum)). VDM and subsequent analyses similarly show that, when the objective is fixed in noise-level coordinates, the noise schedule can act as an importance-sampling distribution  ([Kingma et al., 2021](references.md#ref-kingma2021variational); [Kingma and Gao, 2023](references.md#ref-kingma2023understanding)). EDM ([Karras et al., 2022](references.md#ref-karras2022elucidating)), by contrast, specifies both a nonuniform training distribution over noise levels and a separate loss weighting, whose combination determines the effective training weight.
+Both uses appear in diffusion-model training. ScoreFlow explicitly uses importance sampling to reduce the variance of a fixed likelihood-weighted objective ([Song et al., 2021](../../references.md#ref-song2021maximum)). VDM and subsequent analyses similarly show that, when the objective is fixed in noise-level coordinates, the noise schedule can act as an importance-sampling distribution  ([Kingma et al., 2021](../../references.md#ref-kingma2021variational); [Kingma and Gao, 2023](../../references.md#ref-kingma2023understanding)). EDM ([Karras et al., 2022](../../references.md#ref-karras2022elucidating)), by contrast, specifies both a nonuniform training distribution over noise levels and a separate loss weighting, whose combination determines the effective training weight.
 
 **(D) Time-Weighting Function $\omega(t)$.** For a fixed $p_{\text{time}}$, the weighting function $\omega(t)$ determines the relative contribution of different times to the training objective. Together with the previous paragraph, the effective weighting over time is therefore $p_{\text{time}}(t)\omega(t)$.
 
-A simple baseline is uniform time sampling with $\omega(t)\equiv1$, as in the standard simplified ${\boldsymbol{\epsilon}}$-prediction and FM/RF objectives  ([Ho et al., 2020](references.md#ref-ho2020denoising); [Lipman et al., 2022](references.md#ref-lipman2022flow); [Liu, 2022](references.md#ref-liu2022rectified)). Other weightings emphasize different noise regimes and can also carry likelihood or variational interpretations. For example, for the score-matching objective, the likelihood weighting $\omega(t)=g^2(t)$ yields an upper bound on the negative log-likelihood under suitable regularity conditions  ([Song et al., 2021](references.md#ref-song2021maximum)). More generally, SNR-dependent weightings provide a common way to redistribute training emphasis across noise levels  ([Kingma et al., 2021](references.md#ref-kingma2021variational); [Kingma and Gao, 2023](references.md#ref-kingma2023understanding)).
+A simple baseline is uniform time sampling with $\omega(t)\equiv1$, as in the standard simplified ${\boldsymbol{\epsilon}}$-prediction and FM/RF objectives  ([Ho et al., 2020](../../references.md#ref-ho2020denoising); [Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Liu, 2022](../../references.md#ref-liu2022rectified)). Other weightings emphasize different noise regimes and can also carry likelihood or variational interpretations. For example, for the score-matching objective, the likelihood weighting $\omega(t)=g^2(t)$ yields an upper bound on the negative log-likelihood under suitable regularity conditions  ([Song et al., 2021](../../references.md#ref-song2021maximum)). More generally, SNR-dependent weightings provide a common way to redistribute training emphasis across noise levels  ([Kingma et al., 2021](../../references.md#ref-kingma2021variational); [Kingma and Gao, 2023](../../references.md#ref-kingma2023understanding)).
 
 **Monotonic Weighting and the ELBO-with-Augmentation View.** A useful way to describe the corruption level is through the *log signal-to-noise ratio* (log-SNR)
 
@@ -395,7 +395,7 @@ $$
 
 We use $\Lambda$ for the full log-SNR, distinguishing it from the half-log-SNR coordinate $\lambda_t=\log(\alpha_t/\sigma_t)=\tfrac12\Lambda_t$ used later in [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers). Since $\Lambda_t$ decreases as the forward process becomes noisier, after expressing the loss in a common prediction parameterization, let $w(\Lambda)$ denote the effective weight assigned to each log-SNR level.
 
-A useful result of [Kingma and Gao (2023)](references.md#ref-kingma2023understanding) is that, if $w(\Lambda)$ is non-increasing in $\Lambda$ (equivalently, its weight does not decrease as the forward process becomes noisier), then the weighted diffusion objective can be rewritten, up to terms independent of the model parameters, as an average negative ELBO over Gaussian-perturbed data [^1].
+A useful result of [Kingma and Gao (2023)](../../references.md#ref-kingma2023understanding) is that, if $w(\Lambda)$ is non-increasing in $\Lambda$ (equivalently, its weight does not decrease as the forward process becomes noisier), then the weighted diffusion objective can be rewritten, up to terms independent of the model parameters, as an average negative ELBO over Gaussian-perturbed data [^1].
 
 Thus, monotonic weighting has a concrete probabilistic interpretation: rather than merely emphasizing some noise levels more than others, it can be viewed as averaging variational training over Gaussian-corrupted versions of the data at different corruption strengths.
 
@@ -416,7 +416,7 @@ Thus, monotonic weighting has a concrete probabilistic interpretation: rather th
 
     where ${\mathbf{x}}_{[t,T]}:=\{{\mathbf{x}}_s\}_{s\in[t,T]}$ denotes the remaining continuous diffusion path. This is the continuous-time counterpart of the negative ELBO in [Equation (2.2.13)](../02-variational-perspective/02-ddpm.md#eq-ddpm-elbo), starting from corruption level $t$; more precisely, it equals the expected negative ELBO of the perturbed sample ${\mathbf{x}}_t$, up to terms independent of $\boldsymbol{\phi}$.
 
-    For ${\boldsymbol{\epsilon}}$-prediction, [Kingma and Gao (2023)](references.md#ref-kingma2023understanding) show that
+    For ${\boldsymbol{\epsilon}}$-prediction, [Kingma and Gao (2023)](../../references.md#ref-kingma2023understanding) show that
 
     $$
     \frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} t}L(t;{\mathbf{x}}_0)

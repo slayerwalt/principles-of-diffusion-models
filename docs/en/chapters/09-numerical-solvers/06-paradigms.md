@@ -6,7 +6,7 @@
 
 **Figure 9.3:** **Comparisons of two computation graphs.** Left: conventional time-stepping ODE solving, where the solution is propagated sequentially across time. Right: Picard iteration, which enables parallel computation by updating all time nodes simultaneously using the results from the previous iteration, thereby avoiding the strictly sequential nature of time-stepping.
 
-Source: Adapted from [Shih et al. (2023)](references.md#ref-shih2023parallel).
+Source: Adapted from [Shih et al. (2023)](../../references.md#ref-shih2023parallel).
 
 <span id="fig-chaingraph"></span>
 
@@ -165,7 +165,7 @@ This scheme is simple and parallel-friendly: each drift evaluation ${\mathbf{v}}
 
 **Figure 9.6:** Determine how far to slide the window forward, based on the error $\lVert {\mathbf{x}}^{(k+1)}_i - {\mathbf{x}}^{(k)}_i \rVert^2$.
 
-Source: Adapted from [Shih et al. (2023)](references.md#ref-shih2023parallel).
+Source: Adapted from [Shih et al. (2023)](../../references.md#ref-shih2023parallel).
 
 The discrete Picard update [Equation (9.6.3)](06-paradigms.md#eq-discrete-picard-decreasing) expresses each ${\mathbf{x}}^{(k+1)}_j$ as the fixed initial value ${\mathbf{x}}_T$ minus a cumulative sum of drifts. To limit memory and exploit parallel hardware, it is convenient to apply the same idea locally on short, sliding blocks of indices.
 

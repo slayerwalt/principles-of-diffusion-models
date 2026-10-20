@@ -1,6 +1,6 @@
 # 11.5 General Flow Map: Mean Flow {#sec-mf}
 
-Just as diffusion models admit many equivalent parameterizations and training objectives, a general flow map ${\boldsymbol{\Psi}}_{s\to t}$ can also be learned in multiple plausible ways. In this section, we introduce *Mean Flow* (MF) ([Geng et al., 2025](references.md#ref-geng2025mean)), a later representative of the general flow map family ${\boldsymbol{\Psi}}_{s\to t}$ that illustrates an alternative yet principled perspective on how such maps can be effectively learned.
+Just as diffusion models admit many equivalent parameterizations and training objectives, a general flow map ${\boldsymbol{\Psi}}_{s\to t}$ can also be learned in multiple plausible ways. In this section, we introduce *Mean Flow* (MF) ([Geng et al., 2025](../../references.md#ref-geng2025mean)), a later representative of the general flow map family ${\boldsymbol{\Psi}}_{s\to t}$ that illustrates an alternative yet principled perspective on how such maps can be effectively learned.
 
 ## 11.5.1 Modeling and Training of Mean Flow {#modeling-and-training}
 
@@ -113,7 +113,7 @@ Alternatively, multi-step generation can be performed by preparing a time grid a
 
 ## 11.5.3 Relationship between CTM and MF {#subsec-equivalence-ctm-mf}
 
-At first sight CTM and MF may appear unrelated. In fact, both provide different parameterizations of the same oracle flow map ${\boldsymbol{\Psi}}_{s\to t}$, and their corresponding squared oracle regression errors are related by a time-dependent weighting ([Hu et al., 2025](references.md#ref-hu2025cmt)).
+At first sight CTM and MF may appear unrelated. In fact, both provide different parameterizations of the same oracle flow map ${\boldsymbol{\Psi}}_{s\to t}$, and their corresponding squared oracle regression errors are related by a time-dependent weighting ([Hu et al., 2025](../../references.md#ref-hu2025cmt)).
 
 **Relationship of Parameterizations.** Both methods operate under the same general framework but represent the learned function in distinct ways. The flow map can be written equivalently as
 

@@ -30,7 +30,7 @@ Can we learn the flow map ${\boldsymbol{\Psi}}_{s\to t}(\cdot)$ with a network $
 
 Source: Created by the authors.
 
-This chapter develops methods toward this goal, organized around a single objective that also underlies distillation and provides a unified view of flow-map formulations ([Boffi et al., 2025](references.md#ref-boffi2024flow); [Hu et al., 2025](references.md#ref-hu2025cmt)):
+This chapter develops methods toward this goal, organized around a single objective that also underlies distillation and provides a unified view of flow-map formulations ([Boffi et al., 2025](../../references.md#ref-boffi2024flow); [Hu et al., 2025](../../references.md#ref-hu2025cmt)):
 
 <span id="eq-general-cm-loss-rep"></span>
 
@@ -66,13 +66,13 @@ Because the flow map ${\boldsymbol{\Psi}}_{s\to t}$ cannot be expressed in close
 
 Building on this principled objective, we now turn to systematic approaches for learning flow map models, with the aim of developing methods that are practical while also producing generations that more accurately reflect the true data distribution and are computationally efficient. We begin with a high-level introduction to this paradigm.
 
-**Special Flow Map: Consistency Functions.** *Consistency Models* ([Song et al., 2023](references.md#ref-song2023consistency)) represent one of the earliest pioneering approaches to flow-map learning. They learn a few-step denoiser ${\mathbf{f}}_{\boldsymbol{\theta}}(\cdot,s)$ that approximates the special case of the flow map to the origin:
+**Special Flow Map: Consistency Functions.** *Consistency Models* ([Song et al., 2023](../../references.md#ref-song2023consistency)) represent one of the earliest pioneering approaches to flow-map learning. They learn a few-step denoiser ${\mathbf{f}}_{\boldsymbol{\theta}}(\cdot,s)$ that approximates the special case of the flow map to the origin:
 
 $$
 {\boldsymbol{\Psi}}_{s\to 0}(\cdot), \qquad s \in (0,T].
 $$
 
-The key idea is that every state ${\mathbf{x}}_s$ is mapped to the time-$0$ endpoint ${\boldsymbol{\Psi}}_{s\to 0}({\mathbf{x}}_s)$ of the PF-ODE trajectory passing through it. Formally, the oracle training objective for the CM family ([Song et al., 2023](references.md#ref-song2023consistency); [Song and Dhariwal, 2024](references.md#ref-songimproved); [Geng et al., 2024](references.md#ref-geng2024consistency); [Lu and Song, 2024](references.md#ref-lu2024simplifying)) is
+The key idea is that every state ${\mathbf{x}}_s$ is mapped to the time-$0$ endpoint ${\boldsymbol{\Psi}}_{s\to 0}({\mathbf{x}}_s)$ of the PF-ODE trajectory passing through it. Formally, the oracle training objective for the CM family ([Song et al., 2023](../../references.md#ref-song2023consistency); [Song and Dhariwal, 2024](../../references.md#ref-songimproved); [Geng et al., 2024](../../references.md#ref-geng2024consistency); [Lu and Song, 2024](../../references.md#ref-lu2024simplifying)) is
 
 <span id="eq-oracle-cm"></span>
 
@@ -95,7 +95,7 @@ where ${\boldsymbol{\Psi}}_{s\to s-\Delta s}({\mathbf{x}}_s)$ itself must also b
 **General Flow Map.** Two representative approaches are the *Consistency Trajectory Model* (CTM) and *Mean Flow* (MF).
 
 **Consistency Trajectory Models.** *Consistency Trajectory Model* (CTM)<br>
- ([Kim et al., 2024](references.md#ref-kim2023consistency)) is the first work to learn the general flow map ${\boldsymbol{\Psi}}_{s\to t}$ for arbitrary start and end times, and can be viewed as a concrete instance under the unified objective of [Equation (10.1.4)](01-prologue.md#eq-general-cm-loss-rep). CTM adopts an Euler-inspired parametrization by expressing the oracle flow map as
+ ([Kim et al., 2024](../../references.md#ref-kim2023consistency)) is the first work to learn the general flow map ${\boldsymbol{\Psi}}_{s\to t}$ for arbitrary start and end times, and can be viewed as a concrete instance under the unified objective of [Equation (10.1.4)](01-prologue.md#eq-general-cm-loss-rep). CTM adopts an Euler-inspired parametrization by expressing the oracle flow map as
 
 $$
 \begin{aligned}
@@ -127,7 +127,7 @@ $$
 
 where the intermediate state ${\boldsymbol{\Psi}}_{s\to u}({\mathbf{x}}_s)$ is approximated in one of two ways: (i) *distillation*, which uses a few-step solver applied to a pre-trained diffusion teacher, or (ii) *training from scratch*, which constructs a self-induced teacher directly through the ${\mathbf{G}}_{\boldsymbol{\theta}}$ parametrization.
 
-**Mean Flow.** Mean Flow (MF) ([Geng et al., 2025](references.md#ref-geng2025mean)) builds on flow matching by modeling the *average drift* over an interval $[t,s]$ (with $t\le s$):
+**Mean Flow.** Mean Flow (MF) ([Geng et al., 2025](../../references.md#ref-geng2025mean)) builds on flow matching by modeling the *average drift* over an interval $[t,s]$ (with $t\le s$):
 
 $$
 {\mathbf{h}}_{{\boldsymbol{\theta}}}({\mathbf{x}}_s,s,t)

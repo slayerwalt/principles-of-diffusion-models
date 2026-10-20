@@ -99,7 +99,7 @@ $$
 \qquad {\mathbf{x}}_T \sim p_{\mathrm{prior}}.
 $$
 
-This idea underlies one of the earliest trajectory distillation methods, *Knowledge Distillation* ([Luhman and Luhman, 2021](references.md#ref-luhman2021knowledge)), which uses the regression loss
+This idea underlies one of the earliest trajectory distillation methods, *Knowledge Distillation* ([Luhman and Luhman, 2021](../../references.md#ref-luhman2021knowledge)), which uses the regression loss
 
 $$
 \mathcal{L}_{\mathrm{KD}}({\boldsymbol{\theta}})
@@ -114,7 +114,7 @@ $$
 
 While this approach provides direct supervision from the pre-trained teacher, it cannot leverage the strong supervision available in the original training data. In addition, it is computationally expensive if ODE integration is invoked within the training loop, since each parameter update requires solving the ODE to form targets. Finally, because the generator learns only a global mapping from $T$ to $0$, it may lose controllability for steering the generation process from intermediate states. Consequently, most controllable generation techniques introduced in [Chapter 8](../08-guidance/index.md#ch-guidance) cannot be directly applied.
 
-**Preface to Progressive Distillation.** *Progressive Distillation* (PD) ([Salimans and Ho, 2021](references.md#ref-salimans2021progressive)) trains a time–conditional $\mathtt{Student}$ using *local* supervision from $\mathtt{Teacher}$ fragments. Let $t_0=T>t_1>\cdots>t_N=0$ be a fixed time grid. The $\mathtt{Teacher}$ provides time–stepping maps $\mathtt{Teacher}_{t_k\to t_{k+1}}$ for $k=0,\ldots,N-1$.
+**Preface to Progressive Distillation.** *Progressive Distillation* (PD) ([Salimans and Ho, 2021](../../references.md#ref-salimans2021progressive)) trains a time–conditional $\mathtt{Student}$ using *local* supervision from $\mathtt{Teacher}$ fragments. Let $t_0=T>t_1>\cdots>t_N=0$ be a fixed time grid. The $\mathtt{Teacher}$ provides time–stepping maps $\mathtt{Teacher}_{t_k\to t_{k+1}}$ for $k=0,\ldots,N-1$.
 
 Rather than supervising only the one-jump $T\to 0$, PD trains the $\mathtt{Student}$ two–step skip map to match two consecutive $\mathtt{Teacher}$ steps:
 
@@ -167,6 +167,6 @@ PD also fits this template, but instead of supervising only with the single extr
 
 In practice, the main challenge is that the oracle flow map ${\boldsymbol{\Psi}}_{s\to t}$ generally has no closed-form expression, making direct supervision infeasible. A range of methods have been developed to approximate this target efficiently, but their success often hinges on the quality of the teacher model. We will return to [Equation (10.1.4)](01-prologue.md#eq-general-cm-loss) in [Chapter 11](../11-fast-generators/index.md#ch-fast-scratch), presenting a principled framework for training-from-scratch methods that eliminate the teacher from the learning loop.
 
-[^1]: Chronologically, flow map level distillation appeared earlier, with *Knowledge Distillation* (KD) ([Luhman and Luhman, 2021](references.md#ref-luhman2021knowledge)) in 2021 and *Progressive Distillation* (PD) ([Salimans and Ho, 2021](references.md#ref-salimans2021progressive)) in 2022, preceding the family of distribution level distillation approaches that emerged around 2023. For smoother exposition and connection to the next chapter, however, we present distribution level distillation first.
+[^1]: Chronologically, flow map level distillation appeared earlier, with *Knowledge Distillation* (KD) ([Luhman and Luhman, 2021](../../references.md#ref-luhman2021knowledge)) in 2021 and *Progressive Distillation* (PD) ([Salimans and Ho, 2021](../../references.md#ref-salimans2021progressive)) in 2022, preceding the family of distribution level distillation approaches that emerged around 2023. For smoother exposition and connection to the next chapter, however, we present distribution level distillation first.
 
 [^2]: This equality holds when the noise schedule reaches the prior exactly at $T$; otherwise, one typically has $p_T\approx p_{\mathrm{prior}}$ for sufficiently large $T$.

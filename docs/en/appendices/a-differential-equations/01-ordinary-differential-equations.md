@@ -91,7 +91,7 @@ The essence of the proof is rooted in the Picard–Lindelöf iteration method, w
     \|{\mathbf{v}}(\mathbf{x}, t)\| \leq M(t)(1 + \|\mathbf{x}\|).
     $$
 
-We refer the reader to ([Reid, 1971](references.md#ref-reid1971ordinary)) for a comprehensive discussion of the assumptions, formal statement, and detailed proof of the theorem.
+We refer the reader to ([Reid, 1971](../../references.md#ref-reid1971ordinary)) for a comprehensive discussion of the assumptions, formal statement, and detailed proof of the theorem.
 
 **Remark.**
 
@@ -469,7 +469,7 @@ $$
 
 The explicit midpoint and Heun methods both use two stages and, under standard smoothness assumptions, have local truncation error $\mathcal O(h^3)$ and global error $\mathcal O(h^2)$. They differ only in how the additional within-step information is collected and combined.
 
-Higher-order Runge–Kutta methods extend the same principle by using more stages; their standard formulas are omitted here. In diffusion sampling, [Karras et al. (2022)](references.md#ref-karras2022elucidating) use Heun’s method directly as an ODE solver.
+Higher-order Runge–Kutta methods extend the same principle by using more stages; their standard formulas are omitted here. In diffusion sampling, [Karras et al. (2022)](../../references.md#ref-karras2022elucidating) use Heun’s method directly as an ODE solver.
 
 **Adams–Bashforth Method.** Runge–Kutta methods obtain additional information by looking *within* the current step. A multistep method instead looks *backward* and reuses information from previous completed steps.
 

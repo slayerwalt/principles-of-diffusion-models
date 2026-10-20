@@ -2,7 +2,7 @@
 
 How can a neural network learn to generate realistic data? A natural starting point is the *autoencoder*, which consists of two networks: a deterministic *encoder* that compresses an input to a low-dimensional latent code, and a deterministic *decoder* that reconstructs the input from this code. Training minimizes the reconstruction error between the original input and its reconstruction. While this setup enables accurate reconstruction, the latent space is unstructured: randomly sampling latent codes usually produces meaningless outputs, limiting the model’s use for generation.
 
-The *Variational Autoencoder (VAE)* ([Kingma and Welling, 2013](references.md#ref-kingma2013auto)) solves this by imposing a probabilistic structure on the latent space. This transforms the model from a simple reconstruction tool into a true generative model, capable of producing novel and realistic data.
+The *Variational Autoencoder (VAE)* ([Kingma and Welling, 2013](../../references.md#ref-kingma2013auto)) solves this by imposing a probabilistic structure on the latent space. This transforms the model from a simple reconstruction tool into a true generative model, capable of producing novel and realistic data.
 
 ## 2.1.1 Probabilistic Encoder and Decoder {#probabilistic-encoder-and-decoder}
 
@@ -227,7 +227,7 @@ Now suppose that two distinct inputs $\mathbf{x} \neq \mathbf{x}'$ are mapped to
 
 ## 2.1.5 (Optional) From Standard VAE to Hierarchical VAEs {#hierarchical-vaes}
 
-To model complex data, Hierarchical Variational Autoencoders (HVAEs) ([Vahdat and Kautz, 2020](references.md#ref-vahdat2020nvae)) enhance VAEs by introducing a hierarchy of latent variables. This deep, layered structure allows the model to capture data features at multiple levels of abstraction, significantly boosting expressive power and mirroring the compositional nature of real-world data.
+To model complex data, Hierarchical Variational Autoencoders (HVAEs) ([Vahdat and Kautz, 2020](../../references.md#ref-vahdat2020nvae)) enhance VAEs by introducing a hierarchy of latent variables. This deep, layered structure allows the model to capture data features at multiple levels of abstraction, significantly boosting expressive power and mirroring the compositional nature of real-world data.
 
 <span id="fig-hvae-graph"></span>
 

@@ -10,7 +10,7 @@ $$
 \ell(\cdot,{\mathbf{c}})\colon\mathbb{R}^D\to\mathbb{R}
 $$
 
-that measures disagreement with the desired condition, so that smaller $\ell({\mathbf{x}},{\mathbf{c}})$ indicates better agreement. Examples include a perceptual distance to a reference target, or a feature-space distance or negative similarity derived from a pre-trained representation such as CLIP ([Radford et al., 2021](references.md#ref-radford2021learning)).
+that measures disagreement with the desired condition, so that smaller $\ell({\mathbf{x}},{\mathbf{c}})$ indicates better agreement. Examples include a perceptual distance to a reference target, or a feature-space distance or negative similarity derived from a pre-trained representation such as CLIP ([Radford et al., 2021](../../references.md#ref-radford2021learning)).
 
 Consider the standard linear–Gaussian forward noising kernel
 
@@ -106,7 +106,7 @@ $$
 
 Thus the clean prediction is first moved toward better agreement with the condition and then used in the subsequent sampling update. This correction can also be applied repeatedly when multiple optimization steps are desired.
 
-Representative examples include MGPD ([He et al., 2023](references.md#ref-he2023manifold)) and UGD ([Bansal et al., 2023](references.md#ref-bansal2023universal)).
+Representative examples include MGPD ([He et al., 2023](../../references.md#ref-he2023manifold)) and UGD ([Bansal et al., 2023](../../references.md#ref-bansal2023universal)).
 
 **B. Guidance in Noise Space.** A closely related strategy applies guidance directly to the score used during sampling. Following the potential view introduced in [Section 8.1](01-prologue.md#sec-prologue-guidance), a common construction evaluates the task loss on the current denoised estimate and chooses
 
@@ -162,7 +162,7 @@ $$
 
 which may incur substantial computational cost in practice.
 
-Representative examples include ([Yu et al., 2023](references.md#ref-yu2023freedom); [Chung et al., 2022](references.md#ref-chung2022diffusion); [Bansal et al., 2023](references.md#ref-bansal2023universal)).
+Representative examples include ([Yu et al., 2023](../../references.md#ref-yu2023freedom); [Chung et al., 2022](../../references.md#ref-chung2022diffusion); [Bansal et al., 2023](../../references.md#ref-bansal2023universal)).
 
 The constructions above specify how guidance modifies each sampling step. They do not, by themselves, determine the marginal distributions obtained after these modified dynamics are integrated across all noise levels. We clarify this distinction next.
 
@@ -282,7 +282,7 @@ g^2(t)
 \end{aligned}
 $$
 
-where the arguments $({\mathbf{x}};{\mathbf{c}})$ are suppressed for readability. Thus, the tilted family is a valid marginal path only when the bracketed quantity vanishes. A generic task loss and guidance schedule need not satisfy this condition. The mismatch can therefore remain even with exact score evaluation and exact ODE integration: it comes from the guided dynamics themselves rather than from numerical discretization. This is an instance of the broader Fokker-Planck consistency requirement discussed in ([Lai et al., 2023](references.md#ref-lai2023fp)).
+where the arguments $({\mathbf{x}};{\mathbf{c}})$ are suppressed for readability. Thus, the tilted family is a valid marginal path only when the bracketed quantity vanishes. A generic task loss and guidance schedule need not satisfy this condition. The mismatch can therefore remain even with exact score evaluation and exact ODE integration: it comes from the guided dynamics themselves rather than from numerical discretization. This is an instance of the broader Fokker-Planck consistency requirement discussed in ([Lai et al., 2023](../../references.md#ref-lai2023fp)).
 
 Two simple cases clarify the distinction. When $w_t\equiv0$, the tilt vanishes and the original unconditional path $p_t$ is recovered. For exact classifier guidance, under the standard setting where the forward diffusion corrupts ${\mathbf{x}}$ while leaving ${\mathbf{c}}$ fixed,
 
@@ -312,7 +312,7 @@ $$
 
 the expression still defines a valid fixed-time tilted density whenever it is normalizable, but it is not generally guaranteed to describe the marginals of the guided sampler. Special choices may satisfy the required compatibility condition, so $\omega\neq1$ alone does not imply inconsistency.
 
-Correction-based approaches such as Feynman-Kac Correctors ([Skreta et al., 2025](references.md#ref-skreta2025feynman)) explicitly account for this cross-time mismatch when the goal is to follow a prescribed sequence of tilted distributions more faithfully.
+Correction-based approaches such as Feynman-Kac Correctors ([Skreta et al., 2025](../../references.md#ref-skreta2025feynman)) explicitly account for this cross-time mismatch when the goal is to follow a prescribed sequence of tilted distributions more faithfully.
 
 ## 8.4.3 Examples of Training-Free Approaches to Inverse Problems {#subsec-inverse-problem}
 
@@ -358,7 +358,7 @@ The data score can be supplied by a pre-trained diffusion model, whereas the mea
 
 A useful distinction is between two common strategies. Some methods directly enforce measurement consistency by modifying or projecting the intermediate sample. Others approximate the likelihood score $\nabla_{{\mathbf{x}}_t}\log p_t({\mathbf{y}}|{\mathbf{x}}_t)$ and add it to the data score through [Equation (8.4.5)](04-training-free-guidance.md#eq-bayes-rule).
 
-**ILVR ([Choi et al., 2021](references.md#ref-choi2021ilvr)).** ILVR provides a simple example of the first strategy. Let $\phi_N$ denote its linear low-pass operator. At each reverse step, one first samples an unconditional proposal
+**ILVR ([Choi et al., 2021](../../references.md#ref-choi2021ilvr)).** ILVR provides a simple example of the first strategy. Let $\phi_N$ denote its linear low-pass operator. At each reverse step, one first samples an unconditional proposal
 
 $$
 {\mathbf{x}}_{t-1}'
@@ -386,7 +386,7 @@ $$
 
 Thus, the prescribed low-frequency component comes from the noised reference, while the complementary component comes from the unconditional diffusion proposal. This is a sample-space consistency correction rather than an explicit approximation of $\nabla_{{\mathbf{x}}_t}\log p_t({\mathbf{y}}|{\mathbf{x}}_t)$.
 
-**Diffusion Posterior Sampling (DPS) ([Chung et al., 2022](references.md#ref-chung2022diffusion)).** For a known nonlinear forward operator $\mathcal A$ with additive Gaussian measurement noise $\sigma_{{\mathbf{y}}}>0$, *Diffusion Posterior Sampling* (DPS) approximates
+**Diffusion Posterior Sampling (DPS) ([Chung et al., 2022](../../references.md#ref-chung2022diffusion)).** For a known nonlinear forward operator $\mathcal A$ with additive Gaussian measurement noise $\sigma_{{\mathbf{y}}}>0$, *Diffusion Posterior Sampling* (DPS) approximates
 
 <span id="eq-dps-score"></span>
 
@@ -443,11 +443,11 @@ $$
 \end{aligned}
 $$
 
-A large body of work explores diffusion-based inverse problem solvers by proposing various approximations for $\nabla_{{\mathbf{x}}_t} \log p_t({\mathbf{y}} | {\mathbf{x}}_t)$. For a comprehensive overview, we refer readers to the survey by [Daras et al. (2024)](references.md#ref-daras2024survey).
+A large body of work explores diffusion-based inverse problem solvers by proposing various approximations for $\nabla_{{\mathbf{x}}_t} \log p_t({\mathbf{y}} | {\mathbf{x}}_t)$. For a comprehensive overview, we refer readers to the survey by [Daras et al. (2024)](../../references.md#ref-daras2024survey).
 
 **A Related Supervised Iterative-Restoration Viewpoint and Its Connection to the PF-ODE.** The discussion above solves inverse problems by combining a pre-trained diffusion prior with the Bayes-rule decomposition in [Equation (8.4.5)](04-training-free-guidance.md#eq-bayes-rule). More specifically, these methods use the score of the prior distribution together with the measurement model to guide the reconstruction process. At the same time, they also reflect a broader idea: instead of recovering the clean signal in one step, they gradually improve a corrupted input through many small updates. A similar high-level strategy also appears in supervised image restoration, but from a different starting point. Rather than using a pre-trained score model as a prior, these methods learn the refinement procedure directly from paired corrupted and clean examples.
 
-A representative example is InDI ([Delbracio and Milanfar, 2023](references.md#ref-delbracio2023inversion)). Unlike the Bayes-rule-based approaches above, InDI begins with paired data $({\mathbf{y}},{\mathbf{x}}_0)$, where ${\mathbf{y}}$ is a corrupted observation and ${\mathbf{x}}_0$ is the corresponding clean target. Importantly, it does not assume in general that the corruption from ${\mathbf{x}}_0$ to ${\mathbf{y}}$ is known analytically or that it is Gaussian.
+A representative example is InDI ([Delbracio and Milanfar, 2023](../../references.md#ref-delbracio2023inversion)). Unlike the Bayes-rule-based approaches above, InDI begins with paired data $({\mathbf{y}},{\mathbf{x}}_0)$, where ${\mathbf{y}}$ is a corrupted observation and ${\mathbf{x}}_0$ is the corresponding clean target. Importantly, it does not assume in general that the corruption from ${\mathbf{x}}_0$ to ${\mathbf{y}}$ is known analytically or that it is Gaussian.
 
 The basic idea is to connect the two endpoints by the interpolation path
 

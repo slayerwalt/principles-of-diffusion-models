@@ -2,7 +2,7 @@
 
 Both Score SDEs ([Chapter 4](../04-score-sde-framework/index.md#ch-score-sde)) and NODEs ([Section 5.1](01-normalizing-flows-and-neural-odes.md#sec-flow-based-method)) describe generative modeling as a continuous transport process. Score SDEs formulate this transport through stochastic dynamics together with an associated PF-ODE, whereas NODEs directly parameterize a deterministic ODE. In the standard generative setting, both aim to transport a simple Gaussian prior $p_{\mathrm{prior}}$ into the data distribution $p_{\mathrm{data}}$.
 
-A practical limitation of NODEs is that likelihood-based training requires repeatedly solving an ODE. The *Flow Matching* (FM) framework ([Lipman et al., 2022](references.md#ref-lipman2022flow); [Lipman et al., 2024](references.md#ref-lipman2024flow); [Tong et al., 2024](references.md#ref-tongimproving)) avoids this cost by training a neural network to predict the velocity field directly through a regression objective. ODE integration is therefore needed for generation, but not inside the training loop, making FM training simulation-free.
+A practical limitation of NODEs is that likelihood-based training requires repeatedly solving an ODE. The *Flow Matching* (FM) framework ([Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Lipman et al., 2024](../../references.md#ref-lipman2024flow); [Tong et al., 2024](../../references.md#ref-tongimproving)) avoids this cost by training a neural network to predict the velocity field directly through a regression objective. ODE integration is therefore needed for generation, but not inside the training loop, making FM training simulation-free.
 
 More generally, FM is not restricted to Gaussian-to-data transport. It considers a source distribution $p_{\mathrm{src}}$ and a target distribution $p_{\mathrm{tgt}}$, both assumed to be easy to sample from. Standard generative modeling is recovered as the special case
 
@@ -185,7 +185,7 @@ Thus, score-based diffusion learns the score through tractable conditional targe
 
 ![Conditional and marginal perspectives in diffusion](../../assets/chapter-05/conditional-marginal.png)
 
-**Figure 5.7:** **Illustration of conditional versus marginal perspectives in diffusion.** (This figure is motivated by [Lipman et al. (2024)](references.md#ref-lipman2024flow).) (1) Conditional Gaussian path $p_t(\cdot|\mathbf{x}_0)$, showing expanding densities from a fixed $\mathbf{x}_0$ toward the prior. (2) Conditional velocity
+**Figure 5.7:** **Illustration of conditional versus marginal perspectives in diffusion.** (This figure is motivated by [Lipman et al. (2024)](../../references.md#ref-lipman2024flow).) (1) Conditional Gaussian path $p_t(\cdot|\mathbf{x}_0)$, showing expanding densities from a fixed $\mathbf{x}_0$ toward the prior. (2) Conditional velocity
 
 $$
 \mathbf{v}_t(\mathbf{x}_t|\mathbf{x}_0)=f(t){\mathbf{x}}_t - \tfrac{1}{2}g^2(t) \nabla_{{\mathbf{x}}_t} \log p_t({\mathbf{x}}_t|{\mathbf{x}}_0).
@@ -705,7 +705,7 @@ for all $t\in[0,1]$ and ${\mathbf{x}}$.
 
 **Proof for Theorem.**
 
-A conceptual derivation is provided in [Section D.3.2](../../appendices/d-supplementary-proofs/03-flow-based-perspective.md#app-sec-mass-conservation), while a more rigorous treatment can be found in ([Villani and others, 2008](references.md#ref-villani2008optimal)) (see “Mass Conservation Formula”).
+A conceptual derivation is provided in [Section D.3.2](../../appendices/d-supplementary-proofs/03-flow-based-perspective.md#app-sec-mass-conservation), while a more rigorous treatment can be found in ([Villani and others, 2008](../../references.md#ref-villani2008optimal)) (see “Mass Conservation Formula”).
 
 **From Conditional to Marginal Paths.** As seen in [Section 5.2.2](02-flow-matching-framework.md#subsec-fm-framework), we begin by defining a conditional probability path $p_t(\cdot| {\mathbf{z}})$ and a corresponding conditional velocity field ${\mathbf{v}}_t(\cdot| {\mathbf{z}})$. We then construct the marginal velocity field via:
 
@@ -773,7 +773,7 @@ which is precisely the form in [Equation (5.2.9)](02-flow-matching-framework.md#
 
 This connection allows us to reduce the construction of the potentially intractable marginal velocity field to defining simpler conditional fields ${\mathbf{v}}_t(\cdot| {\mathbf{z}})$, which are easier to work with by construction.
 
-[^1]: Several related approaches share the core idea of transporting between endpoint distributions using a continuous-time flow, although their formulations differ slightly. These include Flow Matching (FM) ([Lipman et al., 2022](references.md#ref-lipman2022flow); [Neklyudov et al., 2023](references.md#ref-neklyudov2023action)), Rectified Flow (RF) ([Liu, 2022](references.md#ref-liu2022rectified); [Heitz et al., 2023](references.md#ref-heitz2023iterative)), and Stochastic Interpolants ([Albergo et al., 2023](references.md#ref-albergo2023stochastic); [Albergo and Vanden-Eijnden, 2023](references.md#ref-albergobuilding); [Ma et al., 2024](references.md#ref-ma2024sit)). Here, we use FM as a unifying terminology.
+[^1]: Several related approaches share the core idea of transporting between endpoint distributions using a continuous-time flow, although their formulations differ slightly. These include Flow Matching (FM) ([Lipman et al., 2022](../../references.md#ref-lipman2022flow); [Neklyudov et al., 2023](../../references.md#ref-neklyudov2023action)), Rectified Flow (RF) ([Liu, 2022](../../references.md#ref-liu2022rectified); [Heitz et al., 2023](../../references.md#ref-heitz2023iterative)), and Stochastic Interpolants ([Albergo et al., 2023](../../references.md#ref-albergo2023stochastic); [Albergo and Vanden-Eijnden, 2023](../../references.md#ref-albergobuilding); [Ma et al., 2024](../../references.md#ref-ma2024sit)). Here, we use FM as a unifying terminology.
 
 [^2]: To align with the standard notation in FM literature, we reverse the time axis compared to earlier sections: $t=0$ corresponds to the source distribution and $t=1$ to the target.
 

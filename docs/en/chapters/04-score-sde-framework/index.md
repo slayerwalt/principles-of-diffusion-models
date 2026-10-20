@@ -4,7 +4,7 @@
 >
 > — Richard P. Feynman
 
-So far, we have studied diffusion models from two perspectives: the variational view and the score-based view, the latter naturally emerging from the EBM formulation. We now take the next step and move to the *continuous-time framework*. At its core lies the *Score SDE* ([Song et al., 2020](references.md#ref-song2020score)), which provides a continuous-time view that brings DDPM and NCSN under the same framework.
+So far, we have studied diffusion models from two perspectives: the variational view and the score-based view, the latter naturally emerging from the EBM formulation. We now take the next step and move to the *continuous-time framework*. At its core lies the *Score SDE* ([Song et al., 2020](../../references.md#ref-song2020score)), which provides a continuous-time view that brings DDPM and NCSN under the same framework.
 
 Instead of working with only a finite sequence of noise levels, we imagine inserting more and more intermediate levels between data and noise. In the continuous-time limit, the noise level varies smoothly with time, giving the basic picture
 
@@ -46,7 +46,7 @@ This continuous-time view turns generation into the problem of solving different
 
 **Reader route.** Readers new to stochastic differential equations may consult the differential-equation appendices in [Appendix A](../../appendices/a-differential-equations/index.md#app-de) as needed. For a first pass, focus on the roles of the forward SDE, reverse-time SDE, and PF-ODE, together with their training and sampling procedures. The Gaussian example and optional derivations can be revisited after the main picture is clear.
 
-Continue with the sections below and the [chapter references](references.md#chapter-04-references).
+Continue with the sections below and the [references](../../references.md#references).
 
 [4.1 Score SDE: Its Principles](01-score-sde-principles.md#sec-dm-today)
 

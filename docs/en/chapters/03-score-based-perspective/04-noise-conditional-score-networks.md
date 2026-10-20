@@ -12,7 +12,7 @@ Adding Gaussian noise with a single fixed variance to the data distribution smoo
 
 Source: Created by the authors.
 
-To address these challenges, [Song and Ermon (2019)](references.md#ref-song2019generative) propose injecting Gaussian noise at multiple levels into the data distribution and jointly training a noise-conditional score network (NCSN) to estimate score functions across a range of noise scales. During generation, Langevin dynamics is applied in a noise-annealed fashion: beginning with high-noise levels to enable coarse exploration, and gradually refining toward low-noise levels to recover fine details.
+To address these challenges, [Song and Ermon (2019)](../../references.md#ref-song2019generative) propose injecting Gaussian noise at multiple levels into the data distribution and jointly training a noise-conditional score network (NCSN) to estimate score functions across a range of noise scales. During generation, Langevin dynamics is applied in a noise-annealed fashion: beginning with high-noise levels to enable coarse exploration, and gradually refining toward low-noise levels to recover fine details.
 
 <span id="fig-smld-ddpm-graphical-model"></span>
 
@@ -24,7 +24,7 @@ Source: Created by the authors.
 
 ## 3.4.2 Training {#training}
 
-To overcome the limitations of score-based models trained at a single noise level, [Song and Ermon (2019)](references.md#ref-song2019generative) propose adding Gaussian noise at multiple levels to the data distribution. Specifically, a sequence of $L$ noise levels $\{\sigma_i\}_{i=1}^L$ is chosen such that
+To overcome the limitations of score-based models trained at a single noise level, [Song and Ermon (2019)](../../references.md#ref-song2019generative) propose adding Gaussian noise at multiple levels to the data distribution. Specifically, a sequence of $L$ noise levels $\{\sigma_i\}_{i=1}^L$ is chosen such that
 
 $$
 0 < \sigma_1 < \sigma_2 < \cdots < \sigma_L,
@@ -265,7 +265,7 @@ $$
 {\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot, \sigma_1), \quad{\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot, \sigma_2), \quad \cdots, \quad {\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot, \sigma_{L-1}), \quad    {\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot, \sigma_L),
 $$
 
-the sampling procedure known as *annealed Langevin dynamics* ([Song and Ermon, 2019](references.md#ref-song2019generative)) generates data by progressively denoising from a high noise level $\sigma_L$ down to a low noise level $\sigma_1 \approx 0$.
+the sampling procedure known as *annealed Langevin dynamics* ([Song and Ermon, 2019](../../references.md#ref-song2019generative)) generates data by progressively denoising from a high noise level $\sigma_L$ down to a low noise level $\sigma_1 \approx 0$.
 
 With trained scores at noise levels $0<\sigma_1<\cdots<\sigma_L$, annealed Langevin dynamics generates samples by moving gradually from high noise to low noise. Starting from a simple initialization ${\mathbf{x}}\sim p_{\mathrm{init}}$, it first applies Langevin dynamics at the largest noise level $\sigma_L$, whose score ${\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot,\sigma_L)$ guides the samples toward the corresponding smoothed distribution $p_{\sigma_L}$. The resulting samples are then used to initialize Langevin dynamics at the next smaller noise level. Repeating this procedure progressively refines the samples until the smallest noise level $\sigma_1$ is reached.
 

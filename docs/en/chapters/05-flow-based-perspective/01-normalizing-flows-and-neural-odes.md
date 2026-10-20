@@ -1,6 +1,6 @@
 # 5.1 Flow-Based Models: Normalizing Flows and Neural ODEs {#sec-flow-based-method}
 
-In this section, we will introduce Flow-Based Models, including Normalizing Flows (NFs) ([Rezende and Mohamed, 2015](references.md#ref-rezende2015variational)) and Neural Ordinary Differential Equations (NODEs) ([Chen et al., 2018](references.md#ref-chen2018neural)).
+In this section, we will introduce Flow-Based Models, including Normalizing Flows (NFs) ([Rezende and Mohamed, 2015](../../references.md#ref-rezende2015variational)) and Neural Ordinary Differential Equations (NODEs) ([Chen et al., 2018](../../references.md#ref-chen2018neural)).
 
 NFs enable flexible and tractable probability density estimation by applying a series of invertible transformations to a simple base distribution. NODEs extend this framework to continuous time, where the transformation is governed by an ODE. By treating the transformations as continuous-time dynamics, NODEs provide a smooth, scalable extension to the NF paradigm.
 
@@ -14,7 +14,7 @@ Source: Created by the authors.
 
 ## 5.1.1 Normalizing Flows {#normalizing-flows}
 
-NFs ([Rezende and Mohamed, 2015](references.md#ref-rezende2015variational)) model a complex data distribution $p_{\text{data}}({\mathbf{x}})$ by transforming a simple prior $p_{\text{prior}}({\mathbf{z}})$ (e.g., standard Gaussian $\mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$) via an invertible mapping
+NFs ([Rezende and Mohamed, 2015](../../references.md#ref-rezende2015variational)) model a complex data distribution $p_{\text{data}}({\mathbf{x}})$ by transforming a simple prior $p_{\text{prior}}({\mathbf{z}})$ (e.g., standard Gaussian $\mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$) via an invertible mapping
 
 $$
 {\mathbf{f}}_{\boldsymbol{\phi}}: \mathbb{R}^D \to \mathbb{R}^D,
@@ -87,9 +87,9 @@ $$
 
 Source: Created by the authors.
 
-**Examples of Invertible Flows.** Extensive literature has focused on designing single-layer flow constructions that enable efficient computation of the Jacobian. Below, we introduce two representative types: Planar Flows ([Rezende and Mohamed, 2015](references.md#ref-rezende2015variational)) and Residual Flows ([Chen et al., 2019](references.md#ref-chen2019residual); [Behrmann et al., 2019](references.md#ref-behrmann2019invertible)), with the latter motivating the developments in [Section 5.1.2](01-normalizing-flows-and-neural-odes.md#subsec-node).
+**Examples of Invertible Flows.** Extensive literature has focused on designing single-layer flow constructions that enable efficient computation of the Jacobian. Below, we introduce two representative types: Planar Flows ([Rezende and Mohamed, 2015](../../references.md#ref-rezende2015variational)) and Residual Flows ([Chen et al., 2019](../../references.md#ref-chen2019residual); [Behrmann et al., 2019](../../references.md#ref-behrmann2019invertible)), with the latter motivating the developments in [Section 5.1.2](01-normalizing-flows-and-neural-odes.md#subsec-node).
 
-**Planar Flows:** Planar flows ([Rezende and Mohamed, 2015](references.md#ref-rezende2015variational)) apply a simple transformation
+**Planar Flows:** Planar flows ([Rezende and Mohamed, 2015](../../references.md#ref-rezende2015variational)) apply a simple transformation
 
 $$
 {\mathbf{f}}({\mathbf{z}})
@@ -140,7 +140,7 @@ $$
 \tag{5.1.6}
 $$
 
-making evaluation efficient via trace estimators ([Hutchinson, 1989](references.md#ref-hutchinson1989stochastic)).
+making evaluation efficient via trace estimators ([Hutchinson, 1989](../../references.md#ref-hutchinson1989stochastic)).
 
 **Sampling and Inference.** Sampling from NFs is straightforward: draw ${\mathbf{x}}_0 \sim p_{\text{prior}}$ and compute ${\mathbf{x}} = {\mathbf{f}}_{\boldsymbol{\phi}}({\mathbf{x}}_0)$. Exact likelihoods are obtained from [Equation (5.1.4)](01-normalizing-flows-and-neural-odes.md#eq-multi-nf-density).
 
@@ -209,7 +209,7 @@ where:
 
 The goal is to learn the neural vector field ${\mathbf{v}}_{\boldsymbol{\phi}}$, which intuitively represents a velocity that transports points along continuous trajectories in data space. By learning this velocity, the terminal distribution at $t=T$ matches the target distribution $p_{\mathrm{data}}(\cdot)$. This continuous transformation unifies discrete normalizing flows and neural ODEs within a single framework.
 
-**Continuous-Time Change-of-Variables Formula.** Analogous to [Equation (5.0.1)](index.md#eq-nf-change-of-var) or [Equation (5.1.4)](01-normalizing-flows-and-neural-odes.md#eq-multi-nf-density), [Chen et al. (2018)](references.md#ref-chen2018neural) derived a continuous-time analogue of the change-of-variables formula. For the time-dependent density $p_{\boldsymbol{\phi}}({\mathbf{x}}(t),t)$ of a process ${\mathbf{x}}(t)$ evolving under [Equation (5.1.7)](01-normalizing-flows-and-neural-odes.md#eq-neural-ode), the so-called *Instantaneous Change-of-Variables Formula* is
+**Continuous-Time Change-of-Variables Formula.** Analogous to [Equation (5.0.1)](index.md#eq-nf-change-of-var) or [Equation (5.1.4)](01-normalizing-flows-and-neural-odes.md#eq-multi-nf-density), [Chen et al. (2018)](../../references.md#ref-chen2018neural) derived a continuous-time analogue of the change-of-variables formula. For the time-dependent density $p_{\boldsymbol{\phi}}({\mathbf{x}}(t),t)$ of a process ${\mathbf{x}}(t)$ evolving under [Equation (5.1.7)](01-normalizing-flows-and-neural-odes.md#eq-neural-ode), the so-called *Instantaneous Change-of-Variables Formula* is
 
 $$
 \frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} t}
@@ -321,7 +321,7 @@ $$
 
 with $\mathbf{z}(T) = \mathbf{x}$. The prior term $\log p_{\text{prior}}(\mathbf{z}(0))$ is tractable for standard distributions. This enables exact likelihood-based training and evaluation in neural ODEs.
 
-**Gradient-Based Optimization.** Maximizing $\mathcal{L}_{\text{NODE}}$ requires backpropagation through the ODE solver. The adjoint sensitivity method ([Pontryagin, 2018](references.md#ref-pontryagin2018mathematical); [Chen et al., 2018](references.md#ref-chen2018neural)) computes gradients via an auxiliary ODE with $\mathcal{O}(1)$ memory complexity, but NODE training remains expensive due to numerical integration at each step.
+**Gradient-Based Optimization.** Maximizing $\mathcal{L}_{\text{NODE}}$ requires backpropagation through the ODE solver. The adjoint sensitivity method ([Pontryagin, 2018](../../references.md#ref-pontryagin2018mathematical); [Chen et al., 2018](../../references.md#ref-chen2018neural)) computes gradients via an auxiliary ODE with $\mathcal{O}(1)$ memory complexity, but NODE training remains expensive due to numerical integration at each step.
 
 **Inference with NODEs.** Sampling with a trained model ${\mathbf{v}}_{\boldsymbol{\phi}^\times}$ proceeds by drawing ${\mathbf{x}}(0) \sim p_{\text{prior}}$ and integrating forward (by numerical solvers):
 
@@ -337,7 +337,7 @@ $$
 \operatorname{Tr}\left(\frac{\partial {\mathbf{F}}}{\partial {\mathbf{z}}(t)} \right) = \nabla_{{\mathbf{z}}} \cdot {\mathbf{F}}.
 $$
 
-Hence, the divergence can be estimated efficiently using stochastic trace estimators, such as Hutchinson’s estimator ([Hutchinson, 1989](references.md#ref-hutchinson1989stochastic)), without explicitly constructing the full Jacobian. This makes likelihood evaluation much more practical in high-dimensional settings. However, because the trace is then estimated from random samples, the resulting numerical log-likelihood estimate is stochastic rather than an exact evaluation of the divergence.
+Hence, the divergence can be estimated efficiently using stochastic trace estimators, such as Hutchinson’s estimator ([Hutchinson, 1989](../../references.md#ref-hutchinson1989stochastic)), without explicitly constructing the full Jacobian. This makes likelihood evaluation much more practical in high-dimensional settings. However, because the trace is then estimated from random samples, the resulting numerical log-likelihood estimate is stochastic rather than an exact evaluation of the divergence.
 
 Having seen in [Figure 5.5](01-normalizing-flows-and-neural-odes.md#fig-bijection-continuity) how many small bijections approach a continuous transport flow, we now ask a practical question:
 
@@ -349,6 +349,6 @@ How can we learn its velocity field without repeatedly solving an ODE during tra
 
 This question leads naturally to Flow Matching, which learns the velocity field directly through a simulation-free regression objective and provides the flow-based perspective on diffusion models.
 
-[^1]: If the map is further constrained to be the gradient of a convex potential, ${\mathbf{f}}_{\boldsymbol{\phi}} = \nabla \psi_{\boldsymbol{\phi}}$ with $\psi_{\boldsymbol{\phi}}$ convex, then [Equation (5.1.1)](01-normalizing-flows-and-neural-odes.md#eq-nf-change-of-var-log) reduces to the Monge–Ampère relation in [Equation (7.2.4)](../07-optimal-transport/02-transport-problem-setups.md#eq-monge-ampere). This PDE characterizes the optimal transformation of one distribution into another under the quadratic cost. See [Chapter 7](../07-optimal-transport/index.md#ch-ot-eot) and ([Huang et al., 2021](references.md#ref-huangconvex)) for further details.
+[^1]: If the map is further constrained to be the gradient of a convex potential, ${\mathbf{f}}_{\boldsymbol{\phi}} = \nabla \psi_{\boldsymbol{\phi}}$ with $\psi_{\boldsymbol{\phi}}$ convex, then [Equation (5.1.1)](01-normalizing-flows-and-neural-odes.md#eq-nf-change-of-var-log) reduces to the Monge–Ampère relation in [Equation (7.2.4)](../07-optimal-transport/02-transport-problem-setups.md#eq-monge-ampere). This PDE characterizes the optimal transformation of one distribution into another under the quadratic cost. See [Chapter 7](../07-optimal-transport/index.md#ch-ot-eot) and ([Huang et al., 2021](../../references.md#ref-huangconvex)) for further details.
 
 [^2]: We adopt a flipped time convention, with $t = 0$ denoting the prior (source) and $t = 1$ the data (target) distribution. The prior is interchangeably written as $p_{\boldsymbol{\phi}}({\mathbf{x}}(0), 0)$, $p_{\text{prior}}({\mathbf{x}}(0), 0)$, or simply $p_{\text{prior}}({\mathbf{z}})$.

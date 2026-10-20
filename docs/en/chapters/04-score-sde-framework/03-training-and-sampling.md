@@ -156,7 +156,7 @@ Sampling from diffusion models is fundamentally equivalent to solving a correspo
 
 This equivalence provides a clear explanation for the slow sampling speeds of diffusion models, as raised in [Question 3.5.1](../03-score-based-perspective/05-comparison.md#ques-dm-sampling-slow). Generation is computationally intensive because numerical solvers for these differential equations are inherently iterative, often requiring many steps to accurately approximate a solution trajectory[^3]. However, the PF-ODE formulation is also advantageous, as it allows us to leverage the extensive literature on accelerated numerical solvers. Exploring these techniques to speed up diffusion model sampling is the primary focus of [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers).
 
-**II. Inversion with PF-ODE.** As discussed, unlike in the case of SDEs, we can solve the same [Equation (4.3.5)](03-training-and-sampling.md#eq-prob-ode-sub) both forward (from $0$ to $T$) and reverse (from $T$ to $0$) in time. When solving it forward, the ODE flow maps data to its (noisy) latent representations across all $t \in [0,T]$, which plays a role of an encoder. This concept enables powerful applications for controllable generation, such as image translation and editing and beyond ([Mokady et al., 2023](references.md#ref-mokady2023null); [Su et al., 2022](references.md#ref-su2022dual)).
+**II. Inversion with PF-ODE.** As discussed, unlike in the case of SDEs, we can solve the same [Equation (4.3.5)](03-training-and-sampling.md#eq-prob-ode-sub) both forward (from $0$ to $T$) and reverse (from $T$ to $0$) in time. When solving it forward, the ODE flow maps data to its (noisy) latent representations across all $t \in [0,T]$, which plays a role of an encoder. This concept enables powerful applications for controllable generation, such as image translation and editing and beyond ([Mokady et al., 2023](../../references.md#ref-mokady2023null); [Su et al., 2022](../../references.md#ref-su2022dual)).
 
 **III. Log-Likelihood Evaluation via PF-ODE.** The PF-ODE also allows us to evaluate the likelihood of a data sample. Recall from [Equation (5.1.9)](../05-flow-based-perspective/01-normalizing-flows-and-neural-odes.md#eq-instant-change-of-var) that, for an ODE, the change in log-density along a trajectory is determined by the divergence of its velocity field.
 
@@ -257,6 +257,6 @@ Thus, the same PF-ODE used for generation and inversion also provides a continuo
 
 [^1]: This is to simplify notation after this subsection.
 
-[^2]: Theoretically, estimation accuracy depends on the discrepancy between $p_T$ and $p_{\mathrm{prior}}$ (typically negligible), model training error, and numerical discretization error ([De Bortoli, 2022](references.md#ref-de2022convergence); [Wang et al., 2024](references.md#ref-wang2024evaluating)). We do not pursue formal bounds here.
+[^2]: Theoretically, estimation accuracy depends on the discrepancy between $p_T$ and $p_{\mathrm{prior}}$ (typically negligible), model training error, and numerical discretization error ([De Bortoli, 2022](../../references.md#ref-de2022convergence); [Wang et al., 2024](../../references.md#ref-wang2024evaluating)). We do not pursue formal bounds here.
 
 [^3]: For example, DDPM and Score SDE typically use $1,000$ function evaluations for generation.

@@ -32,7 +32,7 @@ What varies across formulations is the choice of forward process, the mathematic
 
 **Figure 12.1:** **Illustrations of particle and density dynamics under a vector field.** Each column shows successive time snapshots from left to right.
 
-Source: Adapted from [Lipman et al. (2024)](references.md#ref-lipman2024flow).
+Source: Adapted from [Lipman et al. (2024)](../../references.md#ref-lipman2024flow).
 
 1.  **Single Bijection.** A smooth invertible map ${\boldsymbol{\Psi}}:{\mathbb{R}}^D\to{\mathbb{R}}^D$ transforms a density $p_0$ into $p_1$ via
 

@@ -1,6 +1,6 @@
 # 2.2 Variational Perspective: DDPM {#sec-ddpm}
 
-Denoising Diffusion Probabilistic Models (DDPMs) ([Sohl-Dickstein et al., 2015](references.md#ref-sohl2015deep); [Ho et al., 2020](references.md#ref-ho2020denoising)) represent a cornerstone of diffusion modeling. Conceptually, they operate within a variational framework, much like VAEs and HVAEs. However, DDPMs introduce a clever twist that tackles some of the challenges faced by their predecessors.
+Denoising Diffusion Probabilistic Models (DDPMs) ([Sohl-Dickstein et al., 2015](../../references.md#ref-sohl2015deep); [Ho et al., 2020](../../references.md#ref-ho2020denoising)) represent a cornerstone of diffusion modeling. Conceptually, they operate within a variational framework, much like VAEs and HVAEs. However, DDPMs introduce a clever twist that tackles some of the challenges faced by their predecessors.
 
 At their core, DDPMs involve two distinct stochastic processes:
 
@@ -410,7 +410,7 @@ The ELBO $\mathcal{L}_{\text{ELBO}}$ consists of three terms:
 
 -   $\mathcal{L}_{\text{prior}}$ can be made negligible by choosing the noise schedule $\{\beta_i\}$ such that $p(\cdot|{\mathbf{x}}_0) \approx p_{\text{prior}}(\cdot)$.
 
--   For $\mathcal{L}_{\text{recon.}}$, this can be approximated and optimized using a Monte Carlo estimate; see ([Ho et al., 2020](references.md#ref-ho2020denoising); [Kingma et al., 2021](references.md#ref-kingma2021variational)) for practical implementations.
+-   For $\mathcal{L}_{\text{recon.}}$, this can be approximated and optimized using a Monte Carlo estimate; see ([Ho et al., 2020](../../references.md#ref-ho2020denoising); [Kingma et al., 2021](../../references.md#ref-kingma2021variational)) for practical implementations.
 
 -   $\mathcal{L}_{\text{diffusion}}$ (cf. [Equation (2.2.6)](02-ddpm.md#eq-ddpm-diffusion)) matches the reverse conditionals $p_{\boldsymbol{\phi}}(\mathbf{x}_{i-1}|\mathbf{x}_i)$ to $p(\mathbf{x}_{i-1}|\mathbf{x}_i)$ at all steps $i$.
 

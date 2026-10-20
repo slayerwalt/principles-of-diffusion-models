@@ -88,7 +88,7 @@ $$
 \mathcal{D}_\mathrm{KL}(\gamma\Vert \widetilde R^\varepsilon).
 $$
 
-**Dynamic Equivalence (Brownian Reference).** We can also understand this equivalence from a dynamical viewpoint. A classical result ([Mikami and Thieullen, 2006](references.md#ref-mikami2006duality)) states that entropic OT with quadratic cost
+**Dynamic Equivalence (Brownian Reference).** We can also understand this equivalence from a dynamical viewpoint. A classical result ([Mikami and Thieullen, 2006](../../references.md#ref-mikami2006duality)) states that entropic OT with quadratic cost
 
 $$
 c({\mathbf{x}},{\mathbf{y}})=\frac{\|{\mathbf{y}}-{\mathbf{x}}\|^2}{2T}
@@ -157,7 +157,7 @@ Moreover, any limiting optimal plan is an optimal coupling of the unregularized 
 
 **Proof for Theorem.**
 
-For a rigorous proof, we refer to the literature ([Mikami and Thieullen, 2008](references.md#ref-mikami2008optimal); [Peyré et al., 2019](references.md#ref-peyre2019computational)). Below we provide a heuristic derivation of the value convergence.
+For a rigorous proof, we refer to the literature ([Mikami and Thieullen, 2008](../../references.md#ref-mikami2008optimal); [Peyré et al., 2019](../../references.md#ref-peyre2019computational)). Below we provide a heuristic derivation of the value convergence.
 
 Let us denote the corresponding optimal values by
 
@@ -206,7 +206,7 @@ where OT is of the Benamou–Brenier formulation as in [Equation (7.2.3)](02-tra
 
 **Proof for Theorem.**
 
-A full rigorous proof of the convergence result is beyond our scope; we refer the reader to [Léonard (2012)](references.md#ref-leonard2012schrodinger) and [Léonard (2014)](references.md#ref-leonard2014survey) for detailed derivations. Nevertheless, we can heuristically understand why this convergence may hold.
+A full rigorous proof of the convergence result is beyond our scope; we refer the reader to [Léonard (2012)](../../references.md#ref-leonard2012schrodinger) and [Léonard (2014)](../../references.md#ref-leonard2014survey) for detailed derivations. Nevertheless, we can heuristically understand why this convergence may hold.
 
 In the stochastic control formulation of the SB problem [Equation (7.2.10)](02-transport-problem-setups.md#eq-sb-epsilon-kinetic), the controlled SDE is given by:
 
