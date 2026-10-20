@@ -108,7 +108,7 @@ $$
 \mathop{}\!\mathrm{d} {\mathbf{w}}(t) \sim \mathcal{N}(\boldsymbol{0}, \mathop{}\!\mathrm{d} t {\mathbf{I}}).
 $$
 
-A brief introduction to the foundations of SDEs is provided in [Section A.2](../../appendices/a-differential-equations/index.md#app-sde-intro), with a more advanced discussion in [Appendix C](../../appendices/c-ito-calculus/index.md#app-ito). However, we can conceptually understand the connection between the discrete and continuous formulations as follows:
+A brief introduction to the foundations of SDEs is provided in [Section A.2](../../appendices/a-differential-equations/02-stochastic-differential-equations.md#app-sde-intro), with a more advanced discussion in [Appendix C](../../appendices/c-ito-calculus/index.md#app-ito). However, we can conceptually understand the connection between the discrete and continuous formulations as follows:
 
 -   ${\mathbf{x}}(t+\Delta t) - {\mathbf{x}}(t) \approx \mathop{}\!\mathrm{d} {\mathbf{x}}(t)$,
 

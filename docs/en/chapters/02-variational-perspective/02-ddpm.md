@@ -180,7 +180,7 @@ $$
 
 **Proof for Theorem.**
 
-The proof rewrites a KL-divergence expectation by expanding definitions, applying the chain rule of probability, and using a logarithmic identity to decompose it into the sum of an expected conditional KL divergence and a marginal KL divergence. A complete derivation is in [Section D.1.1](../../appendices/d-supplementary-proofs/index.md#subsec-proof-equiv-marginal-kl).
+The proof rewrites a KL-divergence expectation by expanding definitions, applying the chain rule of probability, and using a logarithmic identity to decompose it into the sum of an expected conditional KL divergence and a marginal KL divergence. A complete derivation is in [Section D.1.1](../../appendices/d-supplementary-proofs/01-variational-perspective.md#subsec-proof-equiv-marginal-kl).
 
 This alternative viewpoint: conditioning to obtain a tractable objective, forms the foundation of DDPMs and reveals a profound commonality with other influential diffusion models, as we will explore in [Chapter 3](../03-score-based-perspective/index.md#ch-score-based) and [Chapter 5](../05-flow-based-perspective/index.md#ch-flow-based).
 
@@ -404,7 +404,7 @@ $$
 
 **Proof for Theorem.**
 
-The derivation applies Jensen’s inequality, as in the HVAE/VAE ELBO ([Equation (2.1.3)](01-variational-autoencoder.md#eq-hvae-elbo)), with further simplifications. The detailed proof is deferred to [Section D.1.2](../../appendices/d-supplementary-proofs/index.md#app-vlb-proof).
+The derivation applies Jensen’s inequality, as in the HVAE/VAE ELBO ([Equation (2.1.3)](01-variational-autoencoder.md#eq-hvae-elbo)), with further simplifications. The detailed proof is deferred to [Section D.1.2](../../appendices/d-supplementary-proofs/01-variational-perspective.md#app-vlb-proof).
 
 The ELBO $\mathcal{L}_{\text{ELBO}}$ consists of three terms:
 

@@ -249,7 +249,7 @@ $$
     = \bigl[{\mathbf{f}}({\mathbf{x}}_t,t) + {\mathbf{v}}_t({\mathbf{x}}_t)\bigr]\mathop{}\!\mathrm{d} t + g(t) \mathop{}\!\mathrm{d} {\mathbf{w}}_t,
 $$
 
-where ${\mathbf{v}}_t:{\mathbb{R}}^D\to{\mathbb{R}}^D$ is the drift to be optimized later ([Equation (7.2.8)](02-transport-problem-setups.md#eq-sb-kinetic)). Under standard integrability conditions (e.g., Novikov’s condition) and by Girsanov’s theorem (see [Section C.2.1](../../appendices/c-ito-calculus/index.md#subsec-girsanov)), the KL divergence between the controlled law $P$ and the reference $R$ admits the dynamic (kinetic) form
+where ${\mathbf{v}}_t:{\mathbb{R}}^D\to{\mathbb{R}}^D$ is the drift to be optimized later ([Equation (7.2.8)](02-transport-problem-setups.md#eq-sb-kinetic)). Under standard integrability conditions (e.g., Novikov’s condition) and by Girsanov’s theorem (see [Section C.2.1](../../appendices/c-ito-calculus/02-girsanov-theorem.md#subsec-girsanov)), the KL divergence between the controlled law $P$ and the reference $R$ admits the dynamic (kinetic) form
 
 $$
 \begin{aligned}

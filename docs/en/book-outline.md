@@ -5,7 +5,7 @@ description: Chapter structure and conversion status for the English web edition
 
 # Book contents
 
-This outline follows the order of the book. Chapters 1–12 are available in English. The front matter, the unnumbered Part II opening, and the appendices are awaiting conversion.
+This outline follows the order of the book. Chapters 1–12 and Appendices A–D are available in English. The front matter and the unnumbered Part II opening are awaiting conversion.
 
 ## Front matter
 
@@ -136,9 +136,26 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
 
 ## Appendices
 
-- **A.** [Crash Course on Differential Equations](appendices/a-differential-equations/index.md) — not yet available
-- **B.** [Density Evolution: From Change of Variable to Fokker–Planck](appendices/b-density-evolution/index.md) — not yet available
-- **C.** [Behind the Scenes of Diffusion Models: Itô’s Calculus and Girsanov's Theorem](appendices/c-ito-calculus/index.md) — not yet available
-- **D.** [Supplementary Materials and Proofs](appendices/d-supplementary-proofs/index.md) — not yet available
+- **A.** [Crash Course on Differential Equations](appendices/a-differential-equations/index.md) — available
+    - [A.1 Foundation of Ordinary Differential Equations](appendices/a-differential-equations/01-ordinary-differential-equations.md)
+    - [A.2 Foundation of Stochastic Differential Equations](appendices/a-differential-equations/02-stochastic-differential-equations.md)
+    - [Appendix references](appendices/a-differential-equations/references.md)
+- **B.** [Density Evolution: From Change of Variable to Fokker–Planck](appendices/b-density-evolution/index.md) — available
+    - [B.1 Change-of-Variable Formula: From Deterministic Maps to Stochastic Flows](appendices/b-density-evolution/01-change-of-variable.md)
+    - [B.2 Intuition of the Continuity Equation](appendices/b-density-evolution/02-continuity-equation-intuition.md)
+    - [B.3 (Optional) Wasserstein Gradient Flows as Distribution-Level Training](appendices/b-density-evolution/03-wasserstein-gradient-flows.md)
+    - [Appendix references](appendices/b-density-evolution/references.md)
+- **C.** [Behind the Scenes of Diffusion Models: Itô’s Calculus and Girsanov’s Theorem](appendices/c-ito-calculus/index.md) — available
+    - [C.1 Itô’s Formula: The Chain Rule for Random Processes](appendices/c-ito-calculus/01-ito-formula.md)
+    - [C.2 Change-of-Variable For Measures: Girsanov’s Theorem in Diffusion Models](appendices/c-ito-calculus/02-girsanov-theorem.md)
+    - [Appendix references](appendices/c-ito-calculus/references.md)
+- **D.** [Supplementary Materials and Proofs](appendices/d-supplementary-proofs/index.md) — available
+    - [D.1 Variational Perspective](appendices/d-supplementary-proofs/01-variational-perspective.md)
+    - [D.2 Score-Based Perspective](appendices/d-supplementary-proofs/02-score-based-perspective.md)
+    - [D.3 Flow-Based Perspective](appendices/d-supplementary-proofs/03-flow-based-perspective.md)
+    - [D.4 Theoretical Supplement: A Unified and Systematic View on Diffusion Models](appendices/d-supplementary-proofs/04-unified-perspective.md)
+    - [D.5 Theoretical Supplement: Learning Fast Diffusion-Based Generators](appendices/d-supplementary-proofs/05-fast-generators.md)
+    - [D.6 (Optional) Elucidating Diffusion Model (EDM)](appendices/d-supplementary-proofs/06-edm.md)
+    - [Appendix references](appendices/d-supplementary-proofs/references.md)
 
-The complete bibliography is awaiting conversion. References cited in each available chapter are included with that chapter.
+The complete bibliography is awaiting conversion. References cited in each available chapter or appendix are included with that chapter or appendix.

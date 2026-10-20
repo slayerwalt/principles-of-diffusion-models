@@ -123,7 +123,7 @@ $$
 **Proof for Theorem.**
 
 The equivalence follows from a direct computation: by expanding the MSE in $\mathcal{L}_{\text{SM}}$ and $\mathcal{L}_{\text{DSM}}$, all $\boldsymbol{\phi}$-dependent terms cancel, leaving only a constant difference independent of $\boldsymbol{\phi}$.<br>
-The derivation of the minimizer follows the same argument as in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer). We defer the detailed derivation to [Section D.2.2](../../appendices/d-supplementary-proofs/index.md#app-sec-sm-dsm).
+The derivation of the minimizer follows the same argument as in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer). We defer the detailed derivation to [Section D.2.2](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-sm-dsm).
 
 This theorem, like [Theorem 2.2.1](../02-variational-perspective/02-ddpm.md#thm-equiv-marginal-kl) in DDPM, illustrates a key shared principle:
 
@@ -241,7 +241,7 @@ $$
 p(\tilde{\mathbf{x}})=\int p(\tilde{\mathbf{x}}|{\mathbf{x}})p_{\mathrm{data}}({\mathbf{x}})\mathop{}\!\mathrm{d}{\mathbf{x}}.
 $$
 
-Differentiating under the integral and using the Gaussian form of the conditional density leads directly to an expression that rearranges into the desired identity linking the score with the posterior mean. See [Section D.2.3](../../appendices/d-supplementary-proofs/index.md#app-sec-tweedie) for details.
+Differentiating under the integral and using the Gaussian form of the conditional density leads directly to an expression that rearranges into the desired identity linking the score with the posterior mean. See [Section D.2.3](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-tweedie) for details.
 
 Tweedie’s formula plays a central role in diffusion models, where multiple layers of noise are introduced as in DDPM. It enables the estimation of clean samples from noisy observations via the score function, thereby establishing a fundamental link between score prediction and denoiser:
 
@@ -339,7 +339,7 @@ $$
 R({\mathbf{D}};{\mathbf{x}}) := {\mathbb{E}}_{\tilde{{\mathbf{x}}}|{\mathbf{x}}}\left[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|_2^2 \,\big|\, {\mathbf{x}}\right].
 $$
 
-This quantity depends on the unknown ground truth ${\mathbf{x}}$, and therefore cannot be computed directly. Stein’s identity (see [Section D.2.4](../../appendices/d-supplementary-proofs/index.md#app-sec-stein-identity)), however, yields the following *observable* surrogate:
+This quantity depends on the unknown ground truth ${\mathbf{x}}$, and therefore cannot be computed directly. Stein’s identity (see [Section D.2.4](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-stein-identity)), however, yields the following *observable* surrogate:
 
 <span id="eq-sure-obj"></span>
 

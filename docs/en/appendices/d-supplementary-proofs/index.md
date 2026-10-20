@@ -1,75 +1,126 @@
 # D. Supplementary Materials and Proofs {#app-supplementary-proofs}
 
-Not yet available.
+Continue with the sections below and the [appendix references](references.md#chapter-D-references).
 
-## D.1.1 Theorem 2.2.1: Equivalence Between Marginal and Conditional KL Minimization {#subsec-proof-equiv-marginal-kl}
+[D.1 Variational Perspective](01-variational-perspective.md#app-sec-var-proof)
 
-Not yet available.
+[D.2 Score-Based Perspective](02-score-based-perspective.md#app-sec-score-proof)
 
-## D.1.2 Theorem 2.2.3: ELBO of Diffusion Model {#app-vlb-proof}
+[D.3 Flow-Based Perspective](03-flow-based-perspective.md#app-sec-flow-proof)
 
-Not yet available.
+[D.4 Theoretical Supplement: A Unified and Systematic View on Diffusion Models](04-unified-perspective.md#app-sec-equiv-para)
 
-## D.2.1 Proposition 3.2.1: Tractable Score Matching via Integration by Parts {#app-sec-sm-trace}
+[D.5 Theoretical Supplement: Learning Fast Diffusion-Based Generators](05-fast-generators.md#app-sec-flow-map)
 
-Not yet available.
+[D.6 (Optional) Elucidating Diffusion Model (EDM)](06-edm.md#sec-edm)
 
-## D.2.2 Theorem 3.3.1: Equivalence Between SM and DSM Minimization {#app-sec-sm-dsm}
 
-Not yet available.
+<span id="app-proof"></span>
 
-## D.2.3 Lemma 3.3.2: Tweedie's Formula {#app-sec-tweedie}
+<span id="score-general-gaussian"></span>
 
-Not yet available.
+[Lemma D.2.1](02-score-based-perspective.md#score-general-gaussian)
 
-## D.2.4 Stein’s Identity and Surrogate SURE Objective {#app-sec-stein-identity}
+<span id="app-sec-var-proof"></span>
 
-Not yet available.
+[Section D.1](01-variational-perspective.md#app-sec-var-proof)
 
-## D.2.5 Theorem 4.2.1: Marginal Alignment via Fokker–Planck {#app-sec-scoresde-fpe-proof}
+<span id="subsec-proof-equiv-marginal-kl"></span>
 
-Not yet available.
+[Section D.1.1](01-variational-perspective.md#subsec-proof-equiv-marginal-kl)
 
-## D.2.6 Proposition 4.3.1: Minimizer of SM and DSM {#app-sec-min-dsm}
+<span id="app-vlb-proof"></span>
 
-Not yet available.
+[Section D.1.2](01-variational-perspective.md#app-vlb-proof)
 
-## Equation (D.2.4) {#eq-score-gaussian-formula}
+<span id="app-sec-score-proof"></span>
 
-Not yet available.
+[Section D.2](02-score-based-perspective.md#app-sec-score-proof)
 
-## Equation (D.2.5) {#eq-gaussian-score}
+<span id="app-sec-sm-trace"></span>
 
-Not yet available.
+[Section D.2.1](02-score-based-perspective.md#app-sec-sm-trace)
 
-## D.3 Flow-Based Perspective {#app-sec-flow-proof}
+<span id="app-sec-sm-dsm"></span>
 
-Not yet available.
+[Section D.2.2](02-score-based-perspective.md#app-sec-sm-dsm)
 
-### D.3.2 Mass Conservation Criterion {#app-sec-mass-conservation}
+<span id="app-sec-tweedie"></span>
 
-Not yet available.
+[Section D.2.3](02-score-based-perspective.md#app-sec-tweedie)
 
-## D.4 Theoretical Supplement: A Unified and Systematic View on Diffusion Models {#app-sec-equiv-para}
+<span id="app-sec-stein-identity"></span>
 
-Not yet available.
+[Section D.2.4](02-score-based-perspective.md#app-sec-stein-identity)
 
-## D.5 Theoretical Supplement: Learning Fast Diffusion-Based Generators {#app-sec-flow-map}
+<span id="app-sec-scoresde-fpe-proof"></span>
 
-Not yet available.
+[Section D.2.5](02-score-based-perspective.md#app-sec-scoresde-fpe-proof)
 
-## D.6 (Optional) Elucidating Diffusion Model (EDM) {#sec-edm}
+<span id="app-sec-min-dsm"></span>
 
-Not yet available.
+[Section D.2.6](02-score-based-perspective.md#app-sec-min-dsm)
 
-## D.6.1 Criteria for Neural Network x_phi Design {#subsec-d-design-edm}
+<span id="eq-dsm-sec-term"></span>
 
-Not yet available.
+[Equation (D.2.1)](02-score-based-perspective.md#eq-dsm-sec-term)
 
-## Equation (D.6.1) {#eq-d-parametrization}
+<span id="eq-stein-multi"></span>
 
-Not yet available.
+[Equation (D.2.2)](02-score-based-perspective.md#eq-stein-multi)
 
-## Equation (D.6.5) {#eq-edm-simple-coefficients}
+<span id="eq-stein-for-sure"></span>
 
-Not yet available.
+[Equation (D.2.3)](02-score-based-perspective.md#eq-stein-for-sure)
+
+<span id="eq-score-gaussian-formula"></span>
+
+[Equation (D.2.4)](02-score-based-perspective.md#eq-score-gaussian-formula)
+
+<span id="eq-gaussian-score"></span>
+
+[Equation (D.2.5)](02-score-based-perspective.md#eq-gaussian-score)
+
+<span id="app-sec-flow-proof"></span>
+
+[Section D.3](03-flow-based-perspective.md#app-sec-flow-proof)
+
+<span id="app-sec-mass-conservation"></span>
+
+[Section D.3.2](03-flow-based-perspective.md#app-sec-mass-conservation)
+
+<span id="app-sec-equiv-para"></span>
+
+[Section D.4](04-unified-perspective.md#app-sec-equiv-para)
+
+<span id="app-sec-flow-map"></span>
+
+[Section D.5](05-fast-generators.md#app-sec-flow-map)
+
+<span id="sec-edm"></span>
+
+[Section D.6](06-edm.md#sec-edm)
+
+<span id="subsec-d-design-edm"></span>
+
+[Section D.6.1](06-edm.md#subsec-d-design-edm)
+
+<span id="eq-d-parametrization"></span>
+
+[Equation (D.6.1)](06-edm.md#eq-d-parametrization)
+
+<span id="eq-loss-f"></span>
+
+[Equation (D.6.2)](06-edm.md#eq-loss-f)
+
+<span id="eq-c-out"></span>
+
+[Equation (D.6.3)](06-edm.md#eq-c-out)
+
+<span id="eq-edm-coeff"></span>
+
+[Equation (D.6.4)](06-edm.md#eq-edm-coeff)
+
+<span id="eq-edm-simple-coefficients"></span>
+
+[Equation (D.6.5)](06-edm.md#eq-edm-simple-coefficients)

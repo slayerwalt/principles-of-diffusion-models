@@ -127,7 +127,7 @@ $$
 \right]\right|_{\boldsymbol{\theta}=\boldsymbol{\theta}^-},
 $$
 
-which is the claimed identity. We defer the proof to [Section D.5](../../appendices/d-supplementary-proofs/index.md#app-sec-flow-map).
+which is the claimed identity. We defer the proof to [Section D.5](../../appendices/d-supplementary-proofs/05-fast-generators.md#app-sec-flow-map).
 
 The result above is written under the gradient operator $\nabla_{\boldsymbol{\theta}}$ so that terms involving $\boldsymbol{\theta}^-$ vanish, since $\boldsymbol{\theta}^-$ is treated as constant under stop-gradient. Note that $\tfrac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{{\boldsymbol{\theta}}^-}({\mathbf{x}}_s,s)$ denotes the total derivative along the oracle trajectory, rather than a simple partial time derivative.
 
@@ -228,7 +228,7 @@ Our interest lies in the training from scratch scenario, since it yields a stand
 
 In practice, however, training directly with [Equation (11.3.4)](03-continuous-consistency-models.md#eq-conti-ct-loss) is often unstable, as the term $\tfrac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} s}{\mathbf{f}}_{\boldsymbol{\theta}^-}$ can exhibit large or unbounded time derivatives, leading to exploding gradients during optimization. To overcome this, suitable parameterizations and stabilization strategies are typically required ([Geng et al., 2025](references.md#ref-geng2025consistency); [Lu and Song, 2024](references.md#ref-lu2024simplifying)). As summarized in [Section 6.2.2](../06-unified-perspective/02-training-objectives.md#subsec-summary-disentagle), the main factors that influence stable training include the *diffusion process*, *parameterization choices*, *time weighting function*, and *time sampling distribution*, all of which should be carefully designed and disentangled also in continuous-time CM.
 
-**Diffusion Process.** Instead of using the standard diffusion parameterization ${\mathbf{x}}_s = \alpha_s {\mathbf{x}}_0 + \sigma_s \boldsymbol{\epsilon}$ with $\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$, [Lu and Song (2024)](references.md#ref-lu2024simplifying) adopt a trigonometric schedule. This schedule, although mathematically equivalent to the original form (as shown in [Equation (6.3.4)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-trig-para)), provides a cleaner structure and a better separation in the training objective, which contributes to improved stability during training [^1]. In addition, they incorporate the standard deviation $\sigma_{\mathrm{d}}$ of the data distribution $p_{\mathrm{data}}$, in line with EDM’s design in [Section D.6.1](../../appendices/d-supplementary-proofs/index.md#subsec-d-design-edm):
+**Diffusion Process.** Instead of using the standard diffusion parameterization ${\mathbf{x}}_s = \alpha_s {\mathbf{x}}_0 + \sigma_s \boldsymbol{\epsilon}$ with $\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$, [Lu and Song (2024)](references.md#ref-lu2024simplifying) adopt a trigonometric schedule. This schedule, although mathematically equivalent to the original form (as shown in [Equation (6.3.4)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-trig-para)), provides a cleaner structure and a better separation in the training objective, which contributes to improved stability during training [^1]. In addition, they incorporate the standard deviation $\sigma_{\mathrm{d}}$ of the data distribution $p_{\mathrm{data}}$, in line with EDM’s design in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm):
 
 <span id="eq-trig-scm"></span>
 
@@ -247,7 +247,7 @@ $$
 
 by defining ${\mathbf{z}} := \sigma_{\mathrm{d}} \boldsymbol{\epsilon}$, $\alpha'_s := \alpha_s$, and $\sigma'_s := \frac{\sigma_s}{\sigma_{\mathrm{d}}}$. The transformed pair $(\alpha'_s, \sigma'_s)$ can then be mapped to the trigonometric form $(\cos(s), \sin(s))$ using the normalization described in [Equation (6.3.5)](../06-unified-perspective/03-equivalent-parameterizations.md#eq-any-to-trig).
 
-**Parametrizations.** By considering the analogous principles of EDM in [Section D.6.1](../../appendices/d-supplementary-proofs/index.md#subsec-d-design-edm), [Lu and Song (2024)](references.md#ref-lu2024simplifying) propose the following parametrization for the neural network similar to [Equation (D.6.1)](../../appendices/d-supplementary-proofs/index.md#eq-d-parametrization):
+**Parametrizations.** By considering the analogous principles of EDM in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm), [Lu and Song (2024)](references.md#ref-lu2024simplifying) propose the following parametrization for the neural network similar to [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization):
 
 $$
 \begin{aligned}
@@ -255,7 +255,7 @@ $$
 \end{aligned}
 $$
 
-Here, $c_{\mathrm{skip}}(s)$, $c_{\mathrm{out}}(s)$, and $c_{\mathrm{in}}(s)$ can be derived using the same criteria presented in [Section D.6.1](../../appendices/d-supplementary-proofs/index.md#subsec-d-design-edm) (see Appendix B of [Lu and Song (2024)](references.md#ref-lu2024simplifying) for detailed derivations), and are given by
+Here, $c_{\mathrm{skip}}(s)$, $c_{\mathrm{out}}(s)$, and $c_{\mathrm{in}}(s)$ can be derived using the same criteria presented in [Section D.6.1](../../appendices/d-supplementary-proofs/06-edm.md#subsec-d-design-edm) (see Appendix B of [Lu and Song (2024)](references.md#ref-lu2024simplifying) for detailed derivations), and are given by
 
 $$
 c_{\mathrm{skip}}(s) = \cos(s), \quad c_{\mathrm{out}}(s) = -\sigma_{\mathrm{d}} \sin(s), \quad c_{\mathrm{in}}(s) \equiv \frac{1}{\sigma_{\mathrm{d}}}.

@@ -167,7 +167,7 @@ $$
 {\mathbf{p}}_L = {\mathbf{P}}_{L-1}^\top \cdots {\mathbf{P}}_1^\top {\mathbf{P}}_0^\top\, {\mathbf{p}}_0.
 $$
 
-This mirrors the multi-layer change-of-variable formula in [Equation (B.1.2)](../../appendices/b-density-evolution/index.md#eq-cov-multi-layer-nolog). In the continuous deterministic setting, density evolution is accumulated through Jacobian determinants; here, the probability vector is propagated through successive Markov operators. The underlying idea is the same: probability mass is tracked through a sequence of prescribed transformations.
+This mirrors the multi-layer change-of-variable formula in [Equation (B.1.2)](../../appendices/b-density-evolution/01-change-of-variable.md#eq-cov-multi-layer-nolog). In the continuous deterministic setting, density evolution is accumulated through Jacobian determinants; here, the probability vector is propagated through successive Markov operators. The underlying idea is the same: probability mass is tracked through a sequence of prescribed transformations.
 
 **Inverting a Single Step.** Given the forward machinery, it is natural to ask how a single transition can be reversed for generation. Suppose the system is observed in state ${\mathbf{e}}_j$ at step $k{+}1$. What is the probability that it was in state ${\mathbf{e}}_i$ at the previous step $k$? This is a direct application of Bayes’ rule:
 
@@ -199,7 +199,7 @@ A crucial point is that the reverse kernel is *not* the matrix inverse of ${\mat
 
 ## 12.2.2 Continuous-Time Limit: The Master Equation {#subsec-epilogue-ctmc}
 
-In the continuous-space story, shrinking the step size of composed bijections to zero yielded the continuity equation ([Section B.1.2](../../appendices/b-density-evolution/index.md#subsec-cov-continuity-eq)). The same limiting idea works here. When the time steps become infinitesimally small, a discrete-time Markov chain becomes a continuous-time Markov chain (CTMC), and the distribution evolves according to the master equation.
+In the continuous-space story, shrinking the step size of composed bijections to zero yielded the continuity equation ([Section B.1.2](../../appendices/b-density-evolution/01-change-of-variable.md#subsec-cov-continuity-eq)). The same limiting idea works here. When the time steps become infinitesimally small, a discrete-time Markov chain becomes a continuous-time Markov chain (CTMC), and the distribution evolves according to the master equation.
 
 <span id="fig-ctmc-trajectory"></span>
 

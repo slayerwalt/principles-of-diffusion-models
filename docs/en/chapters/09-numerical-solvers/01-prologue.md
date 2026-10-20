@@ -117,7 +117,7 @@ A *multistep method* reuses information from previous completed steps. Stored mo
 
 A separate idea is to change how updates across time are scheduled. Rather than computing all time points strictly sequentially, one may initialize states at several times and repeatedly correct them until they become consistent with the ODE. Such fixed-point iterations can allow model evaluations at different time points to be carried out in parallel.
 
-Representative classical examples, including Euler, RK, AB, and Picard iteration, are reviewed in [Section A.1.5](../../appendices/a-differential-equations/index.md#app-de-solver-examples); their structural organization is summarized in [Equation (A.1.6)](../../appendices/a-differential-equations/index.md#eq-classic-solvers).
+Representative classical examples, including Euler, RK, AB, and Picard iteration, are reviewed in [Section A.1.5](../../appendices/a-differential-equations/01-ordinary-differential-equations.md#app-de-solver-examples); their structural organization is summarized in [Equation (A.1.6)](../../appendices/a-differential-equations/01-ordinary-differential-equations.md#eq-classic-solvers).
 
 **Computational Cost and Practical Performance.** A numerical time step need not correspond to a single neural-network evaluation. Euler uses one evaluation per step, whereas higher-order RK methods may require several. Multistep methods instead reuse stored evaluations and, after initialization, can often advance using only one new evaluation per step.
 
@@ -133,7 +133,7 @@ This classical taxonomy tells us *where numerical information comes from* and ho
 
 ## 9.1.2 Design of Diffusion-Specific Solvers {#subsec-common-design-solvers}
 
-The classical numerical methods reviewed in [Section A.1.4](../../appendices/a-differential-equations/index.md#app-de-solver) treat a general ODE through evaluations of its vector field. Diffusion PF-ODEs offer additional structure: the noise schedule is known analytically, whereas the diffusion-model prediction is supplied by a neural network.
+The classical numerical methods reviewed in [Section A.1.4](../../appendices/a-differential-equations/01-ordinary-differential-equations.md#app-de-solver) treat a general ODE through evaluations of its vector field. Diffusion PF-ODEs offer additional structure: the noise schedule is known analytically, whereas the diffusion-model prediction is supplied by a neural network.
 
 This creates a useful opportunity. Rather than numerically approximating every part of the dynamics in the same way, a solver may retain the known schedule-dependent terms analytically and approximate only the model-dependent prediction. How clearly this structure is exposed depends on the prediction parameterization.
 
@@ -341,7 +341,7 @@ b(\tau)
 \tag{9.1.6}
 $$
 
-We refer the reader to [Section A.1.3](../../appendices/a-differential-equations/index.md#app-exp-int-factor) for the general derivation.
+We refer the reader to [Section A.1.3](../../appendices/a-differential-equations/01-ordinary-differential-equations.md#app-exp-int-factor) for the general derivation.
 
 For example, under noise prediction, $a(t)=f(t)$, $b(t)=\tfrac{1}{2}g^2(t)/\sigma_t$, and ${\mathbf{N}}_{\boldsymbol{\phi}^\times}={\boldsymbol{\epsilon}}_{\boldsymbol{\phi}^\times}$, so
 
@@ -476,7 +476,7 @@ Hence, once the known schedule-dependent dynamics are handled analytically, the 
 
 The remainder of this chapter shows how these numerical ideas appear in modern diffusion samplers. We begin with DDIM in [Section 9.2](02-ddim.md#sec-revisit-ddim), which constructs a first-order update from the current model prediction. We then study DEIS in [Section 9.3](03-deis.md#sec-exponential), which uses predictions from previous steps to build higher-order approximations. DPM-Solver in [Section 9.4](04-dpm-solver.md#sec-dpm) develops higher-order updates using additional model evaluations within the current step. DPM-Solver`++` in [Section 9.5](05-dpm-solver-plus-plus.md#sec-dpm) develops two corresponding variants based on clean-data prediction: a single-step variant, DPM-Solver`++`(2S), which uses additional evaluations within the current step, and a multistep variant, DPM-Solver`++`(2M), which reuses predictions from previous steps. Finally, [Section 9.6](06-paradigms.md#sec-picard) introduces ParaDiGMS, which updates several time points together through fixed-point iteration to enable parallel computation across time.
 
-The table below provides a roadmap connecting these diffusion samplers with the classical numerical ideas reviewed in [Equation (A.1.6)](../../appendices/a-differential-equations/index.md#eq-classic-solvers).
+The table below provides a roadmap connecting these diffusion samplers with the classical numerical ideas reviewed in [Equation (A.1.6)](../../appendices/a-differential-equations/01-ordinary-differential-equations.md#eq-classic-solvers).
 
 <table markdown="1" style="display: table; overflow: visible;">
 <tr markdown="1">

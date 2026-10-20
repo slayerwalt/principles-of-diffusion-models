@@ -93,7 +93,7 @@ $$
 
 Divide by $\Delta t$ and let $\Delta t\to0$ to obtain the Fokker–Planck equation.
 
-In [Section C.1.4](../../appendices/c-ito-calculus/index.md#subsec-rigorous-proof-fpe), we present the Itô–based derivation to complement the discrete–time view above.
+In [Section C.1.4](../../appendices/c-ito-calculus/01-ito-formula.md#subsec-rigorous-proof-fpe), we present the Itô–based derivation to complement the discrete–time view above.
 
 ## 4.6.2 Why Does Reverse-Time SDE Take The Form? {#subsec-reverse-sde-reason}
 

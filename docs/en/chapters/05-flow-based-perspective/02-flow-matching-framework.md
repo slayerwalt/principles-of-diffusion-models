@@ -705,7 +705,7 @@ for all $t\in[0,1]$ and ${\mathbf{x}}$.
 
 **Proof for Theorem.**
 
-A conceptual derivation is provided in [Section D.3.2](../../appendices/d-supplementary-proofs/index.md#app-sec-mass-conservation), while a more rigorous treatment can be found in ([Villani and others, 2008](references.md#ref-villani2008optimal)) (see “Mass Conservation Formula”).
+A conceptual derivation is provided in [Section D.3.2](../../appendices/d-supplementary-proofs/03-flow-based-perspective.md#app-sec-mass-conservation), while a more rigorous treatment can be found in ([Villani and others, 2008](references.md#ref-villani2008optimal)) (see “Mass Conservation Formula”).
 
 **From Conditional to Marginal Paths.** As seen in [Section 5.2.2](02-flow-matching-framework.md#subsec-fm-framework), we begin by defining a conditional probability path $p_t(\cdot| {\mathbf{z}})$ and a corresponding conditional velocity field ${\mathbf{v}}_t(\cdot| {\mathbf{z}})$. We then construct the marginal velocity field via:
 

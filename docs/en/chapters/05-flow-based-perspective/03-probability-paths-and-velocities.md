@@ -8,7 +8,7 @@ Because these conditional objects are known in closed form, they serve as surrog
 
 How should we design a well behaved conditional process? For inspiration, we turn to the one case that is fully understood: the Gaussian to Gaussian bridge ([Section 5.3.1](03-probability-paths-and-velocities.md#subsec-special-fm-instantiations)). This example highlights two natural design strategies: adopt a Gaussian probability path at each time $t$, or prescribe an affine velocity field, both of which are analytically tractable.
 
-Guided by this insight, we extend to general endpoint distributions using two complementary construction views (see also [Section B.1.2](../../appendices/b-density-evolution/index.md#subsec-cov-continuity-eq)). These correspond to the classical Eulerian and Lagrangian descriptions of transport:
+Guided by this insight, we extend to general endpoint distributions using two complementary construction views (see also [Section B.1.2](../../appendices/b-density-evolution/01-change-of-variable.md#subsec-cov-continuity-eq)). These correspond to the classical Eulerian and Lagrangian descriptions of transport:
 
 -   **Conditional Probability-Path First (Eulerian View).** We begin with the conditional density path $p_t(\cdot|{\mathbf{z}})$ and seek a conditional velocity field ${\mathbf{v}}_t(\cdot|{\mathbf{z}})$ satisfying the continuity equation. Since a density path alone generally does not determine a unique velocity, this construction also requires choosing a particular compatible velocity field.
 

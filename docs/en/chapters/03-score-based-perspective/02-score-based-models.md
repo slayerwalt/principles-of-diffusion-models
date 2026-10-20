@@ -64,7 +64,7 @@ and $C$ is a constant that does not depend on $\boldsymbol{\phi}$. The minimizer
 
 **Proof for Proposition.**
 
-The result follows by expanding the MSE in $\mathcal{L}_{\text{SM}}$ and applying integration by parts. The proof is given in [Section D.2.1](../../appendices/d-supplementary-proofs/index.md#app-sec-sm-trace).
+The result follows by expanding the MSE in $\mathcal{L}_{\text{SM}}$ and applying integration by parts. The proof is given in [Section D.2.1](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-sm-trace).
 
 Using the equivalent objective in [Equation (3.2.2)](02-score-based-models.md#eq-sm-alternative), we train the score model ${\mathbf{s}}_{\boldsymbol{\phi}}({\mathbf{x}})$ solely from observed samples of $p_{\mathrm{data}}$, eliminating the need for the true score function.
 

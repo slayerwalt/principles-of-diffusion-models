@@ -69,7 +69,7 @@ $$
 p_T \approx p_{\mathrm{prior}}.
 $$
 
-At finite time, however, $p_T$ is the distribution of $\alpha_T{\mathbf{x}}_0+\sigma_T{\boldsymbol{\epsilon}}$ and therefore generally still depends on $p_{\mathrm{data}}$; it need not coincide exactly with the prescribed Gaussian prior (see [Section C.1.5](../../appendices/c-ito-calculus/index.md#subsec-rigorous-proof-linear-sde)).
+At finite time, however, $p_T$ is the distribution of $\alpha_T{\mathbf{x}}_0+\sigma_T{\boldsymbol{\epsilon}}$ and therefore generally still depends on $p_{\mathrm{data}}$; it need not coincide exactly with the prescribed Gaussian prior (see [Section C.1.5](../../appendices/c-ito-calculus/01-ito-formula.md#subsec-rigorous-proof-linear-sde)).
 
 In contrast, the SB framework enforces exact marginal matching at a finite time $T$ by introducing an additional control drift of the form $g^2(t)\nabla_\mathbf{x}\log \Psi(\mathbf{x}, t)$. This ensures that the terminal distribution precisely satisfies $p_T = p_{\mathrm{prior}}$, regardless of the initial data distribution $p_0 = p_{\mathrm{data}}$. In summary:
 

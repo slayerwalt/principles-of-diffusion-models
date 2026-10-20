@@ -274,7 +274,7 @@ $$
 
 **Proof for Lemma.**
 
-This follows from the continuity equation together with the chain rule. We present detailed alternative derivations in [Section D.3](../../appendices/d-supplementary-proofs/index.md#app-sec-flow-proof).
+This follows from the continuity equation together with the chain rule. We present detailed alternative derivations in [Section D.3](../../appendices/d-supplementary-proofs/03-flow-based-perspective.md#app-sec-flow-proof).
 
 **Connection to Discrete-Time Formula.** The NODE likelihood in [Equation (5.1.8)](01-normalizing-flows-and-neural-odes.md#eq-node-likelihood),
 

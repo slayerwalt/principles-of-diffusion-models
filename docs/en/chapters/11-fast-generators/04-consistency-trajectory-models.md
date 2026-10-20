@@ -2,7 +2,7 @@
 
 Consistency Trajectory Model (CTM) ([Kim et al., 2024](references.md#ref-kim2023consistency)) is among the first methods to learn a *general* flow map ${\boldsymbol{\Psi}}_{s\to t}$.
 
-**Setup of CTM in Practice.** Similar to the CM family, CTM originally follows the formulation of EDM ([Karras et al., 2022](references.md#ref-karras2022elucidating)) ([Section D.6](../../appendices/d-supplementary-proofs/index.md#sec-edm)), using the PF-ODE in ${\mathbf{x}}$-prediction form with the noise schedule $\alpha_t = 1$ and $\sigma_t = t$. Under this setup, the PF-ODE becomes
+**Setup of CTM in Practice.** Similar to the CM family, CTM originally follows the formulation of EDM ([Karras et al., 2022](references.md#ref-karras2022elucidating)) ([Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)), using the PF-ODE in ${\mathbf{x}}$-prediction form with the noise schedule $\alpha_t = 1$ and $\sigma_t = t$. Under this setup, the PF-ODE becomes
 
 $$
 \begin{aligned}

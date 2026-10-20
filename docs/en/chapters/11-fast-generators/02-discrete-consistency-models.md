@@ -324,11 +324,11 @@ $$
 {\mathbb{E}}[{\mathbf{x}}_{s'}-{\mathbf{x}}_{s'}^{\mathrm{DDIM}}\mid{\mathbf{x}}_s]=0,
 $$
 
-the linear Taylor term vanishes after conditioning on ${\mathbf{x}}_s$. Under the smoothness and moment assumptions described above, the remaining expected Taylor remainder is $\mathcal{O}(\Delta s^2)$. Hence, $\mathcal{L}_{\mathrm{CT}} =\mathcal{L}_{\mathrm{CM}}+\mathcal{O}(\Delta s^2)$. A detailed derivation is provided in [Section D.5](../../appendices/d-supplementary-proofs/index.md#app-sec-flow-map).
+the linear Taylor term vanishes after conditioning on ${\mathbf{x}}_s$. Under the smoothness and moment assumptions described above, the remaining expected Taylor remainder is $\mathcal{O}(\Delta s^2)$. Hence, $\mathcal{L}_{\mathrm{CT}} =\mathcal{L}_{\mathrm{CM}}+\mathcal{O}(\Delta s^2)$. A detailed derivation is provided in [Section D.5](../../appendices/d-supplementary-proofs/05-fast-generators.md#app-sec-flow-map).
 
 In summary, CD leverages a teacher model for initialization and supervision, which often stabilizes optimization and reduces variance. In contrast, Consistency Training (CT) requires no pre-trained model and can therefore be trained entirely from scratch. Despite this difference, CT serves as a fully standalone generative model.
 
-**Practical Considerations.** In practice, [Song et al. (2023)](references.md#ref-song2023consistency) adopt the EDM formulation of [Karras et al. (2022)](references.md#ref-karras2022elucidating) (see [Section D.6](../../appendices/d-supplementary-proofs/index.md#sec-edm)) with the forward corruption kernel ${\mathbf{x}}_s = {\mathbf{x}}_0 + s \boldsymbol{\epsilon}$, and use the neural network parameterization proposed therein (cf. [Equation (D.6.1)](../../appendices/d-supplementary-proofs/index.md#eq-d-parametrization)):
+**Practical Considerations.** In practice, [Song et al. (2023)](references.md#ref-song2023consistency) adopt the EDM formulation of [Karras et al. (2022)](references.md#ref-karras2022elucidating) (see [Section D.6](../../appendices/d-supplementary-proofs/06-edm.md#sec-edm)) with the forward corruption kernel ${\mathbf{x}}_s = {\mathbf{x}}_0 + s \boldsymbol{\epsilon}$, and use the neural network parameterization proposed therein (cf. [Equation (D.6.1)](../../appendices/d-supplementary-proofs/06-edm.md#eq-d-parametrization)):
 
 $$
 {\mathbf{f}}_{\boldsymbol{\theta}}({\mathbf{x}}, s)
@@ -337,7 +337,7 @@ $$
         {\mathbf{F}}_{\boldsymbol{\theta}} \left(c_{\mathrm{in}}(s)\,{\mathbf{x}},\, c_{\mathrm{noise}}(s)\right),
 $$
 
-where ${\mathbf{F}}_{\boldsymbol{\theta}}$ is a neural network and the coefficients follow [Equation (D.6.5)](../../appendices/d-supplementary-proofs/index.md#eq-edm-simple-coefficients). This parameterization has the important boundary property
+where ${\mathbf{F}}_{\boldsymbol{\theta}}$ is a neural network and the coefficients follow [Equation (D.6.5)](../../appendices/d-supplementary-proofs/06-edm.md#eq-edm-simple-coefficients). This parameterization has the important boundary property
 
 $$
 {\mathbf{f}}_{\boldsymbol{\theta}}({\mathbf{x}}, 0) = {\mathbf{x}},

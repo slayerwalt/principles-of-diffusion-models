@@ -24,7 +24,7 @@ where $p_{\text{time}}$ is some time distribution (e.g., uniform on $[0,T]$), $\
 
 Source: Created by the authors with AI-assisted coding.
 
-To avoid relying on the intractable oracle score $\nabla_{{\mathbf{x}}} \log p_t({\mathbf{x}})$, the DSM loss in [Equation (3.3.2)](../03-score-based-perspective/03-denoising-score-matching.md#eq-dsm-loss) is employed. Conditioned on a data point ${\mathbf{x}}_0$, this approach allows the use of the analytically tractable score $\nabla_{{\mathbf{x}}_t} \log p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ via [Equation (D.2.4)](../../appendices/d-supplementary-proofs/index.md#eq-score-gaussian-formula), with concrete examples given in [Section 4.4](04-sde-instantiations.md#sec-instances). Specifically, we exploit the following loss function:
+To avoid relying on the intractable oracle score $\nabla_{{\mathbf{x}}} \log p_t({\mathbf{x}})$, the DSM loss in [Equation (3.3.2)](../03-score-based-perspective/03-denoising-score-matching.md#eq-dsm-loss) is employed. Conditioned on a data point ${\mathbf{x}}_0$, this approach allows the use of the analytically tractable score $\nabla_{{\mathbf{x}}_t} \log p_t({\mathbf{x}}_t|{\mathbf{x}}_0)$ via [Equation (D.2.4)](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#eq-score-gaussian-formula), with concrete examples given in [Section 4.4](04-sde-instantiations.md#sec-instances). Specifically, we exploit the following loss function:
 
 <span id="eq-conti-dsm-loss-real"></span>
 
@@ -60,7 +60,7 @@ for almost every ${\mathbf{x}}_t \sim p_t$ and $t \in [0,T]$.
 
 **Proof for Proposition.**
 
-DSM objective can be understood as a least-squares error problem. Specifically, at each time $t$, the optimal score function is given by the conditional expectation of the gradient of the log conditional density, which, under Bayes’ rule, is equivalent to the gradient of the log marginal density. For a detailed proof, see [Section D.2.6](../../appendices/d-supplementary-proofs/index.md#app-sec-min-dsm).
+DSM objective can be understood as a least-squares error problem. Specifically, at each time $t$, the optimal score function is given by the conditional expectation of the gradient of the log conditional density, which, under Bayes’ rule, is equivalent to the gradient of the log marginal density. For a detailed proof, see [Section D.2.6](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-min-dsm).
 
 ## 4.3.2 Sampling and Inference {#subsec-sde-sample}
 

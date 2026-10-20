@@ -161,7 +161,7 @@ $$
 \approx \mathcal{L}_{\mathrm{KD}}({\boldsymbol{\theta}}),
 $$
 
-where the practical KD target replaces the oracle flow map by $\mathtt{Solver}_{T\to 0}\approx{\boldsymbol{\Psi}}_{T\to 0}$. An alternative perspective on this formulation is presented in [Section D.5](../../appendices/d-supplementary-proofs/index.md#app-sec-flow-map).
+where the practical KD target replaces the oracle flow map by $\mathtt{Solver}_{T\to 0}\approx{\boldsymbol{\Psi}}_{T\to 0}$. An alternative perspective on this formulation is presented in [Section D.5](../../appendices/d-supplementary-proofs/05-fast-generators.md#app-sec-flow-map).
 
 PD also fits this template, but instead of supervising only with the single extreme pair $(T,0)$, it uses many *nearby* time pairs and enforces a simple *local consistency* rule: a short step followed by another short step should match the direct two–step move. We return to this in [Equation (10.3.3)](03-progressive-distillation.md#eq-pd-local).
 

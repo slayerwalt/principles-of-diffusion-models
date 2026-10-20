@@ -84,7 +84,7 @@ Using the results from [Section 4.4.3](04-sde-instantiations.md#subsec-scoresde-
 
 -   **Prior Distribution:** $p_{\mathrm{prior}} := \mathcal{N}(\boldsymbol{0}, {\mathbf{I}})$.
 
-We remark that since the perturbation kernel is a Gaussian with a known mean and covariance, we can apply [Equation (D.2.5)](../../appendices/d-supplementary-proofs/index.md#eq-gaussian-score) to compute its score function.
+We remark that since the perturbation kernel is a Gaussian with a known mean and covariance, we can apply [Equation (D.2.5)](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#eq-gaussian-score) to compute its score function.
 
 A classic example of a VP SDE is the DDPM, where the noise schedule $\beta(t)$ is defined as:
 
@@ -158,7 +158,7 @@ $$
 
 which captures the accumulated effect of the drift from time $s$ to $t$. Consequently, the transition kernel $p_t({\mathbf{x}}_t | {\mathbf{x}}_0)$ also admits a closed-form expression.
 
-We defer the justification that the conditional covariance of $p_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ is isotropic, that is $\operatorname{Cov}[{\mathbf{x}}_t | {\mathbf{x}}_0] = P(t) \mathbf I_D$ under a $D$-dimensional Wiener process with independent coordinates and diffusion $g(t)\mathbf I_D$, as well as the derivation of [Equation (4.4.3)](04-sde-instantiations.md#eq-mean-var-evolution), to [Section C.1.5](../../appendices/c-ito-calculus/index.md#subsec-rigorous-proof-linear-sde), which relies on Itô calculus.
+We defer the justification that the conditional covariance of $p_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ is isotropic, that is $\operatorname{Cov}[{\mathbf{x}}_t | {\mathbf{x}}_0] = P(t) \mathbf I_D$ under a $D$-dimensional Wiener process with independent coordinates and diffusion $g(t)\mathbf I_D$, as well as the derivation of [Equation (4.4.3)](04-sde-instantiations.md#eq-mean-var-evolution), to [Section C.1.5](../../appendices/c-ito-calculus/01-ito-formula.md#subsec-rigorous-proof-linear-sde), which relies on Itô calculus.
 
 **Example: VE SDE’s Transition Kernel**
 

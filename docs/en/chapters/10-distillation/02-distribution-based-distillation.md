@@ -100,7 +100,7 @@ $$
 \partial_{{\boldsymbol{\theta}}}{\mathbf{G}}_{{\boldsymbol{\theta}}}({\mathbf{z}})\right].
 $$
 
-This proves [Equation (10.2.2)](02-distribution-based-distillation.md#eq-vsd-grad). See [Section D.5](../../appendices/d-supplementary-proofs/index.md#app-sec-flow-map) for details.
+This proves [Equation (10.2.2)](02-distribution-based-distillation.md#eq-vsd-grad). See [Section D.5](../../appendices/d-supplementary-proofs/05-fast-generators.md#app-sec-flow-map) for details.
 
 We observe that the score functions naturally emerge when taking the gradient with respect to $\boldsymbol{\theta}$. Consequently, we require approximations of the score $\nabla_{{\mathbf{x}}}\log p_t^{\boldsymbol{\theta}}(\hat{\mathbf{x}}_t)$ for the one-step generator and $\nabla_{{\mathbf{x}}}\log p_t(\hat{\mathbf{x}}_t)$ for the data distribution, as will be detailed in the following subsection.
 
@@ -224,6 +224,6 @@ The density-ratio weighting disappears, recovering the score-difference gradient
 
 For example, the forward KL corresponds to $f(r)=-\log r$, for which $r f''(r)=1/r$. It therefore places greater weight on regions where the model density is small relative to the target density. This illustrates how different divergences can share the same underlying score-mismatch direction while emphasizing different density-ratio regimes.
 
-Finally, this score-mismatch view connects directly to the Wasserstein gradient-flow perspective in [Section B.3](../../appendices/b-density-evolution/index.md#sec-wgf-distribution-level-training). At the distribution level, reverse-KL gradient flow moves particles according to the target score minus the model score. The VSD parameter gradient contains the same score mismatch, pulled back through the generator Jacobian $\partial_{{\boldsymbol{\theta}}}\hat{\mathbf{x}}_t$. Thus, the Wasserstein view describes the ideal distribution-space motion, while VSD realizes this motion through updates of a finite-dimensional shared generator.
+Finally, this score-mismatch view connects directly to the Wasserstein gradient-flow perspective in [Section B.3](../../appendices/b-density-evolution/03-wasserstein-gradient-flows.md#sec-wgf-distribution-level-training). At the distribution level, reverse-KL gradient flow moves particles according to the target score minus the model score. The VSD parameter gradient contains the same score mismatch, pulled back through the generator Jacobian $\partial_{{\boldsymbol{\theta}}}\hat{\mathbf{x}}_t$. Thus, the Wasserstein view describes the ideal distribution-space motion, while VSD realizes this motion through updates of a finite-dimensional shared generator.
 
 [^1]: Historically, VSD ([Wang et al., 2023](references.md#ref-wang2023prolificdreamer)) was introduced for text-to-3D generation, where a pre-trained 2D diffusion model provides distributional supervision through a differentiable renderer. Its single-particle (Dirac) specialization recovers the basic SDS ([Poole et al., 2023](references.md#ref-pooledreamfusion)) update, up to the corresponding time-weighting and prediction-parameterization conventions.

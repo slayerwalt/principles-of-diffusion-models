@@ -105,7 +105,7 @@ Thus, the reverse-time SDE and PF-ODE can have the same marginal distribution at
 
 **Proof for Theorem.**
 
-The proof is provided in [Section D.2.5](../../appendices/d-supplementary-proofs/index.md#app-sec-scoresde-fpe-proof), while [Section 4.6.1](06-fokker-planck-and-reverse-sde.md#subsec-fpe-reason) offers further intuition behind the Fokker–Planck equation using the marginalization technique of probability.
+The proof is provided in [Section D.2.5](../../appendices/d-supplementary-proofs/02-score-based-perspective.md#app-sec-scoresde-fpe-proof), while [Section 4.6.1](06-fokker-planck-and-reverse-sde.md#subsec-fpe-reason) offers further intuition behind the Fokker–Planck equation using the marginalization technique of probability.
 
 **Multiple Conditional Distributions for a Fixed Marginal.** To understand how the PF-ODE transports $p_{\mathrm{data}}$ forward in time (or equivalently $p_{\mathrm{prior}}$ in reverse), consider the *flow map* ${\boldsymbol{\Psi}}_{s \to t}: \mathbb{R}^D \to \mathbb{R}^D$, where ${\boldsymbol{\Psi}}_{s \to t}({\mathbf{x}}_s)$ denotes the PF-ODE solution at time $t$ initialized from ${\mathbf{x}}_s$ at time $s$, for any time $s, t \in[0,T]$. In other words, this map takes an initial state ${\mathbf{x}}_s$ and directly jumps to its state at $t$:
 
