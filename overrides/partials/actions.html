@@ -1,0 +1,32 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% if "content.action.copy" in features and page.markdown_url %}
+  <button type="button" title="{{ lang.t('action.copy') }}" aria-label="{{ lang.t('action.copy') }}" class="md-content__button md-icon" data-md-copy-url="{{ page.markdown_url | url }}">
+    {% set icon = config.theme.icon.copy or "material/content-copy" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </button>
+{% endif %}
+{% set book_edit_url = page.edit_url | d("", true) %}
+{% if page.url is defined and page.url in ["zh-CN/references/", "zh-CN/references.html"] %}
+  {% set book_edit_url = book_edit_url | replace("docs/zh-CN/references.md", "docs/en/references.md") %}
+{% endif %}
+{% if book_edit_url %}
+  {% if "content.action.edit" in features %}
+    <a href="{{ book_edit_url }}" title="{{ lang.t('action.edit') }}" class="md-content__button md-icon" rel="edit">
+      {% set icon = config.theme.icon.edit or "material/file-edit-outline" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </a>
+  {% endif %}
+  {% if "content.action.view" in features %}
+    {% if "/blob/" in book_edit_url %}
+      {% set part = "/blob/" %}
+    {% else %}
+      {% set part = "/edit/" %}
+    {% endif %}
+    <a href="{{ book_edit_url | replace(part, '/raw/') }}" title="{{ lang.t('action.view') }}" class="md-content__button md-icon">
+      {% set icon = config.theme.icon.view or "material/file-eye-outline" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </a>
+  {% endif %}
+{% endif %}

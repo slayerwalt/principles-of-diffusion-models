@@ -1,6 +1,6 @@
 ---
 title: About this edition
-description: An unofficial, chapter-by-chapter English web edition of The Principles of Diffusion Models.
+description: An unofficial English and Simplified Chinese web edition of The Principles of Diffusion Models.
 ---
 
 # The Principles of Diffusion Models
@@ -20,6 +20,8 @@ The English web edition currently includes **Chapters 1–12**, covering deep ge
 The [Abstract](en/front-matter/abstract.md), [Acknowledgements](en/front-matter/acknowledgements.md), [Preface and Roadmap](en/front-matter/preface.md), [Notations](en/front-matter/notation.md), and [author information](en/front-matter/authors.md) retain the book's front matter. The [Part II overview](en/foundations/index.md) precedes [A First Operational View of Diffusion Model Training and Sampling](en/foundations/operational-view.md); the [Part III overview](en/sampling/index.md) introduces the sampling chapters.
 
 Use the chapter navigation to move between sections and the page contents to find a topic within a section. The search field covers the pages available in this edition. On smaller screens, open the navigation menu; wide equations can be scrolled horizontally.
+
+Use the language icon in the top navigation bar to switch between English and Simplified Chinese at the current section. The two editions share the same layout, figures, equation numbers, and reference entries.
 
 Original equation and figure numbers are retained. The [book contents](en/book-outline.md) follow the original reading order. References cited in the preface, chapters, and appendices are collected on a single [References page](en/references.md).
 

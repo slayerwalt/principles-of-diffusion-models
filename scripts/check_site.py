@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -14,16 +15,25 @@ class Document(HTMLParser):
         self.path = path
         self.anchors: set[str] = set()
         self.links: list[str] = []
+        self.language = ""
+        self.language_pairs: list[str] = []
+        self.redirect = False
         self.unrendered_display_math = False
         self.feed(path.read_text(encoding="utf-8"))
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "html":
+            self.language = attrs.get("lang", "")
+        if tag == "meta" and attrs.get("http-equiv", "").lower() == "refresh":
+            self.redirect = True
         for key in ("id", "name" if tag == "a" else "id"):
             if attrs.get(key):
                 self.anchors.add(attrs[key])
         if tag == "a" and attrs.get("href"):
             self.links.append(attrs["href"])
+            if "data-language-pair" in attrs:
+                self.language_pairs.append(attrs["href"])
         if tag in ("img", "script", "source") and attrs.get("src"):
             self.links.append(attrs["src"])
         if tag == "link" and attrs.get("href"):
@@ -53,6 +63,49 @@ def check(root: Path, base_url: str) -> list[str]:
                       and "2510.21890" in urlsplit(href).path]
     if len(original_links) != 1 or original_links[0][0] != root / "index.html":
         errors.append("The original paper should be linked exactly once, on the home page.")
+
+    # Every public book page must have a matching language target. This also
+    # catches a build that accidentally includes only the former preview UI.
+    english_pages = [root / "index.html", *sorted((root / "en").rglob("*.html"))]
+    for english in english_pages:
+        if pages[english].redirect:
+            continue
+        chinese = root / "zh-CN" / (
+            Path("index.html") if english == root / "index.html"
+            else english.relative_to(root / "en")
+        )
+        for source, target, language in [
+            (english, chinese, "en"), (chinese, english, "zh")
+        ]:
+            if source not in pages:
+                errors.append(f"Missing bilingual book page: {source.relative_to(root)}")
+                continue
+            page = pages[source]
+            if not page.language.startswith(language):
+                errors.append(f"{source.relative_to(root)}: incorrect HTML language.")
+            if len(page.language_pairs) != 1:
+                errors.append(f"{source.relative_to(root)}: expected one language-switch target.")
+                continue
+            href = urlsplit(page.language_pairs[0])
+            paired = (source.parent / unquote(href.path)).resolve()
+            if paired.is_dir():
+                paired /= "index.html"
+            if paired != target:
+                errors.append(f"{source.relative_to(root)}: incorrect language-switch target.")
+
+    for internal in [
+        "preview-index", "responsive-check.html", "language-menu-check.html",
+        "en/samples", "zh-CN/samples", "translation-work", "reviews",
+    ]:
+        if (root / internal).exists():
+            errors.append(f"Internal review material found in the public site: {internal}")
+    search_index = root / "search.json"
+    if not search_index.exists():
+        errors.append("Search index is missing.")
+    else:
+        search = json.loads(search_index.read_text(encoding="utf-8"))
+        if not {"en", "zh"}.issubset(search.get("config", {}).get("lang", [])):
+            errors.append("Search index must enable English and Chinese tokenization.")
 
     for path, page in pages.items():
         if page.unrendered_display_math:

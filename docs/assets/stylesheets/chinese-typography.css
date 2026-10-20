@@ -1,0 +1,11 @@
+/* Preserve semantic emphasis without slanting Chinese prose. */
+html:lang(zh) .md-typeset em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Mathematical notation retains its own font styling inside emphasized text. */
+html:lang(zh) .md-typeset em .arithmatex {
+  font-style: normal;
+  font-weight: 400;
+}

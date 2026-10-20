@@ -1,0 +1,56 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+<footer class="md-footer">
+  {% if "navigation.footer" in features %}
+    {% if book_previous or book_next %}
+      {% if page.meta and page.meta.hide %}
+        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+      {% endif %}
+      <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer') }}" {{ hidden }}>
+        {% if book_previous %}
+          {% set direction = lang.t("footer.previous") %}
+          <a href="{{ book_previous.url | url }}" class="md-footer__link md-footer__link--prev" aria-label="{{ direction }}: {{ book_previous.title | e }}">
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ book_previous.title }}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+        {% if book_next %}
+          {% set direction = lang.t("footer.next") %}
+          <a href="{{ book_next.url | url }}" class="md-footer__link md-footer__link--next" aria-label="{{ direction }}: {{ book_next.title | e }}">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ book_next.title }}
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.next or "material/arrow-right" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+          </a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% endif %}
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      {% include "partials/copyright.html" %}
+      {% if config.extra.social %}
+        {% include "partials/social.html" %}
+      {% endif %}
+    </div>
+  </div>
+</footer>

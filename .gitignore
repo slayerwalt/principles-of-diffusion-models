@@ -14,6 +14,8 @@ __pycache__/
 /scripts/*
 !/scripts/check_site.py
 !/scripts/vendor_mathjax.py
+!/scripts/build_site.py
 /docs/assets/vendor/
+/docs/zh-CN/references.md
 /AGENTS.md
 

@@ -27,7 +27,7 @@ jobs:
       - name: Download pinned math renderer
         run: python scripts/vendor_mathjax.py
       - name: Build website
-        run: zensical build --clean --strict
+        run: python scripts/build_site.py
       - name: Validate generated links and assets
         run: python scripts/check_site.py
       - name: Upload Pages artifact

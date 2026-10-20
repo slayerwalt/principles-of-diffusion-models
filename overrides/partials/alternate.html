@@ -1,0 +1,36 @@
+<div class="md-header__option book-language-option">
+  <details class="book-language-menu" data-language-menu>
+    <summary class="md-header__button md-icon book-language-menu__trigger"
+      aria-label="选择语言 / Select language" title="选择语言 / Select language">
+      <span aria-hidden="true">{% include ".icons/lucide/languages.svg" %}</span>
+    </summary>
+    <div class="book-language-menu__panel">
+      <ul class="book-language-menu__list" aria-label="语言 / Language">
+        <li>
+          {% if book_has_page and book_language == "zh" %}
+          <span class="book-language-menu__item book-language-menu__item--current"
+            lang="zh-CN" aria-current="page">
+            <span>简体中文</span>
+            <span class="book-language-menu__check" aria-hidden="true">{% include ".icons/lucide/check.svg" %}</span>
+          </span>
+          {% else %}
+          <a class="book-language-menu__item" {% if book_has_page %}data-language-pair{% endif %}
+            href="{{ book_chinese | url }}" target="_self" hreflang="zh-CN" lang="zh-CN" aria-label="简体中文">简体中文</a>
+          {% endif %}
+        </li>
+        <li>
+          {% if book_has_page and book_language == "en" %}
+          <span class="book-language-menu__item book-language-menu__item--current"
+            lang="en" aria-current="page">
+            <span>English</span>
+            <span class="book-language-menu__check" aria-hidden="true">{% include ".icons/lucide/check.svg" %}</span>
+          </span>
+          {% else %}
+          <a class="book-language-menu__item" {% if book_has_page %}data-language-pair{% endif %}
+            href="{{ book_english | url }}" target="_self" hreflang="en" lang="en" aria-label="English">English</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </details>
+</div>

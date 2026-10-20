@@ -1,0 +1,5 @@
+{% set language_url = (page.url | d("", true)) if page is defined and page else "" %}
+{% set language = "zh" if language_url[:6] == "zh-CN/" else "en" %}
+{% import "partials/languages/" ~ language ~ ".html" as selected %}
+{% import "partials/languages/en.html" as fallback %}
+{% macro t(key) %}{{ selected.t(key) or fallback.t(key) or key }}{% endmacro %}
