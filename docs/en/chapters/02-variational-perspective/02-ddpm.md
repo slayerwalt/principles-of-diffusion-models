@@ -308,7 +308,7 @@ $$
 
 where ${\mathbf{x}}_i = \bar{\alpha}_i {\mathbf{x}}_0 + \sqrt{1 - \bar{\alpha}_i^2} \boldsymbol{\epsilon}$ with ${\mathbf{x}}_0 \sim p_{\text{data}}$. Since the target noise has unit variance at every timestep $t$, the $\ell_2$ loss in [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) maintains a consistent scale across all $t$. This prevents vanishing or exploding targets and eliminates the need for explicit loss weighting.
 
-Importantly, both $\mathcal{L}_{\text{DDPM}}$ and $\mathcal{L}_{\text{simple}}$ share the same optimal solution $\boldsymbol{\epsilon}^*$, this is because [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) essentially reduces to a least-squares problem (as shown similarly in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))[^2]:
+Importantly, both $\mathcal{L}_{\text{DDPM}}$ and $\mathcal{L}_{\text{simple}}$ share the same optimal solution $\boldsymbol{\epsilon}^*$, this is because [Equation (2.2.10)](02-ddpm.md#eq-ddpm-simple-loss) essentially reduces to a least-squares problem (as shown similarly in [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/03-equivalent-parameterizations.md#equi-para))[^2]:
 
 $$
 \boldsymbol{\epsilon}^*({\mathbf{x}}_i, i) = \mathbb{E}\left[ \boldsymbol{\epsilon}|{\mathbf{x}}_i \right], \quad {\mathbf{x}}_i \sim p_i.
@@ -336,7 +336,7 @@ $$
 \mathbb{E}_{i} \mathbb{E}_{{\mathbf{x}}_0 \sim p_{\text{data}}} \mathbb{E}_{\boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})} \left[\omega_i \left\| {\mathbf{x}}_{\boldsymbol{\phi}}({\mathbf{x}}_i, i) - {\mathbf{x}}_0 \right\|_2^2 \right],
 $$
 
-for some weighting function $\omega_i$. Since this is a least-squares problem, the optimal solution is given by (see [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/index.md#equi-para))
+for some weighting function $\omega_i$. Since this is a least-squares problem, the optimal solution is given by (see [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) or [Proposition 6.3.1](../06-unified-perspective/03-equivalent-parameterizations.md#equi-para))
 
 <span id="eq-ddpm-clean-minimizer"></span>
 
@@ -482,7 +482,7 @@ $$
 1-\bar{\alpha}_{i-1}^2,
 $$
 
-so the update has the same noise-level structure as the forward marginal at level $i-1$. This returns to the first operational sampling template introduced in [Equation (1.4.1)](../../foundations/operational-view.md#eq-ddpm-first-try): predict the clean part and rewrite the sample at a lower noise level. DDPM carries out this rewrite stochastically, combining the noise direction estimated from ${\mathbf{x}}_i$ with a fresh Gaussian noise sample. A deterministic sampler follows the same basic idea, but removes the fresh randomness and adjusts the remaining noise coefficient accordingly. We will revisit this construction when studying diffusion samplers more systematically in [Section 9.2](../09-numerical-solvers/index.md#sec-revisit-ddim).
+so the update has the same noise-level structure as the forward marginal at level $i-1$. This returns to the first operational sampling template introduced in [Equation (1.4.1)](../../foundations/operational-view.md#eq-ddpm-first-try): predict the clean part and rewrite the sample at a lower noise level. DDPM carries out this rewrite stochastically, combining the noise direction estimated from ${\mathbf{x}}_i$ with a fresh Gaussian noise sample. A deterministic sampler follows the same basic idea, but removes the fresh randomness and adjusts the remaining noise coefficient accordingly. We will revisit this construction when studying diffusion samplers more systematically in [Section 9.2](../09-numerical-solvers/02-ddim.md#sec-revisit-ddim).
 
 Compare [Equation (2.2.15)](02-ddpm.md#eq-ddpm-renoise) with the forward marginal ${\mathbf{x}}_{i-1} = \bar{\alpha}_{i-1}\,{\mathbf{x}}_0 + \sqrt{1-\bar{\alpha}_{i-1}^2}\,\bar{\boldsymbol{\epsilon}}$. The structure is identical: signal coefficient $\bar{\alpha}_{i-1}$ and noise standard deviation $\sqrt{1-\bar{\alpha}_{i-1}^2}$, except that the unknown ${\mathbf{x}}_0$ is replaced by the network prediction ${\mathbf{x}}_{\boldsymbol{\phi}^\times}({\mathbf{x}}_i,i)$. In other words, each DDPM step *predicts the clean data and then re-noises it to exactly noise level $i{-}1$*. One can therefore view DDPM sampling as iterating two operations:
 

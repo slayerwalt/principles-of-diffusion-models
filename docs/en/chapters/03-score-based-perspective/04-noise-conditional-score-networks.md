@@ -125,28 +125,139 @@ We will systematically compare and summarize this equivalence of parameterizatio
 
 ## 3.4.3 Sampling {#sampling}
 
-<span id="alg-smld"></span>
+<section class="book-algorithm" id="alg-smld" aria-labelledby="alg-smld-title" markdown="1">
 
-**Algorithm 1: Annealed Langevin Dynamics**
+<div class="book-algorithm__title" id="alg-smld-title" markdown="span">
+Algorithm 1: Annealed Langevin Dynamics
+</div>
+
+<div class="book-algorithm__meta" markdown="1">
 
 **Input:** Trained score ${\mathbf{s}}_{\boldsymbol{\phi}^\times}(\cdot,\sigma_\ell)$, step sizes $\eta_\ell$, and Langevin iteration budgets $N_\ell$ for each noise level $\ell=L,\ldots,1$; initialization distribution $p_{\mathrm{init}}$
 
-| Line | Instruction |
-| --- | --- |
-| 1 | ${\mathbf{x}} \sim p_{\mathrm{init}}$ |
-| | *Initialize from unstructured noise at the largest noise level* |
-| 2 | **for** $\ell=L,L-1,\ldots,1$ **do** |
-| 3 | &emsp;$\tilde{{\mathbf{x}}}_0 \gets {\mathbf{x}}$ |
-| | &emsp;*Initialize this noise level from the previous level’s output* |
-| 4 | &emsp;**for** $n=0$ **to** $N_\ell-1$ **do** |
-| 5 | &emsp;&emsp;$\boldsymbol{\epsilon}_n \sim \mathcal{N}(\boldsymbol{0},{\mathbf{I}})$ |
-| 6 | &emsp;&emsp;$\tilde{{\mathbf{x}}}_{n+1} \gets \tilde{{\mathbf{x}}}_n +\eta_\ell {\mathbf{s}}_{\boldsymbol{\phi}^\times}(\tilde{{\mathbf{x}}}_n,\sigma_\ell) +\sqrt{2\eta_\ell}\,\boldsymbol{\epsilon}_n$ |
-| 7 | &emsp;**end for** |
-| 8 | &emsp;${\mathbf{x}} \gets \tilde{{\mathbf{x}}}_{N_\ell}$ |
-| | &emsp;*Pass the final state to the next smaller noise level, if any* |
-| 9 | **end for** |
+</div>
+
+<div class="book-algorithm__scroll" tabindex="0" role="region" aria-label="Algorithm 1 steps" markdown="1">
+<div class="book-algorithm__lines" markdown="1">
+
+<div class="book-algorithm__line" style="--algorithm-indent: 0" markdown="1">
+<div class="book-algorithm__number">1</div>
+<div class="book-algorithm__statement" markdown="1">
+
+${\mathbf{x}} \sim p_{\mathrm{init}}$
+
+</div>
+</div>
+
+<div class="book-algorithm__line book-algorithm__line--comment" style="--algorithm-indent: 0" markdown="1">
+<div class="book-algorithm__number"></div>
+<div class="book-algorithm__statement" markdown="1">
+
+<span class="book-algorithm__comment">*Initialize from unstructured noise at the largest noise level*</span>
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 0" markdown="1">
+<div class="book-algorithm__number">2</div>
+<div class="book-algorithm__statement" markdown="1">
+
+**for** $\ell=L,L-1,\ldots,1$ **do**
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number">3</div>
+<div class="book-algorithm__statement" markdown="1">
+
+$\tilde{{\mathbf{x}}}_0 \gets {\mathbf{x}}$
+
+</div>
+</div>
+
+<div class="book-algorithm__line book-algorithm__line--comment" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number"></div>
+<div class="book-algorithm__statement" markdown="1">
+
+<span class="book-algorithm__comment">*Initialize this noise level from the previous level’s output*</span>
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number">4</div>
+<div class="book-algorithm__statement" markdown="1">
+
+**for** $n=0$ **to** $N_\ell-1$ **do**
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 2" markdown="1">
+<div class="book-algorithm__number">5</div>
+<div class="book-algorithm__statement" markdown="1">
+
+$\boldsymbol{\epsilon}_n \sim \mathcal{N}(\boldsymbol{0},{\mathbf{I}})$
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 2" markdown="1">
+<div class="book-algorithm__number">6</div>
+<div class="book-algorithm__statement" markdown="1">
+
+$\tilde{{\mathbf{x}}}_{n+1} \gets \tilde{{\mathbf{x}}}_n +\eta_\ell {\mathbf{s}}_{\boldsymbol{\phi}^\times}(\tilde{{\mathbf{x}}}_n,\sigma_\ell) +\sqrt{2\eta_\ell}\,\boldsymbol{\epsilon}_n$
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number">7</div>
+<div class="book-algorithm__statement" markdown="1">
+
+**end for**
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number">8</div>
+<div class="book-algorithm__statement" markdown="1">
+
+${\mathbf{x}} \gets \tilde{{\mathbf{x}}}_{N_\ell}$
+
+</div>
+</div>
+
+<div class="book-algorithm__line book-algorithm__line--comment" style="--algorithm-indent: 1" markdown="1">
+<div class="book-algorithm__number"></div>
+<div class="book-algorithm__statement" markdown="1">
+
+<span class="book-algorithm__comment">*Pass the final state to the next smaller noise level, if any*</span>
+
+</div>
+</div>
+
+<div class="book-algorithm__line" style="--algorithm-indent: 0" markdown="1">
+<div class="book-algorithm__number">9</div>
+<div class="book-algorithm__statement" markdown="1">
+
+**end for**
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="book-algorithm__meta" markdown="1">
 
 **Output:** ${\mathbf{x}}$
+
+</div>
+
+</section>
 
 With trained score networks available at multiple noise levels
 

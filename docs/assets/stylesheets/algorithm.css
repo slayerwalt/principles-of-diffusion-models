@@ -1,0 +1,118 @@
+/* Algorithm typography is scoped to book-algorithm; ordinary tables and
+   display equations retain the book's existing styles. */
+.md-typeset .book-algorithm {
+  --algorithm-emphasis: #9a4e00;
+  container-type: inline-size;
+  margin: 1.6rem 0;
+  border-block: 1px solid var(--book-rule);
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .book-algorithm {
+  --algorithm-emphasis: #ffb454;
+}
+
+/* Keep the source's orange emphasis readable in either color scheme. */
+.md-typeset .book-algorithm span[style*="color: orange"] {
+  color: var(--algorithm-emphasis) !important;
+}
+
+.md-typeset .book-algorithm__title {
+  padding: 0.55rem 0.25rem;
+  border-bottom: 1px solid var(--book-rule);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.md-typeset .book-algorithm__title code {
+  padding: 0;
+  background: none;
+  font: inherit;
+}
+
+.md-typeset .book-algorithm__meta {
+  padding: 0.4rem 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.md-typeset .book-algorithm__meta p {
+  margin: 0.15em 0;
+}
+
+.md-typeset .book-algorithm__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.35rem 0.25rem 0.65rem;
+  scrollbar-width: thin;
+}
+
+.md-typeset .book-algorithm__scroll:focus-visible {
+  outline: 2px solid var(--book-link);
+  outline-offset: 2px;
+}
+
+.md-typeset .book-algorithm__lines {
+  width: max-content;
+  min-width: 100%;
+}
+
+.md-typeset .book-algorithm__line {
+  display: grid;
+  grid-template-columns: 2.3em minmax(0, 1fr);
+  align-items: baseline;
+  padding-block: 0.16em;
+}
+
+.md-typeset .book-algorithm__number {
+  padding-inline-end: 0.8em;
+  color: var(--md-default-fg-color--light);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  user-select: none;
+}
+
+.md-typeset .book-algorithm__statement {
+  min-width: 0;
+  padding-inline-start: calc(var(--algorithm-indent, 0) * 1.35em);
+  white-space: nowrap;
+}
+
+.md-typeset .book-algorithm__statement > p {
+  margin: 0;
+}
+
+.md-typeset .book-algorithm__statement--block,
+.md-typeset .book-algorithm__line--block .book-algorithm__statement {
+  width: min(64ch, calc(100cqw - 3em));
+  white-space: normal;
+}
+
+.md-typeset .book-algorithm__statement--block > p + p,
+.md-typeset .book-algorithm__line--block .book-algorithm__statement > p + p {
+  margin-top: 0.4em;
+}
+
+.md-typeset .book-algorithm__statement--block div.arithmatex,
+.md-typeset .book-algorithm__line--block .book-algorithm__statement div.arithmatex {
+  margin: 0.5rem 0;
+}
+
+.md-typeset .book-algorithm__comment {
+  color: var(--md-default-fg-color--light);
+}
+
+@media print {
+  .md-typeset .book-algorithm__scroll {
+    overflow: visible;
+  }
+
+  .md-typeset .book-algorithm__lines {
+    width: 100%;
+  }
+
+  .md-typeset .book-algorithm__statement {
+    white-space: normal;
+  }
+}

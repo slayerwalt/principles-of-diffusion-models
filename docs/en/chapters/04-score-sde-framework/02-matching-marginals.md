@@ -155,7 +155,7 @@ This implies infinitely many conditionals $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ 
 
     $\lambda\in[0,1]$.
 
-This nonuniqueness of $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ arises from the fact that the marginal constraint does not uniquely determine the conditional distribution. This concept reappears in [Section 5.2.2](../05-flow-based-perspective/02-flow-matching-framework.md#subsec-fm-framework) and [Section 9.2.3](../09-numerical-solvers/index.md#subsec-ddim). In particular, there exists an entire family of reverse-time SDEs that are consistent with the same marginal $p_t$.
+This nonuniqueness of $Q_t({\mathbf{x}}_t |{\mathbf{x}}_0)$ arises from the fact that the marginal constraint does not uniquely determine the conditional distribution. This concept reappears in [Section 5.2.2](../05-flow-based-perspective/02-flow-matching-framework.md#subsec-fm-framework) and [Section 9.2.3](../09-numerical-solvers/02-ddim.md#subsec-ddim). In particular, there exists an entire family of reverse-time SDEs that are consistent with the same marginal $p_t$.
 
 <span id="observation-4-2-1"></span>
 

@@ -248,7 +248,7 @@ $$
 
 Intuitively, the JS divergence provides a smooth and symmetric measure that balances both distributions and avoids the unbounded penalties of KL (we will later see that it helps interpret the Generative Adversarial Network (GAN) framework), while the total variation distance captures the largest possible probability difference between the two.
 
-A different viewpoint comes from *optimal transport* (see [Chapter 7](../07-optimal-transport/index.md#ch-ot-eot)), whose representative is the Wasserstein distance (see [Equation (7.2.2)](../07-optimal-transport/index.md#eq-monge-formulation)). It measures the minimal cost of moving probability mass from one distribution to another. Unlike $f$-divergences, which compare density ratios, Wasserstein distances depend on the geometry of the sample space and remain meaningful even when the supports of $p$ and $q$ do not overlap.
+A different viewpoint comes from *optimal transport* (see [Chapter 7](../07-optimal-transport/index.md#ch-ot-eot)), whose representative is the Wasserstein distance (see [Equation (7.2.2)](../07-optimal-transport/02-transport-problem-setups.md#eq-monge-formulation)). It measures the minimal cost of moving probability mass from one distribution to another. Unlike $f$-divergences, which compare density ratios, Wasserstein distances depend on the geometry of the sample space and remain meaningful even when the supports of $p$ and $q$ do not overlap.
 
 Each divergence embodies a different notion of closeness between distributions and thus induces distinct learning behavior. We will revisit these divergences when they arise naturally in the context of generative modeling throughout this monograph.
 

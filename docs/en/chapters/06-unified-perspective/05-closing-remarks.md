@@ -1,0 +1,15 @@
+# 6.5 Closing Remarks {#subsec-takeaway-dm-gaussianfm}
+
+This chapter has served as the keystone of our theoretical exploration, synthesizing the variational, score-based, and flow-based perspectives into a single, cohesive framework. We have shown that these three seemingly distinct approaches are not merely parallel but are deeply and fundamentally interconnected.
+
+Our unification rests on two core insights. First, we identified the secret sauce common to all frameworks: a conditioning trick that transforms an intractable marginal training objective into a tractable conditional one, enabling stable and efficient learning. Second, we established that the Fokker-Planck equation is the universal law governing the evolution of probability densities. All three perspectives, in their own way, construct a generative process that respects this fundamental dynamic.
+
+Furthermore, we showed that the oracle noise, clean-data, score, and velocity predictions contain the same information and can be converted into one another algebraically. This oracle equivalence does not make the prediction parameterization merely cosmetic: finite-capacity networks may approximate these targets differently, their training objectives can weight errors across noise levels differently, and finite-step numerical solvers can behave differently depending on the representation in which the dynamics are approximated. The important lesson is therefore to distinguish equivalence of the underlying continuous theory from equivalence of a practical training or sampling algorithm. At the density level, however, the common principle remains: modern diffusion methods construct dynamics whose marginals transport a simple prior toward the data distribution along a prescribed probability path.
+
+With this unified and principled foundation firmly established, we are now equipped to move from the foundational theory to the practical application and acceleration of diffusion models. The central insight that generation is equivalent to solving a differential equation provides a powerful platform for control and optimization. The subsequent parts of this monograph will leverage this unified understanding to address key practical challenges:
+
+1.  Part C will focus on improving the sampling process at inference time. We will explore how to steer the generative trajectory for controllable generation ([Chapter 8](../08-guidance/index.md#ch-guidance)) and investigate advanced numerical solvers to dramatically accelerate the slow, iterative sampling process ([Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers)).
+
+2.  Part D will then look beyond iterative solvers to learn fast generators directly. We will examine methods that can produce high-quality samples in just one or a few steps, either through distillation from a teacher model ([Chapter 10](../10-distillation/index.md#ch-distillation)) or by training from scratch ([Chapter 11](../11-fast-generators/index.md#ch-fast-scratch)).
+
+Having unified the *what* and *why* of diffusion models, we now turn our attention to the exciting and practical frontiers of *how*.

@@ -49,3 +49,27 @@ Not yet available.
 ### D.3.2 Mass Conservation Criterion {#app-sec-mass-conservation}
 
 Not yet available.
+
+## D.4 Theoretical Supplement: A Unified and Systematic View on Diffusion Models {#app-sec-equiv-para}
+
+Not yet available.
+
+## D.5 Theoretical Supplement: Learning Fast Diffusion-Based Generators {#app-sec-flow-map}
+
+Not yet available.
+
+## D.6 (Optional) Elucidating Diffusion Model (EDM) {#sec-edm}
+
+Not yet available.
+
+## D.6.1 Criteria for Neural Network x_phi Design {#subsec-d-design-edm}
+
+Not yet available.
+
+## Equation (D.6.1) {#eq-d-parametrization}
+
+Not yet available.
+
+## Equation (D.6.5) {#eq-edm-simple-coefficients}
+
+Not yet available.
