@@ -120,6 +120,16 @@
   max-width: 100%;
 }
 
+/* Opt in only for inline equations too long to fit the reading column. */
+.md-typeset .book-inline-equation {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.2em 0.1em;
+  overflow-x: auto;
+  vertical-align: middle;
+}
+
 .md-typeset div.arithmatex {
   margin: 1.3rem 0;
   padding: 0.15rem 0.15rem 0.55rem;

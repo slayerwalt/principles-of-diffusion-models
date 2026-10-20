@@ -376,7 +376,7 @@ $$
 \mathbb{E}_{\tilde{{\mathbf{x}}}| {\mathbf{x}}}\!\big[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|^2\big].
 $$
 
-Hence minimizing the expected SURE equals minimizing the Bayes risk $\mathbb{E}_{({\mathbf{x}}, \tilde{{\mathbf{x}}})}\big[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|^2\big] =\mathbb{E}_{\tilde{{\mathbf{x}}}}\!\big[\mathbb{E}_{{\mathbf{x}}| \tilde{{\mathbf{x}}}}\!\big[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|^2\big]\big]$ by the law of total expectation (tower property). This decomposition yields a pointwise optimization: for almost every $\tilde{{\mathbf{x}}}$,
+Hence minimizing the expected SURE equals minimizing the Bayes risk <span class="book-inline-equation" tabindex="0">$\mathbb{E}_{({\mathbf{x}}, \tilde{{\mathbf{x}}})}\big[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|^2\big] =\mathbb{E}_{\tilde{{\mathbf{x}}}}\!\big[\mathbb{E}_{{\mathbf{x}}| \tilde{{\mathbf{x}}}}\!\big[\|{\mathbf{D}}(\tilde{{\mathbf{x}}})-{\mathbf{x}}\|^2\big]\big]$</span> by the law of total expectation (tower property). This decomposition yields a pointwise optimization: for almost every $\tilde{{\mathbf{x}}}$,
 
 $$
 {\mathbf{D}}^*(\tilde{{\mathbf{x}}})

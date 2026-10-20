@@ -422,7 +422,7 @@ $$
 \end{aligned}
 $$
 
-where $p({\mathbf{x}}_0, {\mathbf{x}}_{1:L}) := p_{\mathrm{data}}({\mathbf{x}}_0) p({\mathbf{x}}_1|{\mathbf{x}}_0) p({\mathbf{x}}_2|{\mathbf{x}}_1) \cdots p({\mathbf{x}}_L|{\mathbf{x}}_{L-1})$ denotes the joint distribution along the forward process.
+where <span class="book-inline-equation" tabindex="0">$p({\mathbf{x}}_0, {\mathbf{x}}_{1:L}) := p_{\mathrm{data}}({\mathbf{x}}_0) p({\mathbf{x}}_1|{\mathbf{x}}_0) p({\mathbf{x}}_2|{\mathbf{x}}_1) \cdots p({\mathbf{x}}_L|{\mathbf{x}}_{L-1})$</span> denotes the joint distribution along the forward process.
 
 **Remark.**
 
