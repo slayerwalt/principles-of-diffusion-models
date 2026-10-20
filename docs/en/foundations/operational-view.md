@@ -10,7 +10,7 @@ Create noisy data at many noise levels, learn to predict the clean signal, and g
 
 **Creating Noisy Data.**
 
-Let us make precise what a noisy version of the data actually means. Take a a clean data sample
+Let us make precise what a noisy version of the data actually means. Take a clean data sample
 
 $$
 {\mathbf{x}}_0\sim p_{\mathrm{data}},

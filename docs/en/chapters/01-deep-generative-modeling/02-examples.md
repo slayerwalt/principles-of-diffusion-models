@@ -22,7 +22,7 @@ $$
 Z({\boldsymbol{\phi}}) = \int \exp(-E_{\boldsymbol{\phi}}({\mathbf{x}})) \mathop{}\!\mathrm{d}{\mathbf{x}}
 $$
 
-is the partition function. Training EBMs typically involves maximizing the log-likelihood of the data. However, this requires techniques to address the computational challenges arising from the intractability of the partition function. In the following chapter, we will explore how Diffusion Models offer an alternative by generating data from *the gradient of the log density*, which does not depend on the normalizing constant, thereby circumventing the need for partition function computation.
+is the partition function. Training EBMs typically involves maximizing the log-likelihood of the data. However, this requires techniques to address the computational challenges arising from the intractability of the partition function. In the following chapters, we will explore how Diffusion Models offer an alternative by generating data from *the gradient of the log density*, which does not depend on the normalizing constant, thereby circumventing the need for partition function computation.
 
 **Autoregressive Models.** Deep autoregressive (AR) models ([Frey et al., 1995](../../references.md#ref-frey1995does); [Larochelle and Murray, 2011](../../references.md#ref-larochelle2011neural); [Uria et al., 2016](../../references.md#ref-uria2016neural)) build on a simple but powerful observation: any joint distribution can be decomposed into a sequence of conditional distributions using the *chain rule of probability*. For a chosen ordering of the variables $\mathbf{x}=(x_1,\ldots,x_D)$, the data distribution satisfies
 

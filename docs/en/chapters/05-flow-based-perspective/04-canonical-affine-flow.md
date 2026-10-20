@@ -34,7 +34,7 @@ p_{\mathrm{src}}({\mathbf{x}}_0)
 p_{\mathrm{tgt}}({\mathbf{x}}_1),
 $$
 
-each conditional interpolation $(1-t){\mathbf{x}}_0+t{\mathbf{x}}_1$ is a straight line. As emphasized in [Section 5.4](04-canonical-affine-flow.md#sec-optimal-canonical), however, the corresponding marginal velocity averages directions from many unrelated endpoint pairs, so the induced marginal ODE trajectories need not be straight. Such curved marginal dynamics can be harder to integrate accurately with only a few numerical steps.
+each conditional interpolation $(1-t){\mathbf{x}}_0+t{\mathbf{x}}_1$ is a straight line. As emphasized in [Section 5.3.5](03-probability-paths-and-velocities.md#conditional-vs-marginal-straightness), however, the corresponding marginal velocity averages directions from many unrelated endpoint pairs, so the induced marginal ODE trajectories need not be straight. Such curved marginal dynamics can be harder to integrate accurately with only a few numerical steps.
 
 Rectification addresses this issue by changing the endpoint coupling. A learned ODE transports each source sample to a model-generated endpoint, producing a dependent coupling that is subsequently used to define a new conditional interpolation.
 

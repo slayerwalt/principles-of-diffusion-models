@@ -262,7 +262,7 @@ To model a complex data distribution, we can parameterize the probability densit
 
 A network can naturally produce a real scalar $E_{{\boldsymbol{\phi}}}({\mathbf{x}}) \in {\mathbb{R}}$ for input ${\mathbf{x}}$. To interpret this output as a valid density, it must be transformed to satisfy conditions (i) and (ii). A practical alternative is to view $E_{{\boldsymbol{\phi}}}\colon\mathbb{R}^D\to\mathbb{R}$ as defining an *unnormalized* density and then enforce these properties explicitly.
 
-**Step 1: Ensuring Non-Negativity.** We can guarantee that our model’s output is always non-negative by applying a positive function to the raw output of the neural network $E_{\boldsymbol{\phi}}({\mathbf{x}})$, such as $\left|E_{\boldsymbol{\phi}}({\mathbf{x}})\right|$, $E^2_{\boldsymbol{\phi}}({\mathbf{x}})$. A standard and convenient choice is the exponential function. This gives us an unnormalized density, $\tilde{p}_{\boldsymbol{\phi}}({\mathbf{x}})$, that is guaranteed to be positive:
+**Step 1: Ensuring Non-Negativity.** We can guarantee that our model’s output is always non-negative by applying a non-negative function to the raw output of the neural network $E_{\boldsymbol{\phi}}({\mathbf{x}})$, such as $\left|E_{\boldsymbol{\phi}}({\mathbf{x}})\right|$, $E^2_{\boldsymbol{\phi}}({\mathbf{x}})$. A standard and convenient choice is the exponential function. This gives us an unnormalized density, $\tilde{p}_{\boldsymbol{\phi}}({\mathbf{x}})$, that is guaranteed to be positive:
 
 $$
 \tilde{p}_{\boldsymbol{\phi}}({\mathbf{x}}) = \exp(E_{\boldsymbol{\phi}}({\mathbf{x}})).

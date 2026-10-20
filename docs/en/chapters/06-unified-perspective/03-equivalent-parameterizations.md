@@ -57,7 +57,7 @@ Here, $f(t)$ and $g(t)$ are related to $\alpha_t$ and $\sigma_t$ via [Lemma 4.5.
 
 **Proof for Proposition.**
 
-The proof is similar to that of [Theorem 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer), which analyzes the global optimum of various matching losses under the DSM objective. See [Section D.4](../../appendices/d-supplementary-proofs/04-unified-perspective.md#app-sec-equiv-para) for details.
+The proof is similar to that of [Proposition 4.3.1](../04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer), which analyzes the global optimum of various matching losses under the DSM objective. See [Section D.4](../../appendices/d-supplementary-proofs/04-unified-perspective.md#app-sec-equiv-para) for details.
 
 <span id="fig-equiv-parametrizations"></span>
 

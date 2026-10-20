@@ -10,10 +10,11 @@ docs_dir = "docs"
 site_dir = "site"
 use_directory_urls = true
 copyright = "Original work © the authors · <a href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">CC BY-NC-ND 4.0</a> · Unofficial web edition"
-extra_css = ["assets/stylesheets/book.css", "assets/stylesheets/algorithm.css"]
+extra_css = ["assets/stylesheets/book.css", "assets/stylesheets/algorithm.css", "assets/stylesheets/reading-back.css"]
 extra_javascript = [
   "assets/javascripts/mathjax.js",
   "assets/vendor/mathjax/tex-mml-chtml.js",
+  "assets/javascripts/reading-back.js",
 ]
 nav = [
   { "About this edition" = "index.md" },
@@ -153,7 +154,6 @@ nav = [
   ] },
   { "References" = "en/references.md" },
   { "Source and attribution" = "en/about.md" },
-  { "中文 · 翻译计划" = "zh-CN/index.md" },
 ]
 
 [project.theme]

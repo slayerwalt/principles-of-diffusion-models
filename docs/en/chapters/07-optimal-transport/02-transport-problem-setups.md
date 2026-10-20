@@ -65,7 +65,7 @@ where $\mathcal{P}({\mathbb{R}}^D\times{\mathbb{R}}^D)$ denotes the set of all p
 
 **A Special Case: Wasserstein-2 Distance.**
 
-The Wasserstein-2 distance is a special case of the Monge–Kantorovich problem with the quadratic cost $c(\mathbf{x}, \mathbf{y}) = \|\mathbf{x} - \mathbf{y}\|^2$. It measures the distance between two probability distributions as follows:
+The Monge–Kantorovich problem with the quadratic cost $c(\mathbf{x}, \mathbf{y}) = \|\mathbf{x} - \mathbf{y}\|^2$ gives the square of the Wasserstein-2 distance between two probability distributions:
 
 $$
 \begin{aligned}
@@ -73,7 +73,7 @@ $$
 \end{aligned}
 $$
 
-Under suitable assumptions on $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$, Brenier’s theorem (see [Theorem 7.1](05-probability-flow-odes-and-optimal-transport.md#thm-brenier))[^1] guarantees that the optimal coupling $\gamma$ for the quadratic cost is concentrated on the graph of a deterministic map ${\mathbf{T}}:\mathbb{R}^D \rightarrow \mathbb{R}^D$. Consequently, the Wasserstein-2 distance can be equivalently expressed as[^2]:
+Under suitable assumptions on $p_{\mathrm{src}}$ and $p_{\mathrm{tgt}}$, Brenier’s theorem (see [Theorem 7.1](05-probability-flow-odes-and-optimal-transport.md#thm-brenier))[^1] guarantees that the optimal coupling $\gamma$ for the quadratic cost is concentrated on the graph of a deterministic map ${\mathbf{T}}:\mathbb{R}^D \rightarrow \mathbb{R}^D$. Consequently, the square of the Wasserstein-2 distance can be equivalently expressed as[^2]:
 
 <span id="eq-monge-formulation"></span>
 
@@ -84,7 +84,7 @@ $$
 
 Here, ${\mathbf{T}}\#p_{\mathrm{src}} = p_{\mathrm{tgt}}$ means that ${\mathbf{T}}$ pushes $p_{\mathrm{src}}$ forward to $p_{\mathrm{tgt}}$, i.e., ${\mathbf{T}}({\mathbf{x}}) \sim p_{\mathrm{tgt}}$ for ${\mathbf{x}} \sim p_{\mathrm{src}}$.
 
-Thus, the Wasserstein-2 distance represents the minimal expected squared transport cost among all couplings or transport maps that match the given marginals. The optimal transport map denoted by ${\mathbf{T}}^*(\mathbf{x})$, known as the *Monge map*, yields the most efficient way to transform $p_{\mathrm{src}}$ into $p_{\mathrm{tgt}}$.
+Thus, the square of the Wasserstein-2 distance represents the minimal expected squared transport cost among all couplings or transport maps that match the given marginals. The optimal transport map denoted by ${\mathbf{T}}^*(\mathbf{x})$, known as the *Monge map*, yields the most efficient way to transform $p_{\mathrm{src}}$ into $p_{\mathrm{tgt}}$.
 
 **Benamou–Brenier (Dynamic) Formulation of OT.**
 

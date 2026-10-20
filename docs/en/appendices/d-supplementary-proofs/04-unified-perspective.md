@@ -2,7 +2,7 @@
 
 ## D.4.1 [Proposition 6.3.1](../../chapters/06-unified-perspective/03-equivalent-parameterizations.md#equi-para): Equivalence of Parametrizations {#equivalence-of-parametrizations}
 
-***Proof:*** As in [Theorem 4.3.1](../../chapters/04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) on the DSM loss, the global optimum of the matching loss
+***Proof:*** As in [Proposition 4.3.1](../../chapters/04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) on the DSM loss, the global optimum of the matching loss
 
 $$
 \mathbb{E}_t\left[\omega(t)\,\mathbb{E}_{{\mathbf{x}}_0,\boldsymbol{\epsilon}}\left[\|\cdot\|_2^2\right]\right]
@@ -14,7 +14,7 @@ $$
 \mathbb{E}_{{\mathbf{x}}_0,\boldsymbol{\epsilon}}\left[\|\cdot\|_2^2\right]
 $$
 
-is minimized for each fixed $t$. Since this is a standard mean squared error problem, the minimizer is unique. From denoising score matching ([Vincent, 2011](../../references.md#ref-vincent2011connection)), [Theorem 4.3.1](../../chapters/04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) shows the optimal score function satisfies
+is minimized for each fixed $t$. Since this is a standard mean squared error problem, the minimizer is unique. From denoising score matching ([Vincent, 2011](../../references.md#ref-vincent2011connection)), [Proposition 4.3.1](../../chapters/04-score-sde-framework/03-training-and-sampling.md#dsm-minimizer) shows the optimal score function satisfies
 
 $$
 \begin{aligned}

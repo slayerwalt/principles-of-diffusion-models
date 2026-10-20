@@ -23,10 +23,6 @@ Use the chapter navigation to move between sections and the page contents to fin
 
 Original equation and figure numbers are retained. The [book contents](en/book-outline.md) follow the original reading order. References cited in the preface, chapters, and appendices are collected on a single [References page](en/references.md).
 
-## English first, Chinese later
-
-The English edition will be converted and reviewed before Chinese translation begins. The [Chinese translation page](zh-CN/index.md) records this plan; it does not yet contain translated chapters.
-
 ## Source and attribution
 
 The original work is distributed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). This website is a noncommercial project and is not an official publication of the authors. See [source and attribution](en/about.md) for the authorship, citation, and license details.

@@ -65,7 +65,7 @@ $$
 
 where the integral solves the PF-ODE. Intuitively, ${\boldsymbol{\Psi}}_{s\to t}$ transports, ${\mathbf{x}}_s$, noise at time $s$ to less noisy states at time $t$ (ultimately data at $t=0$).
 
-Sampling from a diffusion model corresponds to evaluating ${\boldsymbol{\Psi}}_{T\to 0}({\mathbf{x}}_T)$ for ${\mathbf{x}}_T \sim p_{\mathrm{prior}}$. Typically, this integral is approximated by iterative numerical solvers leveraging the velocity field ${\mathbf{v}}$ (see [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers)), but requires many steps (e.g., at least $10$-$20$ NEFs even in DPM-Solver), making sampling slower than classic one-step generative models such as GAN. This motivates a natural question:
+Sampling from a diffusion model corresponds to evaluating ${\boldsymbol{\Psi}}_{T\to 0}({\mathbf{x}}_T)$ for ${\mathbf{x}}_T \sim p_{\mathrm{prior}}$. Typically, this integral is approximated by iterative numerical solvers leveraging the velocity field ${\mathbf{v}}$ (see [Chapter 9](../09-numerical-solvers/index.md#ch-numerical-solvers)), but requires many steps (e.g., at least $10$-$20$ NFEs even in DPM-Solver), making sampling slower than classic one-step generative models such as GAN. This motivates a natural question:
 
 <span id="question-10-1-1"></span>
 

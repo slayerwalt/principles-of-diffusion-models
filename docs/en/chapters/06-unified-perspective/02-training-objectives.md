@@ -111,9 +111,9 @@ Here, to enhance training efficiency and optimize the diffusion model learning p
 
 -   **(B)** Prediction types of $\bbox[2px,#e7cfea]{\color{black}{\mathrm{NN}_{\boldsymbol{\phi}}}}$ and their associated regression targets $\bbox[2px,#e7cfea]{\color{black}{(A_t {\mathbf{x}}_0 + B_t \boldsymbol{\epsilon}) }}$;
 
--   **(C)** Time-weighting function $\bbox[2px,#d6e5c9]{\color{black}{\omega(\cdot)}} \colon [0,T] \to \mathbb{R}_{\geq 0}$;
+-   **(C)** Time distribution $\bbox[2px,#d5dcf2]{\color{black}{p_{\text{time}}}}$;
 
--   **(D)** Time distribution $\bbox[2px,#d5dcf2]{\color{black}{p_{\text{time}}}}$.
+-   **(D)** Time-weighting function $\bbox[2px,#d6e5c9]{\color{black}{\omega(\cdot)}} \colon [0,T] \to \mathbb{R}_{\geq 0}$.
 
 We elaborate on these four components here to serve as a roadmap for the discussions in the following sections.
 

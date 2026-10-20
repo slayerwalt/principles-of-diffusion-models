@@ -406,7 +406,7 @@ $$
 
 The derivation applies Jensen’s inequality, as in the HVAE/VAE ELBO ([Equation (2.1.3)](01-variational-autoencoder.md#eq-hvae-elbo)), with further simplifications. The detailed proof is deferred to [Section D.1.2](../../appendices/d-supplementary-proofs/01-variational-perspective.md#app-vlb-proof).
 
-The ELBO $\mathcal{L}_{\text{ELBO}}$ consists of three terms:
+The negative of the ELBO $\mathcal{L}_{\text{ELBO}}$ consists of three terms:
 
 -   $\mathcal{L}_{\text{prior}}$ can be made negligible by choosing the noise schedule $\{\beta_i\}$ such that $p(\cdot|{\mathbf{x}}_0) \approx p_{\text{prior}}(\cdot)$.
 

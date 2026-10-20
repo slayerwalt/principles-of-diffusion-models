@@ -176,7 +176,7 @@ $$
 \end{aligned}
 $$
 
-In words, CTM learns an *slope displacement* through ${\mathbf{g}}_{\boldsymbol{\theta}}$, while MF learns the *average drift* ${\mathbf{h}}_{\boldsymbol{\theta}}$; both are consistent ways to approximate the same integral that defines ${\boldsymbol{\Psi}}_{s\to t}$.
+In words, CTM learns a *slope displacement* through ${\mathbf{g}}_{\boldsymbol{\theta}}$, while MF learns the *average drift* ${\mathbf{h}}_{\boldsymbol{\theta}}$; both are consistent ways to approximate the same integral that defines ${\boldsymbol{\Psi}}_{s\to t}$.
 
 **What Happens Next?** We begin with the CM family, which focuses on the specific flow map ${\boldsymbol{\Psi}}_{s\to 0}$. This part covers both its discrete time origin in [Section 11.2](02-discrete-consistency-models.md#sec-discrete-cm) and its continuous time extension in [Section 11.3](03-continuous-consistency-models.md#sec-conti-cm). We then move on to the general flow map and provide a detailed discussion of two key representatives, CTM and MF. Their parameterizations, training strategies, and practical approximations are presented in [Section 11.4](04-consistency-trajectory-models.md#sec-ctm) and [Section 11.5](05-mean-flow.md#sec-mf), respectively.
 

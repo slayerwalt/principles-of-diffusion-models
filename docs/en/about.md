@@ -13,7 +13,7 @@ The original work is made available under the [Creative Commons Attribution–No
 
 This is a noncommercial web edition. It is not affiliated with or endorsed by the authors. Copyright in the original work remains with the authors and relevant rights holders.
 
-Chinese translation is a later, separate stage. Public distribution of translated material requires permission from the relevant rights holders under the source's NoDerivatives terms. No translated chapters are currently included.
+Public distribution of translated material requires permission from the relevant rights holders under the source's NoDerivatives terms.
 
 ## Citation
 

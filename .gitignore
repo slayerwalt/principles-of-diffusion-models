@@ -3,6 +3,7 @@
 /site/
 /tmp/
 /output/
+/translation-work/
 __pycache__/
 *.py[cod]
 
