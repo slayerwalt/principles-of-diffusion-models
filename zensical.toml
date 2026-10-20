@@ -177,7 +177,6 @@ variant = "modern"
 language = "en"
 font = false
 features = [
-  "navigation.sections",
   "navigation.indexes",
   "navigation.footer",
   "navigation.top",
