@@ -18,6 +18,14 @@ extra_javascript = [
 nav = [
   { "About this edition" = "index.md" },
   { "Book contents" = "en/book-outline.md" },
+  { "Front matter" = [
+    { "Authors" = "en/front-matter/authors.md" },
+    { "Abstract" = "en/front-matter/abstract.md" },
+    { "Acknowledgements" = "en/front-matter/acknowledgements.md" },
+    { "Preface and Roadmap" = "en/front-matter/preface.md" },
+    { "Preface references" = "en/front-matter/references.md" },
+    { "Notations" = "en/front-matter/notation.md" },
+  ] },
   { "1 · Deep Generative Modeling" = [
     { "Chapter introduction" = "en/chapters/01-deep-generative-modeling/index.md" },
     { "1.1 What is Deep Generative Modeling?" = "en/chapters/01-deep-generative-modeling/01-what-is-deep-generative-modeling.md" },
@@ -26,6 +34,8 @@ nav = [
     { "1.4 Closing Remarks" = "en/chapters/01-deep-generative-modeling/04-summary.md" },
     { "Chapter references" = "en/chapters/01-deep-generative-modeling/references.md" },
   ] },
+  { "Part II · Foundations and Perspectives" = "en/foundations/index.md" },
+  { "A First Operational View" = "en/foundations/operational-view.md" },
   { "2 · Variational Perspective" = [
     { "Chapter introduction" = "en/chapters/02-variational-perspective/index.md" },
     { "2.1 Variational Autoencoder" = "en/chapters/02-variational-perspective/01-variational-autoencoder.md" },
@@ -82,6 +92,7 @@ nav = [
     { "7.6 Closing Remarks" = "en/chapters/07-optimal-transport/06-closing-remarks.md" },
     { "Chapter references" = "en/chapters/07-optimal-transport/references.md" },
   ] },
+  { "Part III · Sampling of Diffusion Models" = "en/sampling/index.md" },
   { "8 · Guidance and Controllable Generation" = [
     { "Chapter introduction" = "en/chapters/08-guidance/index.md" },
     { "8.1 Prologue" = "en/chapters/08-guidance/01-prologue.md" },
@@ -103,7 +114,6 @@ nav = [
     { "9.7 Closing Remarks" = "en/chapters/09-numerical-solvers/07-closing-remarks.md" },
     { "Chapter references" = "en/chapters/09-numerical-solvers/references.md" },
   ] },
-  { "A First Operational View (pending)" = "en/foundations/operational-view.md" },
   { "10 · Distillation-Based Methods" = [
     { "Chapter introduction" = "en/chapters/10-distillation/index.md" },
     { "10.1 Prologue" = "en/chapters/10-distillation/01-prologue.md" },

@@ -5,12 +5,16 @@ description: Chapter structure and conversion status for the English web edition
 
 # Book contents
 
-This outline follows the order of the book. Chapters 1–12 and Appendices A–D are available in English. The front matter and the unnumbered Part II opening are awaiting conversion.
+This outline follows the order of the book. The front matter, Chapters 1–12, the unnumbered Part II opening, the part overview diagrams, and Appendices A–D are available in English.
 
 ## Front matter
 
-- Preface — awaiting conversion
-- Notation — awaiting conversion
+- [Authors](front-matter/authors.md)
+- [Abstract](front-matter/abstract.md)
+- [Acknowledgements](front-matter/acknowledgements.md)
+- [Preface and Roadmap](front-matter/preface.md)
+- [Preface references](front-matter/references.md)
+- [Notations](front-matter/notation.md)
 
 ## Part I · Introduction to Deep Generative Modeling
 
@@ -24,7 +28,9 @@ This outline follows the order of the book. Chapters 1–12 and Appendices A–D
 
 ## Part II · Foundations and Perspectives of Diffusion Models
 
-The unnumbered opening section, [A First Operational View of Diffusion Model Training and Sampling](foundations/operational-view.md), is awaiting conversion.
+[Part overview diagram](foundations/index.md)
+
+[A First Operational View of Diffusion Model Training and Sampling](foundations/operational-view.md) is the unnumbered opening section of this part.
 
 2. [Variational Perspective: From VAEs to DDPMs](chapters/02-variational-perspective/index.md) — available
 
@@ -83,6 +89,8 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
     - [Chapter references](chapters/07-optimal-transport/references.md)
 
 ## Part III · Sampling of Diffusion Models
+
+[Part overview diagram](sampling/index.md)
 
 8. [Guidance and Controllable Generation](chapters/08-guidance/index.md) — available
 
@@ -158,4 +166,4 @@ The unnumbered opening section, [A First Operational View of Diffusion Model Tra
     - [D.6 (Optional) Elucidating Diffusion Model (EDM)](appendices/d-supplementary-proofs/06-edm.md)
     - [Appendix references](appendices/d-supplementary-proofs/references.md)
 
-The complete bibliography is awaiting conversion. References cited in each available chapter or appendix are included with that chapter or appendix.
+The complete bibliography is awaiting conversion. References cited in the preface, each chapter, or each appendix are included with that part of the web edition.
